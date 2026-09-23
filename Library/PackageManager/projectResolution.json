@@ -9,6 +9,16 @@
     "/home/wolfdevs/Unity/Hub/Editor/6000.3.6f1/Editor/Data/Resources/PackageManager/BuiltInPackages/BuiltInPackagesCombined.sha1"
   ],
   "outputs": {
+    "com.unity.ide.visualstudio@2.0.28": {
+      "name": "com.unity.ide.visualstudio",
+      "displayName": "Visual Studio Editor",
+      "resolvedPath": "/home/wolfdevs/Documents/GitHub/project-testing/Library/PackageCache/com.unity.ide.visualstudio@b5edea5f33f4",
+      "fingerprint": "b5edea5f33f465d32f460eacd830347ed935b65f",
+      "editorCompatibility": "2021.3.0a1",
+      "version": "2.0.28",
+      "source": "registry",
+      "testable": false
+    },
     "com.unity.inputsystem@1.18.0": {
       "name": "com.unity.inputsystem",
       "displayName": "Input System",
@@ -314,6 +324,26 @@
       "displayName": "Hierarchy Core",
       "resolvedPath": "/home/wolfdevs/Documents/GitHub/project-testing/Library/PackageCache/com.unity.modules.hierarchycore",
       "version": "1.0.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.test-framework@1.6.0": {
+      "name": "com.unity.test-framework",
+      "displayName": "Test Framework",
+      "resolvedPath": "/home/wolfdevs/Documents/GitHub/project-testing/Library/PackageCache/com.unity.test-framework@353f8d76a670",
+      "fingerprint": "353f8d76a67063839e86a3fcbe8f74ca3eae4093",
+      "editorCompatibility": "6000.0.44f1",
+      "version": "1.6.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.ext.nunit@2.0.5": {
+      "name": "com.unity.ext.nunit",
+      "displayName": "Custom NUnit",
+      "resolvedPath": "/home/wolfdevs/Documents/GitHub/project-testing/Library/PackageCache/com.unity.ext.nunit@ec2d0043d6fc",
+      "fingerprint": "ec2d0043d6fc7a6d17671dfca00f9c303b1d735f",
+      "editorCompatibility": "2019.4.0a1",
+      "version": "2.0.5",
       "source": "builtin",
       "testable": false
     }

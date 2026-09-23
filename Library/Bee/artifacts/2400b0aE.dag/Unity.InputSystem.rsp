@@ -398,6 +398,7 @@
 -r:"/home/wolfdevs/Unity/Hub/Editor/6000.3.6f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/System.Xml.XmlSerializer.dll"
 -r:"/home/wolfdevs/Unity/Hub/Editor/6000.3.6f1/Editor/Data/NetStandard/ref/2.1.0/netstandard.dll"
 -r:"/home/wolfdevs/Unity/Hub/Editor/6000.3.6f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll"
+-r:"Library/PackageCache/com.unity.ext.nunit@ec2d0043d6fc/net40/unity-custom/nunit.framework.dll"
 -analyzer:"/home/wolfdevs/Unity/Hub/Editor/6000.3.6f1/Editor/Data/Tools/BuildPipeline/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"/home/wolfdevs/Unity/Hub/Editor/6000.3.6f1/Editor/Data/Tools/BuildPipeline/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"/home/wolfdevs/Unity/Hub/Editor/6000.3.6f1/Editor/Data/Tools/BuildPipeline/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"

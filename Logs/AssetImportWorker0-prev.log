@@ -7,18 +7,18 @@ Distro version:          #31~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Mon Aug 10 09:38
 Kernel version:          7.0.0-31-generic
 Architecture:            x86_64
 Available memory:        14865 MB
-Date:                    2026-09-23T07:59:51Z
+Date:                    2026-09-23T08:13:54Z
 [Licensing::Module] Trying to connect to existing licensing client channel...
-[Licensing::IpcConnector] Successfully connected to: "LicenseClient-wolfdevs" at "2026-09-23T07:59:51.503452Z"
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-wolfdevs" at "2026-09-23T08:13:54.747623Z"
 [SignatureVerifier] Application signature verification not supported on this platform.
 [Licensing::Client] Handshaking with LicensingClient:
   Version:                 1.18.3+d7ffd15
-  Session Id:              f37430a76f8146abb65d2d739b910bd5
+  Session Id:              b9d2d6324cd54a29aa955887d26ba1cc
   Correlation Id:          030703ac11fee9e3223cbaef091def59
-  External correlation Id: 7471021817451402844
+  External correlation Id: 3832486289168910500
   Machine Id:              apL+ibt9Kyk1ib9mxk3lJKn5MiM=
 [Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-wolfdevs" (connect: 0.00s, validation: 0.00s, handshake: 0.00s)
-[Licensing::IpcConnector] Successfully connected to: "LicenseClient-wolfdevs-notifications" at "2026-09-23T07:59:51.505107Z"
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-wolfdevs-notifications" at "2026-09-23T08:13:54.749631Z"
 [Licensing::Module] Licensing Background thread has ended after 0.00s
 Selected window backend: (null) 
 Desktop is 1920 x 1080 @ 60 Hz
@@ -36,7 +36,7 @@ AssetImportWorker0
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-36227
+36937
 -licensingIpc
 LicenseClient-wolfdevs
 -job-worker-count
@@ -82,12 +82,12 @@ Successfully changed project path to: /home/wolfdevs/Documents/GitHub/project-te
     "memorysetup-job-temp-allocator-block-size-background=1048576"
     "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [136178038344512]  Target information:
+Player connection [129963023551296]  Target information:
 
-Player connection [136178038344512]  * "[IP] 192.168.50.138 [Port] 0 [Flags] 2 [Guid] 985011339 [EditorId] 985011339 [Version] 1048832 [Id] LinuxEditor(16,192.168.50.138) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
+Player connection [129963023551296]  * "[IP] 192.168.50.138 [Port] 0 [Flags] 2 [Guid] 801110165 [EditorId] 801110165 [Version] 1048832 [Id] LinuxEditor(16,192.168.50.138) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
 
-Player connection [136178038344512] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [136178038344512] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [129963023551296] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [129963023551296] Host joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 3
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
@@ -99,7 +99,7 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 0,00 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0,14 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0,00 ms.
 Initialize engine version: 6000.3.6f1 (bbb010bdb8a3)
 [Subsystems] Discovering subsystems at path /home/wolfdevs/Unity/Hub/Editor/6000.3.6f1/Editor/Data/Resources/UnitySubsystems
@@ -118,17 +118,17 @@ ns GL_ARB_stencil_texturing GL_ARB_sync GL_ARB_tessellation_shader GL_ARB_textur
 _attrib_binding GL_ARB_vertex_buffer_object GL_ARB_vertex_shader GL_ARB_vertex_type_10f_11f_11f_rev GL_ARB_vertex_type_2_10_10_10_rev GL_ARB_viewport_array GL_ATI_blend_equation_separate GL_ATI_meminfo GL_ATI_texture_float GL_ATI_texture_mirror_once GL_EXT_EGL_image_storage GL_EXT_EGL_image_storage_compression GL_EXT_EGL_sync GL_EXT_abgr GL_EXT_blend_equation_separate GL_EXT_debug_label GL_EXT_demote_to_helper_invocation GL_EXT_depth_bounds_test GL_EXT_draw_buffers2 GL_EXT_draw_instanced GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_EXT_framebuffer_multisample_blit_scaled GL_EXT_framebuffer_object GL_EXT_framebuffer_sRGB GL_EXT_memory_object GL_EXT_memory_object_fd GL_EXT_packed_depth_stencil GL_EXT_packed_float GL_EXT_pixel_buffer_object GL_EXT_polygon_offset_clamp GL_EXT_provoking_vertex GL_EXT_semaphore GL_EXT_semaphore_fd GL_EXT_shader_clock GL_EXT_shader_image_load_formatted GL_EXT_shader_image_load_store GL_EXT_shader_integer_mix GL_EXT_shader_samples_identical GL_EXT_texture_array GL_EXT_t
 exture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc GL_EXT_texture_filter_anisotropic GL_EXT_texture_filter_minmax GL_EXT_texture_integer GL_EXT_texture_mirror_clamp GL_EXT_texture_sRGB GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_decode GL_EXT_texture_shadow_lod GL_EXT_texture_shared_exponent GL_EXT_texture_snorm GL_EXT_texture_storage GL_EXT_texture_swizzle GL_EXT_timer_query GL_EXT_transform_feedback GL_EXT_vertex_array_bgra GL_EXT_vertex_attrib_64bit GL_EXT_window_rectangles GL_IBM_multimode_draw_arrays GL_INTEL_blackhole_render GL_KHR_blend_equation_advanced GL_KHR_context_flush_control GL_KHR_debug GL_KHR_no_error GL_KHR_parallel_shader_compile GL_KHR_robust_buffer_access_behavior GL_KHR_robustness GL_KHR_shader_subgroup GL_KHR_texture_compression_astc_ldr GL_KHR_texture_compression_astc_sliced_3d GL_MESA_framebuffer_flip_y GL_MESA_pack_invert GL_MESA_shader_integer_functions GL_MESA_texture_const_bandwidth GL_MESA_texture_signed_rgba GL_NVX_gpu_memory_info GL_NV_alpha
 _to_coverage_dither_control GL_NV_compute_shader_derivatives GL_NV_conditional_render GL_NV_copy_image GL_NV_depth_clamp GL_NV_packed_depth_stencil GL_NV_shader_atomic_int64 GL_NV_texture_barrier GL_NV_vdpau_interop GL_OES_EGL_image GL_S3_s3tc
-OPENGL LOG: Creating OpenGL 4.6 graphics device ; Context level  <OpenGL 4.5> ; Context handle -584340384
+OPENGL LOG: Creating OpenGL 4.6 graphics device ; Context level  <OpenGL 4.5> ; Context handle -85886592
 Initialize mono
 Mono path[0] = '/home/wolfdevs/Unity/Hub/Editor/6000.3.6f1/Editor/Data/Managed'
 Mono path[1] = '/home/wolfdevs/Unity/Hub/Editor/6000.3.6f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-linux'
 Mono config path = '/home/wolfdevs/Unity/Hub/Editor/6000.3.6f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56369
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56222
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: /home/wolfdevs/Unity/Hub/Editor/6000.3.6f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
-Registered in 0,002560 seconds.
-- Loaded All Assemblies, in  0,617 seconds
+Registered in 0,003695 seconds.
+- Loaded All Assemblies, in  0,678 seconds
 Native extension for LinuxStandalone target not found
 Package Manager log level set to [2]
 [Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
@@ -136,35 +136,35 @@ Package Manager log level set to [2]
 [Package Manager] Cannot connect to Unity Package Manager local server
 ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0,878 seconds
-Domain Reload Profiling: 1494ms
-	BeginReloadAssembly (137ms)
+- Finished resetting the current domain, in  0,802 seconds
+Domain Reload Profiling: 1480ms
+	BeginReloadAssembly (164ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (73ms)
-	RebuildNativeTypeToScriptingClass (17ms)
-	initialDomainReloadingComplete (85ms)
-	LoadAllAssembliesAndSetupDomain (304ms)
-		LoadAssemblies (136ms)
+		CreateAndSetChildDomain (2ms)
+	RebuildCommonClasses (88ms)
+	RebuildNativeTypeToScriptingClass (21ms)
+	initialDomainReloadingComplete (104ms)
+	LoadAllAssembliesAndSetupDomain (299ms)
+		LoadAssemblies (162ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (299ms)
-			TypeCache.Refresh (295ms)
-				TypeCache.ScanAssembly (274ms)
+		AnalyzeDomain (294ms)
+			TypeCache.Refresh (292ms)
+				TypeCache.ScanAssembly (271ms)
 			BuildScriptInfoCaches (0ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (878ms)
+	FinalizeReload (803ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (817ms)
+		SetupLoadedEditorAssemblies (744ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (82ms)
 			SetLoadedEditorAssemblies (9ms)
-			BeforeProcessingInitializeOnLoad (192ms)
-			ProcessInitializeOnLoadAttributes (369ms)
-			ProcessInitializeOnLoadMethodAttributes (164ms)
+			BeforeProcessingInitializeOnLoad (173ms)
+			ProcessInitializeOnLoadAttributes (320ms)
+			ProcessInitializeOnLoadMethodAttributes (160ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -179,297 +179,90 @@ Begin MonoManager ReloadAssembly
   Product: Unity Personal
   Type: Assigned
   Expiration: Unlimited
-- Loaded All Assemblies, in  0,424 seconds
-Refreshing native plugins compatible for Editor in 0,00 ms, found 0 plugins.
+- Loaded All Assemblies, in  0,394 seconds
+Refreshing native plugins compatible for Editor in 0,17 ms, found 0 plugins.
 Native extension for LinuxStandalone target not found
 ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0,874 seconds
-Domain Reload Profiling: 1298ms
-	BeginReloadAssembly (281ms)
+- Finished resetting the current domain, in  0,924 seconds
+Domain Reload Profiling: 1319ms
+	BeginReloadAssembly (244ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (17ms)
+		DisableScriptedObjects (9ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (71ms)
-	RebuildCommonClasses (69ms)
-	RebuildNativeTypeToScriptingClass (16ms)
-	initialDomainReloadingComplete (37ms)
-	LoadAllAssembliesAndSetupDomain (21ms)
-		LoadAssemblies (102ms)
+	RebuildCommonClasses (64ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (32ms)
+	LoadAllAssembliesAndSetupDomain (38ms)
+		LoadAssemblies (108ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (16ms)
-			TypeCache.Refresh (10ms)
-				TypeCache.ScanAssembly (3ms)
-			BuildScriptInfoCaches (2ms)
+		AnalyzeDomain (31ms)
+			TypeCache.Refresh (23ms)
+				TypeCache.ScanAssembly (17ms)
+			BuildScriptInfoCaches (4ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (874ms)
+	FinalizeReload (925ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (689ms)
+		SetupLoadedEditorAssemblies (747ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (4ms)
+			InitializePlatformSupportModulesInManaged (3ms)
 			SetLoadedEditorAssemblies (9ms)
-			BeforeProcessingInitializeOnLoad (268ms)
-			ProcessInitializeOnLoadAttributes (333ms)
-			ProcessInitializeOnLoadMethodAttributes (67ms)
-			AfterProcessingInitializeOnLoad (8ms)
+			BeforeProcessingInitializeOnLoad (231ms)
+			ProcessInitializeOnLoadAttributes (416ms)
+			ProcessInitializeOnLoadMethodAttributes (78ms)
+			AfterProcessingInitializeOnLoad (9ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (5ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
 AutoLocale: current locale expects 'C' but got 'id_ID.UTF-8'Launched and connected shader compiler UnityShaderCompiler after 0.03 seconds
-Refreshing native plugins compatible for Editor in 0.01 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 64 unused Assets / (18.0 KB). Loaded Objects now: 654.
-Memory consumption went from 56.5 MB to 56.5 MB.
-Total: 11.618379 ms (FindLiveObjects: 0.101500 ms CreateObjectMapping: 0.013345 ms MarkObjects: 11.267711 ms  DeleteObjects: 0.233859 ms)
+Unloading 479 unused Assets / (72.0 KB). Loaded Objects now: 1070.
+Memory consumption went from 59.4 MB to 59.4 MB.
+Total: 11.717184 ms (FindLiveObjects: 0.151845 ms CreateObjectMapping: 0.038012 ms MarkObjects: 11.042448 ms  DeleteObjects: 0.483086 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 35833.328822 seconds.
-  path: Assets/EndlessPrecisionRunner/06_Scene
-  artifactKey: Guid(643f7236409406cbd9d2ec0156492bc1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/EndlessPrecisionRunner/06_Scene using Guid(643f7236409406cbd9d2ec0156492bc1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'f5eb3af7f3616ef198e403eb1f1a1f34') in 0.092765237 seconds
+  Time since last request: 36676.666689 seconds.
+  path: Assets/TopDownArenaSurvival/04_Prefabs
+  artifactKey: Guid(e8b3deec7d187e9b7975eba49c7ab7db) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/TopDownArenaSurvival/04_Prefabs using Guid(e8b3deec7d187e9b7975eba49c7ab7db) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '567022e132e2d8243fcc8ea38342aa86') in 0.090461685 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/TrafficCrossing
-  artifactKey: Guid(8dd283f77b3d015c59a9384204c2aedc) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/TrafficCrossing using Guid(8dd283f77b3d015c59a9384204c2aedc) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'e9fd86345c9a5287be99d83e222d2256') in 0.002241175 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000194 seconds.
-  path: Assets/TopDownArenaSurvival/00_Temp
-  artifactKey: Guid(668e46b35c3e8e3b08eec5dfbe1dcd65) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/TopDownArenaSurvival/00_Temp using Guid(668e46b35c3e8e3b08eec5dfbe1dcd65) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '278862c5027f52f1b9ba6354c907f6fb') in 0.002904199 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000100 seconds.
-  path: Assets/TrafficCrossing/09_Font
-  artifactKey: Guid(b617349e003b149cd8f4f7e78c9eb697) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/TrafficCrossing/09_Font using Guid(b617349e003b149cd8f4f7e78c9eb697) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '5610850876c7e0aebf21fbad4d57bdf5') in 0.002396406 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000078 seconds.
-  path: Assets/TrafficCrossing/06_Scene
-  artifactKey: Guid(16883ab62510d8385921ee20ab4b7a8e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/TrafficCrossing/06_Scene using Guid(16883ab62510d8385921ee20ab4b7a8e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '800c112e58556b02f5573c74a7dc7fa1') in 0.002420852 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000062 seconds.
-  path: Assets/TopDownArenaSurvival/02_Art
-  artifactKey: Guid(e8427ea4cd015eebea3c5d4a6dd06341) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/TopDownArenaSurvival/02_Art using Guid(e8427ea4cd015eebea3c5d4a6dd06341) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'a25fc3a5480449d391e453d31fdee7a2') in 0.00227594 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000065 seconds.
-  path: Assets/TrafficCrossing/03_Scriptable
-  artifactKey: Guid(70b1b10ef9ddb2c058f93df4a0be3ca8) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/TrafficCrossing/03_Scriptable using Guid(70b1b10ef9ddb2c058f93df4a0be3ca8) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '3ddb81d39c09ee0aa440394b2d3bbeb6') in 0.002554112 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000086 seconds.
-  path: Assets/TrafficCrossing/01_Script
-  artifactKey: Guid(2ee02a3f4292e00acb3d3908a2778099) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/TrafficCrossing/01_Script using Guid(2ee02a3f4292e00acb3d3908a2778099) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'df7517c134b63de9177b4d099304ebd2') in 0.00216948 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000284 seconds.
-  path: Assets/TrafficCrossing/04_Prefabs
-  artifactKey: Guid(67a1832bb8eeda0ecac675337ba4956a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/TrafficCrossing/04_Prefabs using Guid(67a1832bb8eeda0ecac675337ba4956a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'f12ac0b2db98ea3460aeb439b46491be') in 0.004044649 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000076 seconds.
-  path: Assets/TopDownArenaSurvival/08_Shader
-  artifactKey: Guid(835e96ae66bb2a84583cd7c2096d344b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/TopDownArenaSurvival/08_Shader using Guid(835e96ae66bb2a84583cd7c2096d344b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '71021811b73067056e987d7ab2cb132b') in 0.002990611 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000075 seconds.
-  path: Assets/EndlessPrecisionRunner/02_Art
-  artifactKey: Guid(44dd17d980e68ec94a15f86daeb9fa07) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/EndlessPrecisionRunner/02_Art using Guid(44dd17d980e68ec94a15f86daeb9fa07) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'ffddf718594af9b3f3bb26131cdcd376') in 0.002400645 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000069 seconds.
-  path: Assets/TopDownArenaSurvival/06_Scene
-  artifactKey: Guid(a88968766570371f5a665bbf8fc994f5) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/TopDownArenaSurvival/06_Scene using Guid(a88968766570371f5a665bbf8fc994f5) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'e9a50782d245a0f9ce3eaebd54683ceb') in 0.00260617 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000064 seconds.
-  path: Assets/TrafficCrossing/08_Shader
-  artifactKey: Guid(417b2eacebd0f4859842baee0ba36c63) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/TrafficCrossing/08_Shader using Guid(417b2eacebd0f4859842baee0ba36c63) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '30fb3bba7df967af151cc652b8fbf53c') in 0.002491164 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000130 seconds.
-  path: Assets/TopDownArenaSurvival/11_Animaton
-  artifactKey: Guid(da0125aabeb3d43d3ab39a8a7ba85d54) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/TopDownArenaSurvival/11_Animaton using Guid(da0125aabeb3d43d3ab39a8a7ba85d54) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '33fb9e0bfe3a747b3315a5dcf1261f8a') in 0.002726505 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000082 seconds.
-  path: Assets/TrafficCrossing/07_Audio
-  artifactKey: Guid(f49c03f9a6ccc547e8006560a966183d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/TrafficCrossing/07_Audio using Guid(f49c03f9a6ccc547e8006560a966183d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'cf382db472e4fe25e131d30b4b8e5859') in 0.002193666 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000074 seconds.
-  path: Assets/EndlessPrecisionRunner/11_Animaton
-  artifactKey: Guid(f755565ebc806af66b8e319fe6afc390) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/EndlessPrecisionRunner/11_Animaton using Guid(f755565ebc806af66b8e319fe6afc390) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '4ddd4464e7b7243a29fbe39330331a7d') in 0.002189759 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000061 seconds.
-  path: Assets/EndlessPrecisionRunner/10_Plugin
-  artifactKey: Guid(3e5a14c40188906c786f59938a29a44a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/EndlessPrecisionRunner/10_Plugin using Guid(3e5a14c40188906c786f59938a29a44a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'd4abebc38325db9c672c04387a954c17') in 0.002231486 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000119 seconds.
-  path: Assets/TrafficCrossing/11_Animaton
-  artifactKey: Guid(48e83aee2a0b022c6a773f375d851b8f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/TrafficCrossing/11_Animaton using Guid(48e83aee2a0b022c6a773f375d851b8f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '9644b95eb7536c51743d97aee8314f0f') in 0.002036431 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000106 seconds.
-  path: Assets/TrafficCrossing/05_Material
-  artifactKey: Guid(0af10c4d50a669b57995a23d73dba4fb) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/TrafficCrossing/05_Material using Guid(0af10c4d50a669b57995a23d73dba4fb) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'd583a7919815b2d6ed1476710bf5266b') in 0.002610417 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000100 seconds.
-  path: Assets/EndlessPrecisionRunner/09_Font
-  artifactKey: Guid(f111f176d9e06ba339d9b83ac71c943d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/EndlessPrecisionRunner/09_Font using Guid(f111f176d9e06ba339d9b83ac71c943d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '53e911bf8da5996232d64763893957b9') in 0.003401381 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000074 seconds.
-  path: Assets/EndlessPrecisionRunner/07_Audio
-  artifactKey: Guid(679e3504110a5cef19ed00f986069971) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/EndlessPrecisionRunner/07_Audio using Guid(679e3504110a5cef19ed00f986069971) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'e00b2bddeda3281dd9fa25545b27bbad') in 0.003089456 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000066 seconds.
-  path: Assets/EndlessPrecisionRunner/08_Shader
-  artifactKey: Guid(4b32e58c687d84b18a0732284ead56e5) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/EndlessPrecisionRunner/08_Shader using Guid(4b32e58c687d84b18a0732284ead56e5) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'ece054072de45e9596b1243aaf20cec6') in 0.003191348 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000135 seconds.
-  path: Assets/EndlessPrecisionRunner/00_Temp
-  artifactKey: Guid(e3d83d72ad8eed6f0b1842e69ce10762) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/EndlessPrecisionRunner/00_Temp using Guid(e3d83d72ad8eed6f0b1842e69ce10762) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '29771a59248441189ca96e01ad8b755e') in 0.002665431 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000128 seconds.
-  path: Assets/EndlessPrecisionRunner
-  artifactKey: Guid(e563fee53a5a1fc54a53bc1c3b619a00) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/EndlessPrecisionRunner using Guid(e563fee53a5a1fc54a53bc1c3b619a00) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '910194358a63c70fd710771fe2f3db17') in 0.003111317 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000157 seconds.
-  path: Assets/TopDownArenaSurvival/10_Plugin
-  artifactKey: Guid(72166d00458f4ae54a5a4bed4f59e391) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/TopDownArenaSurvival/10_Plugin using Guid(72166d00458f4ae54a5a4bed4f59e391) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '3ccad5f0100e1700bbb942f360472097') in 0.00237191 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000105 seconds.
-  path: Assets/TrafficCrossing/10_Plugin
-  artifactKey: Guid(7a7015b8e7c7c4f4db55fcbc5a0cccde) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/TrafficCrossing/10_Plugin using Guid(7a7015b8e7c7c4f4db55fcbc5a0cccde) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '670c7df39dd14a6337c15edf8ab8416a') in 0.001992158 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000080 seconds.
-  path: Assets/TrafficCrossing/00_Temp
-  artifactKey: Guid(8ce820374766cc03a8305a80276a1b49) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/TrafficCrossing/00_Temp using Guid(8ce820374766cc03a8305a80276a1b49) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '685974ea82d7b6399ba90f142dfef46e') in 0.002191692 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000103 seconds.
-  path: Assets/_Recovery
-  artifactKey: Guid(3ff1c7e64a4a93fc5a4160da63822e0d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/_Recovery using Guid(3ff1c7e64a4a93fc5a4160da63822e0d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '236c28e6e379d1fadb5f1b10380d77b8') in 0.004398643 seconds
+  Time since last request: 0.000020 seconds.
+  path: Assets/EndlessPrecisionRunner/04_Prefabs/Obstacle
+  artifactKey: Guid(9cf298951254369f18393fd0cc8aa3a1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/EndlessPrecisionRunner/04_Prefabs/Obstacle using Guid(9cf298951254369f18393fd0cc8aa3a1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '539aefbd155e60d33b7de9cf916cf58b') in 0.002184268 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000084 seconds.
-  path: Assets/TopDownArenaSurvival/07_Audio
-  artifactKey: Guid(35d185c0932e8756db22aa53c26d7162) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/TopDownArenaSurvival/07_Audio using Guid(35d185c0932e8756db22aa53c26d7162) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'df2c5960d8187b06e2bc70f83f258422') in 0.002216648 seconds
+  path: Assets/EndlessPrecisionRunner/05_Material
+  artifactKey: Guid(52b3dda021d3479e6a0de8873bb6d37b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/EndlessPrecisionRunner/05_Material using Guid(52b3dda021d3479e6a0de8873bb6d37b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'd9c1fb33fedef6548b2597f01d5d8adb') in 0.00205158 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000061 seconds.
-  path: Assets/TrafficCrossing/02_Art
-  artifactKey: Guid(7ffae3a7d9ee8aba7a0ceb5bd1045df6) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/TrafficCrossing/02_Art using Guid(7ffae3a7d9ee8aba7a0ceb5bd1045df6) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '692d19cdd1f40917d68efcc48d69fefa') in 0.003156332 seconds
+  Time since last request: 0.000049 seconds.
+  path: Assets/Scene
+  artifactKey: Guid(e52d939ce5e23d7a49c4b58e73a0fdf1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scene using Guid(e52d939ce5e23d7a49c4b58e73a0fdf1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'b0c0d95c9b68523c968cb64215591a7a') in 0.001987008 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000073 seconds.
-  path: Assets/TopDownArenaSurvival/09_Font
-  artifactKey: Guid(505a6a11cd5528c42a6d12e80266c742) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/TopDownArenaSurvival/09_Font using Guid(505a6a11cd5528c42a6d12e80266c742) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'a4a33edd080ebec84e6eed9bcd667303') in 0.002045948 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+  Time since last request: 0.000106 seconds.
+  path: Assets/InputSystem_Actions.inputactions
+  artifactKey: Guid(242d573f04ed10aeeb0a2bc411e9879d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/InputSystem_Actions.inputactions using Guid(242d573f04ed10aeeb0a2bc411e9879d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter)UpdateMenuTitleForLanguage: 10
+ -> (artifact id: '55ee92d018c1bbf19ebdcbafbe0bb1a4') in 0.267736872 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 22
 
