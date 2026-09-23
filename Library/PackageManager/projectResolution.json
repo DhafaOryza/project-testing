@@ -9,6 +9,16 @@
     "/home/wolfdevs/Unity/Hub/Editor/6000.3.6f1/Editor/Data/Resources/PackageManager/BuiltInPackages/BuiltInPackagesCombined.sha1"
   ],
   "outputs": {
+    "com.unity.inputsystem@1.18.0": {
+      "name": "com.unity.inputsystem",
+      "displayName": "Input System",
+      "resolvedPath": "/home/wolfdevs/Documents/GitHub/project-testing/Library/PackageCache/com.unity.inputsystem@57d0e36f6123",
+      "fingerprint": "57d0e36f61231bc5a2579f37d81bf6fa02f40adc",
+      "editorCompatibility": "2022.3.0a1",
+      "version": "1.18.0",
+      "source": "registry",
+      "testable": false
+    },
     "com.unity.multiplayer.center@1.0.1": {
       "name": "com.unity.multiplayer.center",
       "displayName": "Multiplayer Center",
