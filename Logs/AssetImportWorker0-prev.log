@@ -7,18 +7,18 @@ Distro version:          #31~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Mon Aug 10 09:38
 Kernel version:          7.0.0-31-generic
 Architecture:            x86_64
 Available memory:        14865 MB
-Date:                    2026-09-23T08:13:54Z
+Date:                    2026-09-23T12:28:10Z
 [Licensing::Module] Trying to connect to existing licensing client channel...
-[Licensing::IpcConnector] Successfully connected to: "LicenseClient-wolfdevs" at "2026-09-23T08:13:54.747623Z"
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-wolfdevs" at "2026-09-23T12:28:10.838259Z"
 [SignatureVerifier] Application signature verification not supported on this platform.
 [Licensing::Client] Handshaking with LicensingClient:
   Version:                 1.18.3+d7ffd15
-  Session Id:              b9d2d6324cd54a29aa955887d26ba1cc
-  Correlation Id:          030703ac11fee9e3223cbaef091def59
-  External correlation Id: 3832486289168910500
+  Session Id:              f4cf4fbfe03f43fea7e4ac5cff196f71
+  Correlation Id:          15227d9018fa50a9d43aa2acc40a6def
+  External correlation Id: 2419953291700874355
   Machine Id:              apL+ibt9Kyk1ib9mxk3lJKn5MiM=
 [Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-wolfdevs" (connect: 0.00s, validation: 0.00s, handshake: 0.00s)
-[Licensing::IpcConnector] Successfully connected to: "LicenseClient-wolfdevs-notifications" at "2026-09-23T08:13:54.749631Z"
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-wolfdevs-notifications" at "2026-09-23T12:28:10.840101Z"
 [Licensing::Module] Licensing Background thread has ended after 0.00s
 Selected window backend: (null) 
 Desktop is 1920 x 1080 @ 60 Hz
@@ -36,7 +36,7 @@ AssetImportWorker0
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-36937
+33125
 -licensingIpc
 LicenseClient-wolfdevs
 -job-worker-count
@@ -82,12 +82,12 @@ Successfully changed project path to: /home/wolfdevs/Documents/GitHub/project-te
     "memorysetup-job-temp-allocator-block-size-background=1048576"
     "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [129963023551296]  Target information:
+Player connection [130089435556672]  Target information:
 
-Player connection [129963023551296]  * "[IP] 192.168.50.138 [Port] 0 [Flags] 2 [Guid] 801110165 [EditorId] 801110165 [Version] 1048832 [Id] LinuxEditor(16,192.168.50.138) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
+Player connection [130089435556672]  * "[IP] 192.168.50.138 [Port] 0 [Flags] 2 [Guid] 1075075401 [EditorId] 1075075401 [Version] 1048832 [Id] LinuxEditor(16,192.168.50.138) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" 
 
-Player connection [129963023551296] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [129963023551296] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [130089435556672] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [130089435556672] Host joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 3
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
@@ -99,7 +99,7 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 0,14 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0,13 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0,00 ms.
 Initialize engine version: 6000.3.6f1 (bbb010bdb8a3)
 [Subsystems] Discovering subsystems at path /home/wolfdevs/Unity/Hub/Editor/6000.3.6f1/Editor/Data/Resources/UnitySubsystems
@@ -118,17 +118,17 @@ ns GL_ARB_stencil_texturing GL_ARB_sync GL_ARB_tessellation_shader GL_ARB_textur
 _attrib_binding GL_ARB_vertex_buffer_object GL_ARB_vertex_shader GL_ARB_vertex_type_10f_11f_11f_rev GL_ARB_vertex_type_2_10_10_10_rev GL_ARB_viewport_array GL_ATI_blend_equation_separate GL_ATI_meminfo GL_ATI_texture_float GL_ATI_texture_mirror_once GL_EXT_EGL_image_storage GL_EXT_EGL_image_storage_compression GL_EXT_EGL_sync GL_EXT_abgr GL_EXT_blend_equation_separate GL_EXT_debug_label GL_EXT_demote_to_helper_invocation GL_EXT_depth_bounds_test GL_EXT_draw_buffers2 GL_EXT_draw_instanced GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_EXT_framebuffer_multisample_blit_scaled GL_EXT_framebuffer_object GL_EXT_framebuffer_sRGB GL_EXT_memory_object GL_EXT_memory_object_fd GL_EXT_packed_depth_stencil GL_EXT_packed_float GL_EXT_pixel_buffer_object GL_EXT_polygon_offset_clamp GL_EXT_provoking_vertex GL_EXT_semaphore GL_EXT_semaphore_fd GL_EXT_shader_clock GL_EXT_shader_image_load_formatted GL_EXT_shader_image_load_store GL_EXT_shader_integer_mix GL_EXT_shader_samples_identical GL_EXT_texture_array GL_EXT_t
 exture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc GL_EXT_texture_filter_anisotropic GL_EXT_texture_filter_minmax GL_EXT_texture_integer GL_EXT_texture_mirror_clamp GL_EXT_texture_sRGB GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_decode GL_EXT_texture_shadow_lod GL_EXT_texture_shared_exponent GL_EXT_texture_snorm GL_EXT_texture_storage GL_EXT_texture_swizzle GL_EXT_timer_query GL_EXT_transform_feedback GL_EXT_vertex_array_bgra GL_EXT_vertex_attrib_64bit GL_EXT_window_rectangles GL_IBM_multimode_draw_arrays GL_INTEL_blackhole_render GL_KHR_blend_equation_advanced GL_KHR_context_flush_control GL_KHR_debug GL_KHR_no_error GL_KHR_parallel_shader_compile GL_KHR_robust_buffer_access_behavior GL_KHR_robustness GL_KHR_shader_subgroup GL_KHR_texture_compression_astc_ldr GL_KHR_texture_compression_astc_sliced_3d GL_MESA_framebuffer_flip_y GL_MESA_pack_invert GL_MESA_shader_integer_functions GL_MESA_texture_const_bandwidth GL_MESA_texture_signed_rgba GL_NVX_gpu_memory_info GL_NV_alpha
 _to_coverage_dither_control GL_NV_compute_shader_derivatives GL_NV_conditional_render GL_NV_copy_image GL_NV_depth_clamp GL_NV_packed_depth_stencil GL_NV_shader_atomic_int64 GL_NV_texture_barrier GL_NV_vdpau_interop GL_OES_EGL_image GL_S3_s3tc
-OPENGL LOG: Creating OpenGL 4.6 graphics device ; Context level  <OpenGL 4.5> ; Context handle -85886592
+OPENGL LOG: Creating OpenGL 4.6 graphics device ; Context level  <OpenGL 4.5> ; Context handle -158466400
 Initialize mono
 Mono path[0] = '/home/wolfdevs/Unity/Hub/Editor/6000.3.6f1/Editor/Data/Managed'
 Mono path[1] = '/home/wolfdevs/Unity/Hub/Editor/6000.3.6f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-linux'
 Mono config path = '/home/wolfdevs/Unity/Hub/Editor/6000.3.6f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56222
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56592
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: /home/wolfdevs/Unity/Hub/Editor/6000.3.6f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
-Registered in 0,003695 seconds.
-- Loaded All Assemblies, in  0,678 seconds
+Registered in 0,002341 seconds.
+- Loaded All Assemblies, in  0,557 seconds
 Native extension for LinuxStandalone target not found
 Package Manager log level set to [2]
 [Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
@@ -136,35 +136,35 @@ Package Manager log level set to [2]
 [Package Manager] Cannot connect to Unity Package Manager local server
 ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0,802 seconds
-Domain Reload Profiling: 1480ms
-	BeginReloadAssembly (164ms)
+- Finished resetting the current domain, in  0,751 seconds
+Domain Reload Profiling: 1307ms
+	BeginReloadAssembly (124ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (2ms)
-	RebuildCommonClasses (88ms)
-	RebuildNativeTypeToScriptingClass (21ms)
-	initialDomainReloadingComplete (104ms)
-	LoadAllAssembliesAndSetupDomain (299ms)
-		LoadAssemblies (162ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (65ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (77ms)
+	LoadAllAssembliesAndSetupDomain (276ms)
+		LoadAssemblies (122ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (294ms)
-			TypeCache.Refresh (292ms)
-				TypeCache.ScanAssembly (271ms)
+		AnalyzeDomain (272ms)
+			TypeCache.Refresh (269ms)
+				TypeCache.ScanAssembly (249ms)
 			BuildScriptInfoCaches (0ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (803ms)
+	FinalizeReload (751ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (744ms)
+		SetupLoadedEditorAssemblies (691ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (82ms)
-			SetLoadedEditorAssemblies (9ms)
-			BeforeProcessingInitializeOnLoad (173ms)
-			ProcessInitializeOnLoadAttributes (320ms)
-			ProcessInitializeOnLoadMethodAttributes (160ms)
+			InitializePlatformSupportModulesInManaged (77ms)
+			SetLoadedEditorAssemblies (8ms)
+			BeforeProcessingInitializeOnLoad (164ms)
+			ProcessInitializeOnLoadAttributes (300ms)
+			ProcessInitializeOnLoadMethodAttributes (143ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -179,90 +179,163 @@ Begin MonoManager ReloadAssembly
   Product: Unity Personal
   Type: Assigned
   Expiration: Unlimited
-- Loaded All Assemblies, in  0,394 seconds
-Refreshing native plugins compatible for Editor in 0,17 ms, found 0 plugins.
+- Loaded All Assemblies, in  0,568 seconds
+Refreshing native plugins compatible for Editor in 0,10 ms, found 0 plugins.
 Native extension for LinuxStandalone target not found
 ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0,924 seconds
-Domain Reload Profiling: 1319ms
-	BeginReloadAssembly (244ms)
+- Finished resetting the current domain, in  0,960 seconds
+Domain Reload Profiling: 1528ms
+	BeginReloadAssembly (217ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (9ms)
+		DisableScriptedObjects (10ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (71ms)
-	RebuildCommonClasses (64ms)
-	RebuildNativeTypeToScriptingClass (15ms)
-	initialDomainReloadingComplete (32ms)
-	LoadAllAssembliesAndSetupDomain (38ms)
-		LoadAssemblies (108ms)
+		CreateAndSetChildDomain (60ms)
+	RebuildCommonClasses (63ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (59ms)
+	LoadAllAssembliesAndSetupDomain (215ms)
+		LoadAssemblies (248ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (31ms)
-			TypeCache.Refresh (23ms)
-				TypeCache.ScanAssembly (17ms)
-			BuildScriptInfoCaches (4ms)
+		AnalyzeDomain (54ms)
+			TypeCache.Refresh (40ms)
+				TypeCache.ScanAssembly (30ms)
+			BuildScriptInfoCaches (9ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (925ms)
+	FinalizeReload (960ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (747ms)
+		SetupLoadedEditorAssemblies (798ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (3ms)
-			SetLoadedEditorAssemblies (9ms)
-			BeforeProcessingInitializeOnLoad (231ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (299ms)
 			ProcessInitializeOnLoadAttributes (416ms)
-			ProcessInitializeOnLoadMethodAttributes (78ms)
+			ProcessInitializeOnLoadMethodAttributes (68ms)
+			AfterProcessingInitializeOnLoad (6ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (4ms)
+AutoLocale: current locale expects 'C' but got 'id_ID.UTF-8'Launched and connected shader compiler UnityShaderCompiler after 0.03 seconds
+Refreshing native plugins compatible for Editor in 0.25 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 923 unused Assets / (145.0 KB). Loaded Objects now: 1517.
+Memory consumption went from 63.4 MB to 63.3 MB.
+Total: 11.159142 ms (FindLiveObjects: 0.205525 ms CreateObjectMapping: 0.075342 ms MarkObjects: 9.935907 ms  DeleteObjects: 0.940504 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 4643.207355 seconds.
+  path: Assets/Scene/EndlessPrecisionRunner.unity
+  artifactKey: Guid(2338012db09905d6bb23dc752d7b782f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/Scene/EndlessPrecisionRunner.unity using Guid(2338012db09905d6bb23dc752d7b782f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '28b821915598e82def3ca0b661b7042e') in 0.137255582 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/EndlessPrecisionRunner/01_Script/CoreGame/PlayerController.cs
+  artifactKey: Guid(0380e0d5a78f04a33961b3b1b71396a1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/EndlessPrecisionRunner/01_Script/CoreGame/PlayerController.cs using Guid(0380e0d5a78f04a33961b3b1b71396a1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '8f54a340d27daa91798a53d89292509d') in 0.052712183 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.604 seconds
+Refreshing native plugins compatible for Editor in 0.10 ms, found 0 plugins.
+Native extension for LinuxStandalone target not found
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.921 seconds
+Domain Reload Profiling: 1526ms
+	BeginReloadAssembly (246ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (14ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (73ms)
+	RebuildCommonClasses (70ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (43ms)
+	LoadAllAssembliesAndSetupDomain (230ms)
+		LoadAssemblies (280ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (43ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (34ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (921ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (730ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (3ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (237ms)
+			ProcessInitializeOnLoadAttributes (409ms)
+			ProcessInitializeOnLoadMethodAttributes (68ms)
 			AfterProcessingInitializeOnLoad (9ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (6ms)
-AutoLocale: current locale expects 'C' but got 'id_ID.UTF-8'Launched and connected shader compiler UnityShaderCompiler after 0.03 seconds
+		AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 0.17 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 921 unused Assets / (226.7 KB). Loaded Objects now: 1520.
+Memory consumption went from 64.1 MB to 63.8 MB.
+Total: 11.470305 ms (FindLiveObjects: 0.244038 ms CreateObjectMapping: 0.100679 ms MarkObjects: 10.633085 ms  DeleteObjects: 0.490330 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.592 seconds
+Refreshing native plugins compatible for Editor in 0.09 ms, found 0 plugins.
+Native extension for LinuxStandalone target not found
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.851 seconds
+Domain Reload Profiling: 1439ms
+	BeginReloadAssembly (235ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (11ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (78ms)
+	RebuildCommonClasses (66ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (45ms)
+	LoadAllAssembliesAndSetupDomain (227ms)
+		LoadAssemblies (272ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (42ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (33ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (851ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (676ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (3ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (233ms)
+			ProcessInitializeOnLoadAttributes (371ms)
+			ProcessInitializeOnLoadMethodAttributes (56ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
 Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 479 unused Assets / (72.0 KB). Loaded Objects now: 1070.
-Memory consumption went from 59.4 MB to 59.4 MB.
-Total: 11.717184 ms (FindLiveObjects: 0.151845 ms CreateObjectMapping: 0.038012 ms MarkObjects: 11.042448 ms  DeleteObjects: 0.483086 ms)
+Unloading 921 unused Assets / (225.5 KB). Loaded Objects now: 1520.
+Memory consumption went from 64.1 MB to 63.8 MB.
+Total: 11.250433 ms (FindLiveObjects: 0.233608 ms CreateObjectMapping: 0.077105 ms MarkObjects: 10.463987 ms  DeleteObjects: 0.474089 ms)
 
-========================================================================
-Received Import Request.
-  Time since last request: 36676.666689 seconds.
-  path: Assets/TopDownArenaSurvival/04_Prefabs
-  artifactKey: Guid(e8b3deec7d187e9b7975eba49c7ab7db) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/TopDownArenaSurvival/04_Prefabs using Guid(e8b3deec7d187e9b7975eba49c7ab7db) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '567022e132e2d8243fcc8ea38342aa86') in 0.090461685 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/EndlessPrecisionRunner/04_Prefabs/Obstacle
-  artifactKey: Guid(9cf298951254369f18393fd0cc8aa3a1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/EndlessPrecisionRunner/04_Prefabs/Obstacle using Guid(9cf298951254369f18393fd0cc8aa3a1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '539aefbd155e60d33b7de9cf916cf58b') in 0.002184268 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000084 seconds.
-  path: Assets/EndlessPrecisionRunner/05_Material
-  artifactKey: Guid(52b3dda021d3479e6a0de8873bb6d37b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/EndlessPrecisionRunner/05_Material using Guid(52b3dda021d3479e6a0de8873bb6d37b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'd9c1fb33fedef6548b2597f01d5d8adb') in 0.00205158 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000049 seconds.
-  path: Assets/Scene
-  artifactKey: Guid(e52d939ce5e23d7a49c4b58e73a0fdf1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/Scene using Guid(e52d939ce5e23d7a49c4b58e73a0fdf1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'b0c0d95c9b68523c968cb64215591a7a') in 0.001987008 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000106 seconds.
-  path: Assets/InputSystem_Actions.inputactions
-  artifactKey: Guid(242d573f04ed10aeeb0a2bc411e9879d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
-Start importing Assets/InputSystem_Actions.inputactions using Guid(242d573f04ed10aeeb0a2bc411e9879d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter)UpdateMenuTitleForLanguage: 10
- -> (artifact id: '55ee92d018c1bbf19ebdcbafbe0bb1a4') in 0.267736872 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 22
-
+Prepare: number of updated asset objects reloaded= 0
