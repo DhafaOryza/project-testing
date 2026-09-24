@@ -51,10 +51,13 @@
   <ItemGroup>
     <Compile Include="Assets/TopDownArenaSurvival/01_Script/CoreGame/GameManager.cs" />
     <Compile Include="Assets/TopDownArenaSurvival/01_Script/CoreGame/Enemy/EnemySpawner.cs" />
+    <Compile Include="Assets/TrafficCrossing/01_Script/Obstacle/WaterHazard.cs" />
     <Compile Include="Assets/TopDownArenaSurvival/01_Script/CoreGame/Enemy/EnemyController.cs" />
     <Compile Include="Assets/EndlessPrecisionRunner/01_Script/CoreGame/PlatformLooper.cs" />
     <Compile Include="Assets/TopDownArenaSurvival/01_Script/CoreGame/PlayerWeapon.cs" />
+    <Compile Include="Assets/TrafficCrossing/01_Script/Obstacle/Vehicle.cs" />
     <Compile Include="Assets/EndlessPrecisionRunner/01_Script/InputTest.cs" />
+    <Compile Include="Assets/TrafficCrossing/01_Script/Obstacle/VehicleSpawner.cs" />
     <Compile Include="Assets/EndlessPrecisionRunner/01_Script/CoreGame/ObstacleSpawner.cs" />
     <Compile Include="Assets/EndlessPrecisionRunner/01_Script/CoreGame/GameManager.cs" />
     <Compile Include="Assets/TopDownArenaSurvival/01_Script/CoreGame/Projectile.cs" />
@@ -63,7 +66,11 @@
     <Compile Include="Assets/EndlessPrecisionRunner/01_Script/CoreGame/PlayerController.cs" />
     <Compile Include="Assets/PoolingSystem/Poolidso.cs" />
     <Compile Include="Assets/PoolingSystem/Poolcatalogso.cs" />
+    <Compile Include="Assets/TrafficCrossing/01_Script/CoreGame/PlayerController.cs" />
+    <Compile Include="Assets/TrafficCrossing/01_Script/Obstacle/MovingPlatform.cs" />
+    <Compile Include="Assets/TrafficCrossing/01_Script/CoreGame/GameManager.cs" />
     <Compile Include="Assets/TopDownArenaSurvival/01_Script/CoreGame/Enemy/Health.cs" />
+    <Compile Include="Assets/TrafficCrossing/01_Script/CoreGame/CameraController.cs" />
     <Compile Include="Assets/TopDownArenaSurvival/01_Script/CoreGame/CameraFollow.cs" />
     <Compile Include="Assets/TopDownArenaSurvival/01_Script/CoreGame/PlayerController.cs" />
   </ItemGroup>

@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ddda1264508cc6088c166e04f887ec, type: 3}
+  m_Name: TrafficCrossing_Catalog
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.PoolingSystem.PoolCatalogSO
+  _pools:
+  - {fileID: 11400000, guid: 9045fdcb2d1bf781c8a12dea4f4b150f, type: 2}

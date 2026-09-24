@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1aea90e2660134f5a4443c27091d35e, type: 3}
+  m_Name: 01_Vehicle_Data
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.PoolingSystem.PoolDataSO
+  _poolId: {fileID: 11400000, guid: eb6a1c6a07f2c636f949fb5d49af1d30, type: 2}
+  _prefab: {fileID: 5214078053552584631, guid: bf53ed38c01d642b8a6caf2a99a9d6b4, type: 3}
+  _initialSize: 5
+  _isExpandable: 1

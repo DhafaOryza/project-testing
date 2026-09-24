@@ -412,6 +412,13 @@
 "Assets/TopDownArenaSurvival/01_Script/CoreGame/PlayerController.cs"
 "Assets/TopDownArenaSurvival/01_Script/CoreGame/PlayerWeapon.cs"
 "Assets/TopDownArenaSurvival/01_Script/CoreGame/Projectile.cs"
+"Assets/TrafficCrossing/01_Script/CoreGame/CameraController.cs"
+"Assets/TrafficCrossing/01_Script/CoreGame/GameManager.cs"
+"Assets/TrafficCrossing/01_Script/CoreGame/PlayerController.cs"
+"Assets/TrafficCrossing/01_Script/Obstacle/MovingPlatform.cs"
+"Assets/TrafficCrossing/01_Script/Obstacle/Vehicle.cs"
+"Assets/TrafficCrossing/01_Script/Obstacle/VehicleSpawner.cs"
+"Assets/TrafficCrossing/01_Script/Obstacle/WaterHazard.cs"
 -langversion:9.0
 /deterministic
 /optimize+

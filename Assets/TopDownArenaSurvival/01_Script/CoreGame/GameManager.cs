@@ -2,8 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Assets.PoolingSystem;
+using TrafficCrossing.CoreGame.Obstacle;
 
-namespace TopDownArenaSurvival.CoreGame
+namespace TrafficCrossing.CoreGame
 {    
     /// <summary>
     /// Central entry point for the game. Holds references to the other core systems
@@ -19,9 +20,7 @@ namespace TopDownArenaSurvival.CoreGame
         [Header("Core Systems")]
         [SerializeField] private PoolManager _poolManager;
         [SerializeField] private PlayerController _PlayerController;
-        // [SerializeField] private ObstacleSpawner _obstacleSpawner;
-        // [SerializeField] private PlatformLooper _platformLooper;
-        // [SerializeField] private PlayerController _playerController;
+        [SerializeField] private VehicleSpawner _vehicleSpawner;
 
         private bool _hasInitialized;
 
@@ -97,20 +96,10 @@ namespace TopDownArenaSurvival.CoreGame
                 _PlayerController = FindFirstObjectByType<PlayerController>();
             }
 
-            // if (_obstacleSpawner == null)
-            // {
-            //     _obstacleSpawner = FindFirstObjectByType<ObstacleSpawner>();
-            // }
-
-            // if (_platformLooper == null)
-            // {
-            //     _platformLooper = FindFirstObjectByType<PlatformLooper>();
-            // }
-
-            // if (_playerController == null)
-            // {
-            //     _playerController = FindFirstObjectByType<PlayerController>();
-            // }
+            if (_vehicleSpawner == null)
+            {
+                _vehicleSpawner = FindFirstObjectByType<VehicleSpawner>();
+            }   
         }
 
         /// <summary>
