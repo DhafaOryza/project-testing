@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scene/TrafficCrossing.unity
+- path: Assets/Scene/TopDownArenaSurvival.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

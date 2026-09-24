@@ -56,10 +56,11 @@
     <Compile Include="Assets/EndlessPrecisionRunner/01_Script/CoreGame/PlatformLooper.cs" />
     <Compile Include="Assets/TopDownArenaSurvival/01_Script/CoreGame/PlayerWeapon.cs" />
     <Compile Include="Assets/TrafficCrossing/01_Script/Obstacle/Vehicle.cs" />
-    <Compile Include="Assets/EndlessPrecisionRunner/01_Script/InputTest.cs" />
+    <Compile Include="Assets/TopDownArenaSurvival/01_Script/CoreGame/HealthManager.cs" />
     <Compile Include="Assets/TrafficCrossing/01_Script/Obstacle/VehicleSpawner.cs" />
     <Compile Include="Assets/EndlessPrecisionRunner/01_Script/CoreGame/ObstacleSpawner.cs" />
     <Compile Include="Assets/EndlessPrecisionRunner/01_Script/CoreGame/GameManager.cs" />
+    <Compile Include="Assets/EndlessPrecisionRunner/01_Script/CoreGame/ParallaxBackground.cs" />
     <Compile Include="Assets/TopDownArenaSurvival/01_Script/CoreGame/Projectile.cs" />
     <Compile Include="Assets/PoolingSystem/Poolmanager.cs" />
     <Compile Include="Assets/PoolingSystem/Pooldataso.cs" />
@@ -69,7 +70,6 @@
     <Compile Include="Assets/TrafficCrossing/01_Script/CoreGame/PlayerController.cs" />
     <Compile Include="Assets/TrafficCrossing/01_Script/Obstacle/MovingPlatform.cs" />
     <Compile Include="Assets/TrafficCrossing/01_Script/CoreGame/GameManager.cs" />
-    <Compile Include="Assets/TopDownArenaSurvival/01_Script/CoreGame/Enemy/Health.cs" />
     <Compile Include="Assets/TrafficCrossing/01_Script/CoreGame/CameraController.cs" />
     <Compile Include="Assets/TopDownArenaSurvival/01_Script/CoreGame/CameraFollow.cs" />
     <Compile Include="Assets/TopDownArenaSurvival/01_Script/CoreGame/PlayerController.cs" />
@@ -1099,12 +1099,20 @@
       <HintPath>Library/ScriptAssemblies/Unity.Multiplayer.Center.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.InputSystem.ForUI">
       <HintPath>Library/ScriptAssemblies/Unity.InputSystem.ForUI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.AIIntegration.Editor">
+      <HintPath>Library/ScriptAssemblies/Unity.2D.Sprite.AIIntegration.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.InputSystem">

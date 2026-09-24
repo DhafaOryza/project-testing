@@ -4,8 +4,7 @@ using UnityEngine.SceneManagement;
 namespace EndlessPrecisionRunner.CoreGame
 {    
     /// <summary>
-    /// Controls the player for the Endless Precision Runner prototype (Geometry Dash-style).
-    /// Handles automatic forward movement, jump input, ground detection, and death on obstacle hit.
+    /// Controls the player movement, jumping, ground detection, and death handling.
     /// </summary>
     public class PlayerController : MonoBehaviour
     {
@@ -25,11 +24,6 @@ namespace EndlessPrecisionRunner.CoreGame
         /// Gets whether the player is currently touching the ground.
         /// </summary>
         public bool IsGrounded => _isGrounded;
-
-        /// <summary>
-        /// Gets the current forward speed of the player.
-        /// </summary>
-        public float ForwardSpeed => _forwardSpeed;
 
         private void Awake()
         {
@@ -53,7 +47,7 @@ namespace EndlessPrecisionRunner.CoreGame
         private void MoveForward()
         {
             Vector3 velocity = _rigidbody.linearVelocity;
-            velocity.x = _forwardSpeed; // Moves forward on the X axis to match the orthographic 2D side view
+            velocity.x = _forwardSpeed;
             _rigidbody.linearVelocity = velocity;
         }
 
@@ -63,12 +57,6 @@ namespace EndlessPrecisionRunner.CoreGame
         private void HandleJumpInput()
         {
             bool jumpPressed = Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0);
-
-            if (jumpPressed)
-            {
-                // TEMPORARY: remove this line once the cause is confirmed
-                Debug.Log($"[Debug] Jump pressed. IsGrounded = {_isGrounded}, GroundCheckPoint = {_groundCheckPoint.position}");
-            }
 
             if (jumpPressed && _isGrounded)
             {
@@ -96,11 +84,10 @@ namespace EndlessPrecisionRunner.CoreGame
 
         /// <summary>
         /// Handles what happens when the player hits an obstacle.
-        /// For now it simply reloads the current scene.
+        /// Reloads current scene upon player death.
         /// </summary>
         private void HandlePlayerDeath()
         {
-            // TODO: replace with GameManager.OnPlayerDied() once game manager exists
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }

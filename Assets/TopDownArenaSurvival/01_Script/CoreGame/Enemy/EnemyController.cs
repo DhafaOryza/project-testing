@@ -1,5 +1,5 @@
 using UnityEngine;
-using TopDownArenaSurvival.Enemy.CoreGame;
+using TopDownArenaSurvival.CoreGame;
 
 namespace TopDownArenaSurvival.CoreGame
 {
@@ -9,7 +9,7 @@ namespace TopDownArenaSurvival.CoreGame
     public class EnemyController : MonoBehaviour
     {
         [Header("References")]
-        [SerializeField] private Transform _player;
+        private Transform _player;
 
         [Header("Movement Settings")]
         [SerializeField] private float _moveSpeed = 3f;
@@ -20,6 +20,7 @@ namespace TopDownArenaSurvival.CoreGame
 
         private Rigidbody _rigidbody;
         private float _attackTimer;
+        private HealthManager _healthManager;
 
         /// <summary>
         /// Gets or sets the target player transform.
@@ -33,6 +34,28 @@ namespace TopDownArenaSurvival.CoreGame
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
+            _healthManager = GetComponent<HealthManager>();
+        }
+
+        private void OnEnable()
+        {
+            if (_healthManager != null)
+            {
+                _healthManager.OnDied += HandleEnemyDeath;
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (_healthManager != null)
+            {
+                _healthManager.OnDied -= HandleEnemyDeath;
+            }
+        }
+
+        private void HandleEnemyDeath()
+        {
+            Destroy(gameObject);
         }
 
         private void Start()
@@ -118,7 +141,7 @@ namespace TopDownArenaSurvival.CoreGame
                 return;
             }
 
-            if (target.TryGetComponent(out Health health))
+            if (target.TryGetComponent(out HealthManager health))
             {
                 health.TakeDamage(_contactDamage);
                 _attackTimer = 0f;

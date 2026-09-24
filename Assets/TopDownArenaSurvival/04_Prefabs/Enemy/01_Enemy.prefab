@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752186238936f26f397819f5267544cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TopDownArenaSurvival.Enemy.CoreGame.Health
-  _maxHealth: 100
+  _maxHealth: 10
 --- !u!114 &1478736361444355114
 MonoBehaviour:
   m_ObjectHideFlags: 0

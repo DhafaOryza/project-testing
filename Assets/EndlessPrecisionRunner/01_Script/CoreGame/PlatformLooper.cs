@@ -1,7 +1,7 @@
 using UnityEngine;
 
 namespace EndlessPrecisionRunner.CoreGame
-{    
+{
     /// <summary>
     /// Recycles a fixed set of ground platform segments to create an endless
     /// scrolling track. Instead of destroying segments, they get moved to the
@@ -16,11 +16,6 @@ namespace EndlessPrecisionRunner.CoreGame
         [Header("Settings")]
         [SerializeField] private float _segmentLength = 10f;
         [SerializeField] private float _recycleDistanceBehindPlayer = 15f;
-
-        /// <summary>
-        /// Gets the total track length covered by all platform segments combined.
-        /// </summary>
-        public float TotalTrackLength => _segmentLength * _platformSegments.Length;
 
         private void Update()
         {

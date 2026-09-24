@@ -14,6 +14,7 @@ namespace TopDownArenaSurvival.CoreGame
         private Rigidbody _rigidbody;
         private Camera _mainCamera;
         private Vector3 _moveInput;
+        private HealthManager _healthManager;
 
         /// <summary>
         /// Gets the current movement direction the player is holding, as a normalized vector.
@@ -26,10 +27,47 @@ namespace TopDownArenaSurvival.CoreGame
 
         private void Awake()
         {
-            _rigidbody = GetComponent<Rigidbody>();
             _mainCamera = Camera.main;
+            _rigidbody = GetComponent<Rigidbody>();
+            _healthManager = GetComponent<HealthManager>();
         }
 
+        private void OnEnable()
+        {
+            if (_healthManager != null)
+            {
+                _healthManager.OnHealthChanged += UpdateHealthUI;
+                _healthManager.OnDied += HandlePlayerDeath;
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (_healthManager != null)
+            {
+                _healthManager.OnHealthChanged -= UpdateHealthUI;
+                _healthManager.OnDied -= HandlePlayerDeath;
+            }
+        }
+
+        /// <summary>
+        /// Callback for updating Player Health UI when health changes.
+        /// </summary>
+        private void UpdateHealthUI(int current, int max)
+        {
+            // Logika update UI Darah Player (Slider/Text)
+            Debug.Log($"Player Health: {current}/{max}");
+        }
+
+        /// <summary>
+        /// Callback when player dies.
+        /// </summary>
+        private void HandlePlayerDeath()
+        {
+            Debug.Log("Player Died!");
+            // Logika Game Over
+        }
+        
         private void Update()
         {
             ReadMoveInput();
@@ -41,9 +79,6 @@ namespace TopDownArenaSurvival.CoreGame
             MovePlayer();
         }
 
-        /// <summary>
-        /// Reads WASD/arrow key input and converts it into a normalized X-Z direction.
-        /// </summary>
         private void ReadMoveInput()
         {
             float horizontal = Input.GetAxisRaw("Horizontal");
@@ -52,9 +87,6 @@ namespace TopDownArenaSurvival.CoreGame
             _moveInput = new Vector3(horizontal, 0f, vertical).normalized;
         }
 
-        /// <summary>
-        /// Rotates the player transform on the X-Z plane to continuously face the mouse cursor position.
-        /// </summary>
         private void RotateToMouse()
         {
             if (_mainCamera == null)
@@ -82,9 +114,6 @@ namespace TopDownArenaSurvival.CoreGame
             }
         }
 
-        /// <summary>
-        /// Moves the player through the Rigidbody so collision with walls/enemies still works correctly.
-        /// </summary>
         private void MovePlayer()
         {
             Vector3 targetVelocity = _moveInput * _moveSpeed;

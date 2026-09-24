@@ -1,6 +1,6 @@
 using UnityEngine;
 using Assets.PoolingSystem;
-using TopDownArenaSurvival.Enemy.CoreGame;
+using TopDownArenaSurvival.CoreGame;
 
 namespace TopDownArenaSurvival.CoreGame
 {    
@@ -62,7 +62,7 @@ namespace TopDownArenaSurvival.CoreGame
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Enemy") && other.TryGetComponent(out Health health))
+            if (other.CompareTag("Enemy") && other.TryGetComponent(out HealthManager health))
             {
                 health.TakeDamage(_damage);
                 ReturnToPool();
