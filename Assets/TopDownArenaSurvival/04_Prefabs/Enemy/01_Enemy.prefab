@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752186238936f26f397819f5267544cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TopDownArenaSurvival.Enemy.CoreGame.Health
-  _maxHealth: 10
+  _maxHealth: 20
 --- !u!114 &1478736361444355114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1148bf966f9fac36795269f59a777b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TopDownArenaSurvival.Enemy.CoreGame.EnemyController
-  _player: {fileID: 0}
+  _poolIdSO: {fileID: 11400000, guid: 25aa54eb74fe7e4ea9bf3db5401d51a9, type: 2}
   _moveSpeed: 3
   _contactDamage: 10
   _attackCooldown: 1

@@ -1,5 +1,6 @@
 using UnityEngine;
 using TopDownArenaSurvival.CoreGame;
+using Assets.PoolingSystem;
 
 namespace TopDownArenaSurvival.CoreGame
 {
@@ -21,6 +22,7 @@ namespace TopDownArenaSurvival.CoreGame
         private Rigidbody _rigidbody;
         private float _attackTimer;
         private HealthManager _healthManager;
+        private PoolManager _poolmanager;
 
         /// <summary>
         /// Gets or sets the target player transform.
