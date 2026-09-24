@@ -404,6 +404,14 @@
 "Assets/PoolingSystem/Pooldataso.cs"
 "Assets/PoolingSystem/Poolidso.cs"
 "Assets/PoolingSystem/Poolmanager.cs"
+"Assets/TopDownArenaSurvival/01_Script/CoreGame/CameraFollow.cs"
+"Assets/TopDownArenaSurvival/01_Script/CoreGame/Enemy/EnemyController.cs"
+"Assets/TopDownArenaSurvival/01_Script/CoreGame/Enemy/EnemySpawner.cs"
+"Assets/TopDownArenaSurvival/01_Script/CoreGame/Enemy/Health.cs"
+"Assets/TopDownArenaSurvival/01_Script/CoreGame/GameManager.cs"
+"Assets/TopDownArenaSurvival/01_Script/CoreGame/PlayerController.cs"
+"Assets/TopDownArenaSurvival/01_Script/CoreGame/PlayerWeapon.cs"
+"Assets/TopDownArenaSurvival/01_Script/CoreGame/Projectile.cs"
 -langversion:9.0
 /deterministic
 /optimize+
