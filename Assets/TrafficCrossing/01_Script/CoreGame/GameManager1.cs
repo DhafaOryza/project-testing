@@ -21,7 +21,6 @@ namespace TrafficCrossing.CoreGame
         [Header("Core Systems")]
         [SerializeField] private PoolManager _poolManager;
         [SerializeField] private PlayerController _PlayerController;
-        [SerializeField] private EnemyController _enemyController;
         [SerializeField] private VehicleSpawner _vehicleSpawner;
 
         private bool _hasInitialized;
@@ -99,11 +98,6 @@ namespace TrafficCrossing.CoreGame
             }
 
             if (_vehicleSpawner == null)
-            {
-                _vehicleSpawner = FindFirstObjectByType<VehicleSpawner>();
-            }
-
-            if (_enemyController == null)
             {
                 _vehicleSpawner = FindFirstObjectByType<VehicleSpawner>();
             }
