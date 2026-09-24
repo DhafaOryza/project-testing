@@ -2,33 +2,25 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Assets.PoolingSystem;
-using TrafficCrossing.CoreGame.Obstacle;
-using TopDownArenaSurvival.CoreGame;
 
-namespace TrafficCrossing.CoreGame
+namespace TopDownArenaSurvival.CoreGame
 {    
     /// <summary>
-    /// Central entry point for the game. Holds references to the other core systems
-    /// and initializes them in the right order, so those systems don't need their own singletons.
+    /// Central entry point for the game. Holds references to core systems
+    /// and initializes them in the correct order.
     /// </summary>
     public class GameManager : MonoBehaviour
     {
-        /// <summary>
-        /// Gets the active GameManager instance for this scene.
-        /// </summary>
         public static GameManager Instance { get; private set; }
 
         [Header("Core Systems")]
         [SerializeField] private PoolManager _poolManager;
-        [SerializeField] private PlayerController _PlayerController;
-        [SerializeField] private EnemyController _enemyController;
-        [SerializeField] private VehicleSpawner _vehicleSpawner;
+        [SerializeField] private EnemySpawner _enemySpawner;
+
+        public PoolManager PoolManager => _poolManager;
+        public EnemySpawner EnemySpawner => _enemySpawner;
 
         private bool _hasInitialized;
-
-        /// <summary>
-        /// Gets whether all core systems have finished initializing.
-        /// </summary>
         public bool HasInitialized => _hasInitialized;
 
         private void Awake()
@@ -36,6 +28,10 @@ namespace TrafficCrossing.CoreGame
             if (Instance == null)
             {
                 Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
             }
         }
 
@@ -54,9 +50,6 @@ namespace TrafficCrossing.CoreGame
             InitializeSystems();
         }
 
-        /// <summary>
-        /// Re-runs initialization whenever a new scene finishes loading.
-        /// </summary>
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             _hasInitialized = false;
@@ -64,28 +57,28 @@ namespace TrafficCrossing.CoreGame
         }
 
         /// <summary>
-        /// Fills in any missing system references, then initializes the systems that need it.
+        /// Inisialisasi sistem utama sesuai urutan ketergantungan (Dependency).
         /// </summary>
         private void InitializeSystems()
         {
-            if (_hasInitialized)
-            {
-                return;
-            }
+            if (_hasInitialized) return;
 
             _hasInitialized = true;
 
             FindMissingReferences();
 
+            // 1. Inisialisasi PoolManager terlebih dahulu agar sistem lain bisa memakai pool
             if (_poolManager != null)
             {
                 _poolManager.Initialize();
             }
+
+            if (_enemySpawner != null)
+            {
+                _enemySpawner.Initialize(_poolManager);
+            }
         }
 
-        /// <summary>
-        /// Fills in any system reference that wasn't assigned in the Inspector.
-        /// </summary>
         private void FindMissingReferences()
         {
             if (_poolManager == null)
@@ -93,25 +86,12 @@ namespace TrafficCrossing.CoreGame
                 _poolManager = FindFirstObjectByType<PoolManager>();
             }
 
-            if (_PlayerController == null)
+            if (_enemySpawner == null)
             {
-                _PlayerController = FindFirstObjectByType<PlayerController>();
-            }
-
-            if (_vehicleSpawner == null)
-            {
-                _vehicleSpawner = FindFirstObjectByType<VehicleSpawner>();
-            }
-
-            if (_enemyController == null)
-            {
-                _vehicleSpawner = FindFirstObjectByType<VehicleSpawner>();
+                _enemySpawner = FindFirstObjectByType<EnemySpawner>();
             }
         }
 
-        /// <summary>
-        /// Starts a coroutine on behalf of a non-MonoBehaviour class.
-        /// </summary>
         public void RunCoroutine(IEnumerator coroutine)
         {
             StartCoroutine(coroutine);

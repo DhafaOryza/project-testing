@@ -10,7 +10,7 @@ namespace TopDownArenaSurvival.CoreGame
     public class EnemyController : MonoBehaviour
     {
         [Header("References")]
-        private Transform _player;
+        [SerializeField] private PoolIdSO _poolIdSO;
 
         [Header("Movement Settings")]
         [SerializeField] private float _moveSpeed = 3f;
@@ -19,10 +19,11 @@ namespace TopDownArenaSurvival.CoreGame
         [SerializeField] private int _contactDamage = 10;
         [SerializeField] private float _attackCooldown = 1f;
 
+        private Transform _player;
         private Rigidbody _rigidbody;
         private float _attackTimer;
         private HealthManager _healthManager;
-        private PoolManager _poolmanager;
+        private PoolManager _poolManager;
 
         /// <summary>
         /// Gets or sets the target player transform.
@@ -31,6 +32,15 @@ namespace TopDownArenaSurvival.CoreGame
         {
             get { return _player; }
             set { _player = value; }
+        }
+
+        /// <summary>
+        /// Inisialisasi yang dipanggil oleh EnemySpawner saat memunculkan musuh dari pool.
+        /// </summary>
+        public void Initialize(PoolManager poolManager, Transform player)
+        {
+            _poolManager = poolManager;
+            _player = player;
         }
 
         private void Awake()
@@ -44,6 +54,7 @@ namespace TopDownArenaSurvival.CoreGame
             if (_healthManager != null)
             {
                 _healthManager.OnDied += HandleEnemyDeath;
+                _healthManager.ResetHealth(); // Mengembalikan nyawa ke penuh setiap kali spawn dari pool
             }
         }
 
@@ -57,7 +68,15 @@ namespace TopDownArenaSurvival.CoreGame
 
         private void HandleEnemyDeath()
         {
-            Destroy(gameObject);
+            // Kembalikan ke pool jika PoolManager tersedia, jika tidak baru jalankan Destroy
+            if (_poolManager != null)
+            {
+                _poolManager.Despawn(_poolIdSO, gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
 
         private void Start()
@@ -76,9 +95,6 @@ namespace TopDownArenaSurvival.CoreGame
             ChasePlayer();
         }
 
-        /// <summary>
-        /// Automatically finds and assigns the player reference if not assigned in Inspector.
-        /// </summary>
         private void FindPlayerIfMissing()
         {
             if (_player == null)
@@ -91,9 +107,6 @@ namespace TopDownArenaSurvival.CoreGame
             }
         }
 
-        /// <summary>
-        /// Rotates the enemy transform to face directly toward the player on the X-Z plane.
-        /// </summary>
         private void RotateToPlayer()
         {
             if (_player == null)
@@ -110,9 +123,6 @@ namespace TopDownArenaSurvival.CoreGame
             }
         }
 
-        /// <summary>
-        /// Moves the enemy toward the player's current position on the X-Z plane.
-        /// </summary>
         private void ChasePlayer()
         {
             if (_player == null)
@@ -133,9 +143,6 @@ namespace TopDownArenaSurvival.CoreGame
             TryDealContactDamage(collision.gameObject);
         }
 
-        /// <summary>
-        /// Deals contact damage to the player once the attack cooldown has elapsed.
-        /// </summary>
         private void TryDealContactDamage(GameObject target)
         {
             if (!target.CompareTag("Player") || _attackTimer < _attackCooldown)

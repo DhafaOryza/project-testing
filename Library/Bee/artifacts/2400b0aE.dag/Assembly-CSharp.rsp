@@ -415,7 +415,7 @@
 "Assets/TopDownArenaSurvival/01_Script/CoreGame/PlayerWeapon.cs"
 "Assets/TopDownArenaSurvival/01_Script/CoreGame/Projectile.cs"
 "Assets/TrafficCrossing/01_Script/CoreGame/CameraController.cs"
-"Assets/TrafficCrossing/01_Script/CoreGame/GameManager.cs"
+"Assets/TrafficCrossing/01_Script/CoreGame/GameManager1.cs"
 "Assets/TrafficCrossing/01_Script/CoreGame/PlayerController.cs"
 "Assets/TrafficCrossing/01_Script/Obstacle/MovingPlatform.cs"
 "Assets/TrafficCrossing/01_Script/Obstacle/Vehicle.cs"

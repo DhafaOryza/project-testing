@@ -19,26 +19,15 @@ namespace TopDownArenaSurvival.CoreGame
 
         private float _spawnTimer;
 
-        /// <summary>
-        /// Gets the radius distance from the player where enemies will spawn.
-        /// </summary>
-        public float SpawnRadius
-        {
-            get { return _spawnRadius; }
-            private set { _spawnRadius = value; }
-        }
+        public float SpawnRadius => _spawnRadius;
+        public float SpawnInterval => _spawnInterval;
 
         /// <summary>
-        /// Gets the interval in seconds between each enemy spawn.
+        /// Inisialisasi spawner dari GameManager.
         /// </summary>
-        public float SpawnInterval
+        public void Initialize(PoolManager poolManager)
         {
-            get { return _spawnInterval; }
-            private set { _spawnInterval = value; }
-        }
-
-        private void Start()
-        {
+            _poolManager = poolManager; // [TAMBAHAN] Terima PoolManager dari GameManager
             FindPlayerIfMissing();
         }
 
@@ -47,9 +36,6 @@ namespace TopDownArenaSurvival.CoreGame
             HandleSpawnTimer();
         }
 
-        /// <summary>
-        /// Automatically assigns the player reference if omitted in the Inspector.
-        /// </summary>
         private void FindPlayerIfMissing()
         {
             if (_playerTransform == null)
@@ -62,9 +48,6 @@ namespace TopDownArenaSurvival.CoreGame
             }
         }
 
-        /// <summary>
-        /// Accumulates time and triggers enemy spawn once the spawn interval is reached.
-        /// </summary>
         private void HandleSpawnTimer()
         {
             if (_playerTransform == null || _poolManager == null)
@@ -81,12 +64,8 @@ namespace TopDownArenaSurvival.CoreGame
             }
         }
 
-        /// <summary>
-        /// Spawns an enemy instance from the pool at a random point along the perimeter of the spawn radius.
-        /// </summary>
         private void SpawnEnemy()
         {
-            // IMPORTANT: Normalizing the 2D circle vector ensures the position is on the outer edge, not inside the circle.
             Vector2 randomCirclePoint = Random.insideUnitCircle.normalized * _spawnRadius;
             Vector3 spawnPosition = _playerTransform.position + new Vector3(randomCirclePoint.x, 0f, randomCirclePoint.y);
 
@@ -94,7 +73,8 @@ namespace TopDownArenaSurvival.CoreGame
 
             if (enemyInstance != null && enemyInstance.TryGetComponent(out EnemyController enemyController))
             {
-                enemyController.Player = _playerTransform;
+                // [PERBAIKAN] Langsung inisialisasi PoolManager & Player sekaligus ke enemy
+                enemyController.Initialize(_poolManager, _playerTransform);
             }
         }
     }
