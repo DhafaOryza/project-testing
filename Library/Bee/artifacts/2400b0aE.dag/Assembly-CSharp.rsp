@@ -413,6 +413,7 @@
 "Assets/TrafficCrossing/01_Script/CoreGame/CameraController.cs"
 "Assets/TrafficCrossing/01_Script/CoreGame/GameManager.cs"
 "Assets/TrafficCrossing/01_Script/CoreGame/PlayerController.cs"
+"Assets/TrafficCrossing/01_Script/CoreGame/TerrainSpawner.cs"
 "Assets/TrafficCrossing/01_Script/Obstacle/MovingPlatform.cs"
 "Assets/TrafficCrossing/01_Script/Obstacle/Vehicle.cs"
 "Assets/TrafficCrossing/01_Script/Obstacle/VehicleSpawner.cs"

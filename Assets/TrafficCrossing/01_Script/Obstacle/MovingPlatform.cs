@@ -12,7 +12,7 @@ namespace TrafficCrossing.CoreGame.Obstacle
     }
 
     /// <summary>
-    /// Moves a platform back and forth between two X-axis boundaries and attaches the player while standing on it.
+    /// Moves a platform back and forth between two X-axis boundaries and transfers movement to player without parenting.
     /// </summary>
     public class MovingPlatform : MonoBehaviour
     {
@@ -23,28 +23,21 @@ namespace TrafficCrossing.CoreGame.Obstacle
         [SerializeField] private float _rightBound = 5f;
 
         private bool _movingRight = true;
+        private Transform _playerTransform;
+        private PlayerController _playerController;
 
-        /// <summary>
-        /// Gets or sets the initial movement direction of the platform.
-        /// </summary>
         public StartDirection InitialDirection
         {
             get { return _initialDirection; }
             set { _initialDirection = value; }
         }
 
-        /// <summary>
-        /// Gets or sets the movement speed of the platform.
-        /// </summary>
         public float MoveSpeed
         {
             get { return _moveSpeed; }
             set { _moveSpeed = value; }
         }
 
-        /// <summary>
-        /// Gets or sets the left movement limit.
-        /// </summary>
         public float LeftBound
         {
             get { return _leftBound; }
@@ -55,9 +48,6 @@ namespace TrafficCrossing.CoreGame.Obstacle
             }
         }
 
-        /// <summary>
-        /// Gets or sets the right movement limit.
-        /// </summary>
         public float RightBound
         {
             get { return _rightBound; }
@@ -88,9 +78,6 @@ namespace TrafficCrossing.CoreGame.Obstacle
             ValidateBounds();
         }
 
-        /// <summary>
-        /// Swaps left and right bounds if configured inversely to prevent movement glitches.
-        /// </summary>
         private void ValidateBounds()
         {
             if (_leftBound > _rightBound)
@@ -101,21 +88,17 @@ namespace TrafficCrossing.CoreGame.Obstacle
             }
         }
 
-        /// <summary>
-        /// Configures the movement direction based on the inspector selection.
-        /// </summary>
         private void InitializeDirection()
         {
             _movingRight = (_initialDirection == StartDirection.Right);
         }
 
-        /// <summary>
-        /// Moves the platform horizontally between the left and right boundaries.
-        /// </summary>
         private void MovePlatform()
         {
+            Vector3 oldPosition = transform.position;
             Vector3 currentPosition = transform.position;
 
+            // Gerakkan platform sesuai arah horizontal saat ini
             if (_movingRight)
             {
                 currentPosition.x += _moveSpeed * Time.deltaTime;
@@ -136,32 +119,35 @@ namespace TrafficCrossing.CoreGame.Obstacle
             }
 
             transform.position = currentPosition;
-        }
 
-        private void OnTriggerEnter2D(Collider2D other) => AttachPlayer(other.gameObject);
-        private void OnTriggerExit2D(Collider2D other) => DetachPlayer(other.gameObject);
-        private void OnCollisionEnter2D(Collision2D collision) => AttachPlayer(collision.gameObject);
-        private void OnCollisionExit2D(Collision2D collision) => DetachPlayer(collision.gameObject);
+            // Hitung seberapa jauh platform bergeser frame ini
+            Vector3 deltaPosition = currentPosition - oldPosition;
 
-        /// <summary>
-        /// Parents the player transform to the platform so it moves along with it.
-        /// </summary>
-        private void AttachPlayer(GameObject target)
-        {
-            if (target.CompareTag("Player"))
+            // Jika Player berada di atas platform dan tidak sedang melompat/jatuh, ikuti gerak platform
+            if (_playerTransform != null && _playerController != null)
             {
-                target.transform.SetParent(transform);
+                if (!_playerController.IsHopping && !_playerController.IsFalling)
+                {
+                    _playerTransform.position += deltaPosition;
+                }
             }
         }
 
-        /// <summary>
-        /// Removes the platform parent from the player when stepping off.
-        /// </summary>
-        private void DetachPlayer(GameObject target)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            if (target.CompareTag("Player"))
+            if (other.CompareTag("Player"))
             {
-                target.transform.SetParent(null);
+                _playerTransform = other.transform;
+                _playerController = other.GetComponent<PlayerController>();
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.CompareTag("Player") && other.transform == _playerTransform)
+            {
+                _playerTransform = null;
+                _playerController = null;
             }
         }
     }

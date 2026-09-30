@@ -1,12 +1,13 @@
 using TrafficCrossing.CoreGame.Obstacle;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace TrafficCrossing.CoreGame
 {
     /// <summary>
     /// Handles grid-based hop movement for the Traffic Crossing prototype using mouse input.
-    /// Supports forward movement on click and horizontal movement on mouse drag without backward hops.
+    /// Includes ground detection and Z-axis fall mechanism.
     /// </summary>
     public class PlayerController : MonoBehaviour
     {
@@ -20,26 +21,31 @@ namespace TrafficCrossing.CoreGame
         [Header("Mouse Input Settings")]
         [SerializeField] private float _swipeThreshold = 50f;
 
+        [Header("Ground & Fall Settings")]
+        [SerializeField] private LayerMask _groundLayer;
+        [SerializeField] private float _targetZ = 10f;
+
         private bool _isHopping;
+        private bool _isFalling;
         private Vector3 _startMousePosition;
         private bool _hasSwiped;
 
-        /// <summary>
-        /// Gets the cell size used for grid movement.
-        /// </summary>
         public float GridSize
         {
             get { return _gridSize; }
             private set { _gridSize = value; }
         }
 
-        /// <summary>
-        /// Gets whether the player is currently executing a hop animation.
-        /// </summary>
         public bool IsHopping
         {
             get { return _isHopping; }
             private set { _isHopping = value; }
+        }
+
+        public bool IsFalling
+        {
+            get { return _isFalling; }
+            private set { _isFalling = value; }
         }
 
         private void Update()
@@ -47,12 +53,9 @@ namespace TrafficCrossing.CoreGame
             ReadMouseInput();
         }
 
-        /// <summary>
-        /// Reads left mouse button input to trigger forward movement on click or sideways movement on drag.
-        /// </summary>
         private void ReadMouseInput()
         {
-            if (_isHopping)
+            if (_isHopping || _isFalling)
             {
                 return;
             }
@@ -84,25 +87,18 @@ namespace TrafficCrossing.CoreGame
             }
         }
 
-        /// <summary>
-        /// Initiates a hop toward the target direction if valid.
-        /// </summary>
         private void TryHop(Vector3 direction)
         {
             Vector3 targetPosition = transform.position + direction * _gridSize;
             StartCoroutine(HopToPosition(targetPosition, direction));
         }
 
-        /// <summary>
-        /// Animates the arc movement to the target position and snaps to the grid.
-        /// </summary>
         private IEnumerator HopToPosition(Vector3 targetPosition, Vector3 direction)
         {
             _isHopping = true;
 
             Vector3 startPosition = transform.position;
 
-            // Rotasi 2D mengikuti arah
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
             transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
@@ -116,20 +112,65 @@ namespace TrafficCrossing.CoreGame
                 Vector3 flatPosition = Vector3.Lerp(startPosition, targetPosition, progress);
                 float hopArc = Mathf.Sin(progress * Mathf.PI) * _hopHeight;
 
-                // Perbaikan 3: Gunakan flatPosition.y agar pemain bergerak di sumbu Y.
-                // Efek busur lompat (hopArc) bisa dimasukkan ke sumbu Z untuk efek kedalaman 2D.
                 transform.position = new Vector3(flatPosition.x, flatPosition.y, startPosition.z - hopArc);
 
                 yield return null;
             }
 
             transform.position = SnapToGrid(targetPosition);
-            _isHopping = false;
+            
+            // Periksa apakah mendarat di atas platform yang valid
+            CheckGroundStatus();
         }
 
         /// <summary>
-        /// Snaps position to exact grid coordinates to avoid floating point drift.
+        /// Checks if the player landed on a platform layer collider.
         /// </summary>
+        private void CheckGroundStatus()
+        {
+            Collider2D hit = Physics2D.OverlapPoint(transform.position, _groundLayer);
+
+            if (hit == null)
+            {
+                // Tidak ada collider di bawah player -> Jatuh ke sumbu +Z
+                StartCoroutine(FallToZPositive());
+            }
+            else
+            {
+                _isHopping = false;
+            }
+        }
+
+        /// <summary>
+        /// Animates player falling into the positive Z axis (background depth) and reloads scene.
+        /// </summary>
+        private IEnumerator FallToZPositive()
+        {
+            _isFalling = true;
+
+            Vector3 startPos = transform.position;
+            Vector3 targetPos = new Vector3(startPos.x, startPos.y, _targetZ);
+            Vector3 startScale = transform.localScale;
+
+            float duration = 0.3f;
+            float elapsedTime = 0f;
+
+            while (elapsedTime < duration)
+            {
+                elapsedTime += Time.deltaTime;
+                float progress = elapsedTime / duration;
+
+                // Geser ke Z positif & kecilkan skala sprite
+                transform.position = Vector3.Lerp(startPos, targetPos, progress);
+                transform.localScale = Vector3.Lerp(startScale, Vector3.zero, progress);
+
+                yield return null;
+            }
+
+            // Reload scene saat selesai jatuh
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
         private Vector3 SnapToGrid(Vector3 position)
         {
             float snappedX = Mathf.Round(position.x / _gridSize) * _gridSize;
