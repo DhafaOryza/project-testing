@@ -67,13 +67,11 @@ namespace TopDownArenaSurvival.CoreGame
         private void SpawnEnemy()
         {
             Vector2 randomCirclePoint = Random.insideUnitCircle.normalized * _spawnRadius;
-            Vector3 spawnPosition = _playerTransform.position + new Vector3(randomCirclePoint.x, 0f, randomCirclePoint.y);
-
+            Vector3 spawnPosition = _playerTransform.position + new Vector3(randomCirclePoint.x, randomCirclePoint.y, 0f);
             GameObject enemyInstance = _poolManager.Spawn(_enemyPoolId, spawnPosition, Quaternion.identity);
 
             if (enemyInstance != null && enemyInstance.TryGetComponent(out EnemyController enemyController))
             {
-                // [PERBAIKAN] Langsung inisialisasi PoolManager & Player sekaligus ke enemy
                 enemyController.Initialize(_poolManager, _playerTransform);
             }
         }

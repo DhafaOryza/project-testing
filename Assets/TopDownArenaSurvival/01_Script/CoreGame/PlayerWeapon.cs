@@ -74,7 +74,9 @@ namespace TopDownArenaSurvival.CoreGame
         private void FireProjectile()
         {
             Vector3 direction = (CurrentTarget.position - _firePoint.position).normalized;
-            Quaternion rotation = Quaternion.LookRotation(direction);
+
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
 
             GameObject instance = _poolManager.Spawn(_projectilePoolId, _firePoint.position, rotation);
 
