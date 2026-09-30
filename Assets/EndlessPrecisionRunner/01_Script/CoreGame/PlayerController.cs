@@ -3,9 +3,6 @@ using UnityEngine.SceneManagement;
 
 namespace EndlessPrecisionRunner.CoreGame
 {    
-    /// <summary>
-    /// Controls the player movement, jumping, ground detection, and death handling.
-    /// </summary>
     public class PlayerController : MonoBehaviour
     {
         [Header("Movement Settings")]
@@ -17,17 +14,14 @@ namespace EndlessPrecisionRunner.CoreGame
         [SerializeField] private float _groundCheckRadius = 0.2f;
         [SerializeField] private LayerMask _groundLayer;
 
-        private Rigidbody _rigidbody;
+        private Rigidbody2D _rigidbody;
         private bool _isGrounded;
 
-        /// <summary>
-        /// Gets whether the player is currently touching the ground.
-        /// </summary>
         public bool IsGrounded => _isGrounded;
 
         private void Awake()
         {
-            _rigidbody = GetComponent<Rigidbody>();
+            _rigidbody = GetComponent<Rigidbody2D>();
         }
 
         private void Update()
@@ -41,40 +35,31 @@ namespace EndlessPrecisionRunner.CoreGame
             MoveForward();
         }
 
-        /// <summary>
-        /// Moves the player forward automatically on every physics frame.
-        /// </summary>
         private void MoveForward()
         {
-            Vector3 velocity = _rigidbody.linearVelocity;
+            Vector2 velocity = _rigidbody.linearVelocity;
             velocity.x = _forwardSpeed;
             _rigidbody.linearVelocity = velocity;
         }
 
-        /// <summary>
-        /// Reads jump input and applies jump force only when the player is grounded.
-        /// </summary>
         private void HandleJumpInput()
         {
             bool jumpPressed = Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0);
 
             if (jumpPressed && _isGrounded)
             {
-                Vector3 velocity = _rigidbody.linearVelocity;
+                Vector2 velocity = _rigidbody.linearVelocity;
                 velocity.y = _jumpForce;
                 _rigidbody.linearVelocity = velocity;
             }
         }
 
-        /// <summary>
-        /// Updates the grounded state using an overlap sphere check at the ground check point.
-        /// </summary>
         private void CheckGrounded()
         {
-            _isGrounded = Physics.CheckSphere(_groundCheckPoint.position, _groundCheckRadius, _groundLayer);
+            _isGrounded = Physics2D.OverlapCircle(_groundCheckPoint.position, _groundCheckRadius, _groundLayer);
         }
 
-        private void OnCollisionEnter(Collision collision)
+        private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.CompareTag("Obstacle"))
             {
@@ -82,13 +67,18 @@ namespace EndlessPrecisionRunner.CoreGame
             }
         }
 
-        /// <summary>
-        /// Handles what happens when the player hits an obstacle.
-        /// Reloads current scene upon player death.
-        /// </summary>
         private void HandlePlayerDeath()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            if (_groundCheckPoint != null)
+            {
+                Gizmos.color = Color.red;
+                Gizmos.DrawWireSphere(_groundCheckPoint.position, _groundCheckRadius);
+            }
         }
     }
 }
