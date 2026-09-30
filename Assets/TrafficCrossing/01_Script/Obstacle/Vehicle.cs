@@ -119,15 +119,8 @@ namespace TrafficCrossing.CoreGame
             }
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            CheckPlayerCollision(other.gameObject);
-        }
-
-        private void OnCollisionEnter(Collision collision)
-        {
-            CheckPlayerCollision(collision.gameObject);
-        }
+        private void OnTriggerEnter2D(Collider2D other) => CheckPlayerCollision(other.gameObject);
+        private void OnCollisionEnter2D(Collision2D collision) => CheckPlayerCollision(collision.gameObject);
 
         /// <summary>
         /// Evaluates if the collided object is tagged as Player and reloads the scene on impact.

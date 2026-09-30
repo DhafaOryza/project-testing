@@ -1,3 +1,4 @@
+using TrafficCrossing.CoreGame.Obstacle;
 using System.Collections;
 using UnityEngine;
 
@@ -55,17 +56,17 @@ namespace TrafficCrossing.CoreGame
             {
                 return;
             }
-
+        
             if (Input.GetMouseButtonDown(0))
             {
                 _startMousePosition = Input.mousePosition;
                 _hasSwiped = false;
             }
-
+        
             if (Input.GetMouseButton(0) && !_hasSwiped)
             {
                 float deltaX = Input.mousePosition.x - _startMousePosition.x;
-
+        
                 if (Mathf.Abs(deltaX) >= _swipeThreshold)
                 {
                     _hasSwiped = true;
@@ -73,12 +74,12 @@ namespace TrafficCrossing.CoreGame
                     TryHop(direction);
                 }
             }
-
+        
             if (Input.GetMouseButtonUp(0))
             {
                 if (!_hasSwiped)
                 {
-                    TryHop(Vector3.forward);
+                    TryHop(Vector3.up);
                 }
             }
         }
@@ -100,7 +101,10 @@ namespace TrafficCrossing.CoreGame
             _isHopping = true;
 
             Vector3 startPosition = transform.position;
-            transform.rotation = Quaternion.LookRotation(direction);
+
+            // Rotasi 2D mengikuti arah
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+            transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
             float elapsedTime = 0f;
 
@@ -112,7 +116,9 @@ namespace TrafficCrossing.CoreGame
                 Vector3 flatPosition = Vector3.Lerp(startPosition, targetPosition, progress);
                 float hopArc = Mathf.Sin(progress * Mathf.PI) * _hopHeight;
 
-                transform.position = new Vector3(flatPosition.x, startPosition.y + hopArc, flatPosition.z);
+                // Perbaikan 3: Gunakan flatPosition.y agar pemain bergerak di sumbu Y.
+                // Efek busur lompat (hopArc) bisa dimasukkan ke sumbu Z untuk efek kedalaman 2D.
+                transform.position = new Vector3(flatPosition.x, flatPosition.y, startPosition.z - hopArc);
 
                 yield return null;
             }
@@ -127,8 +133,8 @@ namespace TrafficCrossing.CoreGame
         private Vector3 SnapToGrid(Vector3 position)
         {
             float snappedX = Mathf.Round(position.x / _gridSize) * _gridSize;
-            float snappedZ = Mathf.Round(position.z / _gridSize) * _gridSize;
-            return new Vector3(snappedX, position.y, snappedZ);
+            float snappedY = Mathf.Round(position.y / _gridSize) * _gridSize;
+            return new Vector3(snappedX, snappedY, position.z);
         }
     }
 }

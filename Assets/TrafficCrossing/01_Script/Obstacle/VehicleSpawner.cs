@@ -65,7 +65,9 @@ namespace TrafficCrossing.CoreGame.Obstacle
         /// </summary>
         private void SpawnVehicle()
         {
-            Quaternion rotation = Quaternion.LookRotation(_moveDirection);
+            float angle = Mathf.Atan2(_moveDirection.y, _moveDirection.x) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
+
             GameObject vehicleInstance = _poolManager.Spawn(_vehiclePoolId, transform.position, rotation);
 
             if (vehicleInstance != null && vehicleInstance.TryGetComponent(out Vehicle vehicle))

@@ -138,25 +138,10 @@ namespace TrafficCrossing.CoreGame.Obstacle
             transform.position = currentPosition;
         }
 
-        private void OnCollisionEnter(Collision collision)
-        {
-            AttachPlayer(collision.gameObject);
-        }
-
-        private void OnCollisionExit(Collision collision)
-        {
-            DetachPlayer(collision.gameObject);
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            AttachPlayer(other.gameObject);
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            DetachPlayer(other.gameObject);
-        }
+        private void OnTriggerEnter2D(Collider2D other) => AttachPlayer(other.gameObject);
+        private void OnTriggerExit2D(Collider2D other) => DetachPlayer(other.gameObject);
+        private void OnCollisionEnter2D(Collision2D collision) => AttachPlayer(collision.gameObject);
+        private void OnCollisionExit2D(Collision2D collision) => DetachPlayer(collision.gameObject);
 
         /// <summary>
         /// Parents the player transform to the platform so it moves along with it.
