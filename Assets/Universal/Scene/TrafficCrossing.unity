@@ -150,8 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bca85583415ab2863b4f1e32c52e8c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrafficCrossing.CoreGame.Obstacle.MovingPlatform
-  _initialDirection: 1
   _moveSpeed: 3
+  _spawnSide: 0
   _leftBound: -5
   _rightBound: 5
 --- !u!212 &93790892
@@ -682,7 +682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &845075690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -697,10 +697,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TrafficCrossing.CoreGame.VehicleSpawner
   _poolManager: {fileID: 485576411}
   _vehiclePoolId: {fileID: 11400000, guid: eb6a1c6a07f2c636f949fb5d49af1d30, type: 2}
-  _minSpawnInterval: 1.5
-  _maxSpawnInterval: 3.5
   _vehicleSpeed: 3
   _moveDirection: {x: -1, y: 0, z: 0}
+  _spawnXOffset: 10
+  _minVehicleDistance: 3
+  _gridSize: 1
+  _minGridGap: 2
+  _maxGridGap: 5
+  _spawnPattern: 01010001
+  _useMaxVehicleCount: 1
+  _maxVehicleCount: 5
 --- !u!4 &845075691
 Transform:
   m_ObjectHideFlags: 0
@@ -1024,6 +1030,57 @@ MonoBehaviour:
   - _poolId: {fileID: 11400000, guid: 68ed24716c8562256bd4f4e11d872e7d, type: 2}
     _stepOffset: 1
     _isSafeStartingTerrain: 1
+    _obstacleConfig:
+      _type: 2
+      _obstaclePoolId: {fileID: 11400000, guid: eb6a1c6a07f2c636f949fb5d49af1d30, type: 2}
+      _moveDirection: {x: -1, y: 0, z: 0}
+      _speed: 2
+      _spawnXOffset: 10
+      _minVehicleDistance: 2
+      _gridSize: 2
+      _minGridGap: 3
+      _maxGridGap: 3
+      _spawnPattern: 01000100
+      _useMaxVehicleCount: 1
+      _maxVehicleCount: 5
+      _leftBound: -5
+      _rightBound: 5
+  - _poolId: {fileID: 11400000, guid: 68ed24716c8562256bd4f4e11d872e7d, type: 2}
+    _stepOffset: 1
+    _isSafeStartingTerrain: 0
+    _obstacleConfig:
+      _type: 1
+      _obstaclePoolId: {fileID: 11400000, guid: eb6a1c6a07f2c636f949fb5d49af1d30, type: 2}
+      _moveDirection: {x: -1, y: 0, z: 0}
+      _speed: 2
+      _spawnXOffset: 10
+      _minVehicleDistance: 2
+      _gridSize: 2
+      _minGridGap: 3
+      _maxGridGap: 3
+      _spawnPattern: 01000100
+      _useMaxVehicleCount: 1
+      _maxVehicleCount: 5
+      _leftBound: -5
+      _rightBound: 5
+  - _poolId: {fileID: 11400000, guid: 68ed24716c8562256bd4f4e11d872e7d, type: 2}
+    _stepOffset: 1
+    _isSafeStartingTerrain: 0
+    _obstacleConfig:
+      _type: 1
+      _obstaclePoolId: {fileID: 11400000, guid: eb6a1c6a07f2c636f949fb5d49af1d30, type: 2}
+      _moveDirection: {x: -1, y: 0, z: 0}
+      _speed: 2
+      _spawnXOffset: 10
+      _minVehicleDistance: 2
+      _gridSize: 2
+      _minGridGap: 3
+      _maxGridGap: 3
+      _spawnPattern: 01000100
+      _useMaxVehicleCount: 1
+      _maxVehicleCount: 5
+      _leftBound: -5
+      _rightBound: 5
   _initialSafeCount: 4
   _aheadSpawnDistance: 15
   _behindDespawnDistance: 8

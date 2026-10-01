@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1aea90e2660134f5a4443c27091d35e, type: 3}
+  m_Name: MovePlatform_Right_Data
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.PoolingSystem.PoolDataSO
+  _poolId: {fileID: 11400000, guid: 5b445356c31b6000eb9ab87e10d61c90, type: 2}
+  _prefab: {fileID: 7472289097117289928, guid: 705aca025f25bccb0822ba4813e49bb8, type: 3}
+  _initialSize: 5
+  _isExpandable: 1

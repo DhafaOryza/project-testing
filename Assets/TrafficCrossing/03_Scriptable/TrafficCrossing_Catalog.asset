@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Assets.PoolingSystem.PoolCatalogSO
   _pools:
   - {fileID: 11400000, guid: 9045fdcb2d1bf781c8a12dea4f4b150f, type: 2}
+  - {fileID: 11400000, guid: 5ffeb538d0d97c4aeb2877bf48f51a73, type: 2}

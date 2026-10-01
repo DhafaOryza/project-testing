@@ -2,23 +2,9 @@ using UnityEngine;
 
 namespace TrafficCrossing.CoreGame.Obstacle
 {
-    /// <summary>
-    /// Defines the initial movement direction of the platform.
-    /// </summary>
-    public enum StartDirection
+    public class MovingPlatform : BaseObstacle
     {
-        Right,
-        Left
-    }
-
-    /// <summary>
-    /// Moves a platform back and forth between two X-axis boundaries and transfers movement to player without parenting.
-    /// </summary>
-    public class MovingPlatform : MonoBehaviour
-    {
-        [Header("Movement Settings")]
-        [SerializeField] private StartDirection _initialDirection = StartDirection.Right;
-        [SerializeField] private float _moveSpeed = 3f;
+        [Header("Platform Bounds")]
         [SerializeField] private float _leftBound = -5f;
         [SerializeField] private float _rightBound = 5f;
 
@@ -26,54 +12,19 @@ namespace TrafficCrossing.CoreGame.Obstacle
         private Transform _playerTransform;
         private PlayerController _playerController;
 
-        public StartDirection InitialDirection
-        {
-            get { return _initialDirection; }
-            set { _initialDirection = value; }
-        }
-
-        public float MoveSpeed
-        {
-            get { return _moveSpeed; }
-            set { _moveSpeed = value; }
-        }
-
         public float LeftBound
         {
-            get { return _leftBound; }
-            set 
-            { 
-                _leftBound = value; 
-                ValidateBounds();
-            }
+            get => _leftBound;
+            set { _leftBound = value; ValidateBounds(); }
         }
 
         public float RightBound
         {
-            get { return _rightBound; }
-            set 
-            { 
-                _rightBound = value; 
-                ValidateBounds();
-            }
+            get => _rightBound;
+            set { _rightBound = value; ValidateBounds(); }
         }
 
         private void Awake()
-        {
-            ValidateBounds();
-        }
-
-        private void Start()
-        {
-            InitializeDirection();
-        }
-
-        private void Update()
-        {
-            MovePlatform();
-        }
-
-        private void OnValidate()
         {
             ValidateBounds();
         }
@@ -88,17 +39,11 @@ namespace TrafficCrossing.CoreGame.Obstacle
             }
         }
 
-        private void InitializeDirection()
-        {
-            _movingRight = (_initialDirection == StartDirection.Right);
-        }
-
-        private void MovePlatform()
+        protected override void Move()
         {
             Vector3 oldPosition = transform.position;
             Vector3 currentPosition = transform.position;
 
-            // Gerakkan platform sesuai arah horizontal saat ini
             if (_movingRight)
             {
                 currentPosition.x += _moveSpeed * Time.deltaTime;
@@ -120,10 +65,8 @@ namespace TrafficCrossing.CoreGame.Obstacle
 
             transform.position = currentPosition;
 
-            // Hitung seberapa jauh platform bergeser frame ini
+            // Bawa Player jika berdiri di atas platform
             Vector3 deltaPosition = currentPosition - oldPosition;
-
-            // Jika Player berada di atas platform dan tidak sedang melompat/jatuh, ikuti gerak platform
             if (_playerTransform != null && _playerController != null)
             {
                 if (!_playerController.IsHopping && !_playerController.IsFalling)
@@ -133,8 +76,10 @@ namespace TrafficCrossing.CoreGame.Obstacle
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        protected override void OnTriggerEnter2D(Collider2D other)
         {
+            base.OnTriggerEnter2D(other);
+
             if (other.CompareTag("Player"))
             {
                 _playerTransform = other.transform;

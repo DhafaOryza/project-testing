@@ -105,8 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bca85583415ab2863b4f1e32c52e8c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrafficCrossing.CoreGame.Obstacle.MovingPlatform
-  _initialDirection: 0
   _moveSpeed: 3
+  _spawnSide: 1
   _leftBound: -5
   _rightBound: 5
 --- !u!61 &4057885385519114578
