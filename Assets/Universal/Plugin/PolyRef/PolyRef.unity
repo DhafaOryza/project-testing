@@ -338,16 +338,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestPolymorphism
   enemyData:
-    rid: 7070143469313589301
+    rid: 7070143469502595072
   references:
     version: 2
     RefIds:
-    - rid: 7070143469313589301
-      type: {class: RoboData, ns: , asm: Assembly-CSharp}
+    - rid: 7070143469502595072
+      type: {class: ZombieData, ns: , asm: Assembly-CSharp}
       data:
         enemyName: 
-        laserRange: 0
-        eyeColor: {r: 0, g: 0, b: 0, a: 0}
+        Damage: 0
 --- !u!4 &1291408879
 Transform:
   m_ObjectHideFlags: 0

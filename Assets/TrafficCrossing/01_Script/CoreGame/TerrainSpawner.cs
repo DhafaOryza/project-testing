@@ -1,21 +1,23 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.PoolingSystem;
+using Assets.PolyRef; // Menggunakan SubclassSelector
 using TrafficCrossing.CoreGame.Obstacle;
 
 namespace TrafficCrossing.CoreGame
 {
-    public enum ObstacleType
+    #region Obstacle Configurations (Polymorphic)
+
+    [Serializable]
+    public abstract class BaseObstacleConfig
     {
-        None,
-        Vehicle,
-        MovingPlatform
+        // Class dasar untuk semua konfigurasi obstacle
     }
 
-    [System.Serializable]
-    public class ObstacleConfig
+    [Serializable]
+    public class VehicleObstacleConfig : BaseObstacleConfig
     {
-        [SerializeField] private ObstacleType _type = ObstacleType.None;
         [SerializeField] private PoolIdSO _obstaclePoolId;
         [SerializeField] private Vector3 _moveDirection = Vector3.right;
         [SerializeField] private float _speed = 5f;
@@ -29,22 +31,14 @@ namespace TrafficCrossing.CoreGame
         [SerializeField] private int _minGridGap = 3;
         [SerializeField] private int _maxGridGap = 6;
 
-        [Header("Vehicle Spawn Pattern Settings")]
-        [Tooltip("Repeating slot pattern, one grid unit per slot. True = vehicle allowed to spawn on this slot, False = leave it empty. Leave this array empty to fall back to the random Min/Max Grid Gap settings above.")]
-        [SerializeField] private bool[] _spawnPattern = new bool[0];
+        // [Header("Vehicle Spawn Pattern Settings")]
+        // [Tooltip("Repeating slot pattern. True = vehicle, False = empty.")]
+        // [SerializeField] private bool[] _spawnPattern = new bool[0];
 
         [Header("Vehicle Limit Settings")]
-        [Tooltip("Centang untuk membatasi total kendaraan yang muncul pada platform ini.")]
         [SerializeField] private bool _useMaxVehicleCount = false;
-
-        [Tooltip("Jumlah maksimal kendaraan yang dimunculkan.")]
         [SerializeField] private int _maxVehicleCount = 5;
 
-        [Header("Moving Platform Bounds")]
-        [SerializeField] private float _leftBound = -5f;
-        [SerializeField] private float _rightBound = 5f;
-
-        public ObstacleType Type => _type;
         public PoolIdSO ObstaclePoolId => _obstaclePoolId;
         public Vector3 MoveDirection => _moveDirection;
         public float Speed => _speed;
@@ -53,28 +47,86 @@ namespace TrafficCrossing.CoreGame
         public float GridSize => _gridSize;
         public int MinGridGap => _minGridGap;
         public int MaxGridGap => _maxGridGap;
-        public bool[] SpawnPattern => _spawnPattern;
+        // public bool[] SpawnPattern => _spawnPattern;
         public bool UseMaxVehicleCount => _useMaxVehicleCount;
         public int MaxVehicleCount => _maxVehicleCount;
+    }
+
+    [Serializable]
+    public class MovingPlatformObstacleConfig : BaseObstacleConfig
+    {
+        [SerializeField] private PoolIdSO _obstaclePoolId;
+        [SerializeField] private float _speed = 5f;
+
+        [Header("Moving Platform Bounds")]
+        [SerializeField] private float _leftBound = -5f;
+        [SerializeField] private float _rightBound = 5f;
+
+        public PoolIdSO ObstaclePoolId => _obstaclePoolId;
+        public float Speed => _speed;
         public float LeftBound => _leftBound;
         public float RightBound => _rightBound;
     }
 
-    [System.Serializable]
+    #endregion
+
+    /// <summary>
+    /// Places one obstacle at an exact grid row inside a terrain chunk.
+    /// Rows that have no placement entry stay completely empty.
+    /// </summary>
+    [Serializable]
+    public class ObstaclePlacement
+    {
+        [Tooltip("Grid row offset from the start of this terrain chunk (0 = the chunk's first row).")]
+        [SerializeField] private int _gridOffset;
+
+        [SerializeReference, SubclassSelector]
+        private BaseObstacleConfig _obstacleConfig;
+
+        public int GridOffset => _gridOffset;
+        public BaseObstacleConfig ObstacleConfig => _obstacleConfig;
+    }
+
+    [Serializable]
     public class TerrainChunkConfig
     {
         [Header("Platform Settings")]
         [SerializeField] private PoolIdSO _poolId;
-        [SerializeField] private float _stepOffset = 1f;
+
+        [Tooltip("How many grid cells long this terrain chunk is (e.g. 30 means it spans 30 rows).")]
+        [SerializeField] private int _gridCount = 1;
+
+        [Tooltip("World-space size of one grid cell. Should match the player's hop grid size.")]
+        [SerializeField] private float _gridSize = 1f;
+
         [SerializeField] private bool _isSafeStartingTerrain;
 
-        [Header("Obstacle Settings")]
-        [SerializeField] private ObstacleConfig _obstacleConfig;
+        [Header("Obstacle Placements")]
+        [Tooltip("Each entry places one obstacle at an exact grid row inside this terrain chunk (0 = first row, must be less than Grid Count). Rows you don't add here stay completely empty.")]
+        [SerializeField] private List<ObstaclePlacement> _obstaclePlacements = new List<ObstaclePlacement>();
 
         public PoolIdSO PoolId => _poolId;
-        public float StepOffset => _stepOffset;
+        public int GridCount => _gridCount;
+        public float GridSize => _gridSize;
+
+        /// <summary>
+        /// Gets the total world-space length this chunk spans, i.e. GridCount multiplied by GridSize.
+        /// </summary>
+        public float TotalLength => _gridCount * _gridSize;
+
         public bool IsSafeStartingTerrain => _isSafeStartingTerrain;
-        public ObstacleConfig ObstacleConfig => _obstacleConfig;
+        public List<ObstaclePlacement> ObstaclePlacements => _obstaclePlacements;
+    }
+
+    /// <summary>
+    /// One spawned obstacle instance tracked by a chunk, so it can be despawned correctly later.
+    /// PoolId is null for lightweight logic-only objects (like a VehicleSpawner anchor) that are
+    /// just destroyed instead of being returned to a pool.
+    /// </summary>
+    public struct SpawnedObstacle
+    {
+        public GameObject Instance;
+        public PoolIdSO PoolId;
     }
 
     public struct ActiveChunkData
@@ -82,16 +134,14 @@ namespace TrafficCrossing.CoreGame
         public GameObject Instance;
         public PoolIdSO PoolId;
         public float YPosition;
-        public GameObject ObstacleInstance;
-        public PoolIdSO ObstaclePoolId;
+        public List<SpawnedObstacle> Obstacles;
 
-        public ActiveChunkData(GameObject instance, PoolIdSO poolId, float yPosition, GameObject obstacleInstance = null, PoolIdSO obstaclePoolId = null)
+        public ActiveChunkData(GameObject instance, PoolIdSO poolId, float yPosition, List<SpawnedObstacle> obstacles)
         {
             Instance = instance;
             PoolId = poolId;
             YPosition = yPosition;
-            ObstacleInstance = obstacleInstance;
-            ObstaclePoolId = obstaclePoolId;
+            Obstacles = obstacles;
         }
     }
 
@@ -179,7 +229,7 @@ namespace TrafficCrossing.CoreGame
             {
                 if (_safeConfigs.Count > 0)
                 {
-                    TerrainChunkConfig safeConfig = _safeConfigs[Random.Range(0, _safeConfigs.Count)];
+                    TerrainChunkConfig safeConfig = _safeConfigs[UnityEngine.Random.Range(0, _safeConfigs.Count)];
                     SpawnChunk(safeConfig);
                 }
                 else if (_terrainConfigs.Count > 0)
@@ -198,7 +248,7 @@ namespace TrafficCrossing.CoreGame
                     break;
                 }
 
-                TerrainChunkConfig randomConfig = _terrainConfigs[Random.Range(0, _terrainConfigs.Count)];
+                TerrainChunkConfig randomConfig = _terrainConfigs[UnityEngine.Random.Range(0, _terrainConfigs.Count)];
                 SpawnChunk(randomConfig);
             }
         }
@@ -213,52 +263,95 @@ namespace TrafficCrossing.CoreGame
             Vector3 spawnPosition = new Vector3(0f, _currentSpawnY, 0f);
             GameObject chunkInstance = _poolManager.Spawn(config.PoolId, spawnPosition, Quaternion.identity);
 
-            GameObject obstacleInstance = null;
-            PoolIdSO obstaclePoolId = null;
+            List<SpawnedObstacle> spawnedObstacles = new List<SpawnedObstacle>();
 
-            if (chunkInstance != null && config.ObstacleConfig != null)
+            if (chunkInstance != null)
             {
-                ObstacleConfig obstacle = config.ObstacleConfig;
-
-                if (obstacle.Type == ObstacleType.Vehicle && obstacle.ObstaclePoolId != null)
+                foreach (ObstaclePlacement placement in config.ObstaclePlacements)
                 {
-                    if (!chunkInstance.TryGetComponent(out VehicleSpawner vehicleSpawner))
-                    {
-                        vehicleSpawner = chunkInstance.AddComponent<VehicleSpawner>();
-                    }
-
-                    vehicleSpawner.Initialize(
-                        _poolManager,
-                        obstacle.ObstaclePoolId,
-                        obstacle.Speed,
-                        obstacle.MoveDirection,
-                        obstacle.SpawnXOffset,
-                        obstacle.MinVehicleDistance,
-                        obstacle.GridSize,
-                        obstacle.MinGridGap,
-                        obstacle.MaxGridGap,
-                        obstacle.UseMaxVehicleCount,
-                        obstacle.MaxVehicleCount,
-                        obstacle.SpawnPattern
-                    );
+                    SpawnObstacleAtPlacement(placement, chunkInstance, config.GridSize, spawnedObstacles);
                 }
-                else if (obstacle.Type == ObstacleType.MovingPlatform && obstacle.ObstaclePoolId != null)
-                {
-                    obstacleInstance = _poolManager.Spawn(obstacle.ObstaclePoolId, spawnPosition, Quaternion.identity);
-                    obstaclePoolId = obstacle.ObstaclePoolId;
-
-                    if (obstacleInstance != null && obstacleInstance.TryGetComponent(out MovingPlatform movingPlatform))
-                    {
-                        movingPlatform.MoveSpeed = obstacle.Speed;
-                        movingPlatform.LeftBound = obstacle.LeftBound;
-                        movingPlatform.RightBound = obstacle.RightBound;
-                    }
-                }
-
-                _activeChunks.Enqueue(new ActiveChunkData(chunkInstance, config.PoolId, _currentSpawnY, obstacleInstance, obstaclePoolId));
             }
 
-            _currentSpawnY += config.StepOffset;
+            _activeChunks.Enqueue(new ActiveChunkData(chunkInstance, config.PoolId, _currentSpawnY, spawnedObstacles));
+            _currentSpawnY += config.TotalLength;
+        }
+
+        /// <summary>
+        /// Spawns a single obstacle at its configured grid row inside the current terrain chunk,
+        /// dispatching to the right spawn logic based on the obstacle's concrete config type.
+        /// Add a new "else if" branch here whenever a new obstacle type is introduced.
+        /// </summary>
+        private void SpawnObstacleAtPlacement(ObstaclePlacement placement, GameObject chunkInstance, float gridSize, List<SpawnedObstacle> spawnedObstacles)
+        {
+            if (placement == null || placement.ObstacleConfig == null)
+            {
+                return;
+            }
+
+            float rowY = _currentSpawnY + (placement.GridOffset * gridSize);
+            Vector3 rowPosition = new Vector3(0f, rowY, 0f);
+
+            if (placement.ObstacleConfig is VehicleObstacleConfig vehicleConfig && vehicleConfig.ObstaclePoolId != null)
+            {
+                SpawnVehicleRow(vehicleConfig, chunkInstance, rowPosition, placement.GridOffset, spawnedObstacles);
+            }
+            else if (placement.ObstacleConfig is MovingPlatformObstacleConfig platformConfig && platformConfig.ObstaclePoolId != null)
+            {
+                SpawnMovingPlatform(platformConfig, rowPosition, spawnedObstacles);
+            }
+        }
+
+        /// <summary>
+        /// Creates a dedicated VehicleSpawner anchor for one row, so each placed row keeps its own
+        /// independent spawn timer/position even when several rows share the same terrain chunk.
+        /// </summary>
+        private void SpawnVehicleRow(VehicleObstacleConfig vehicleConfig, GameObject chunkInstance, Vector3 rowPosition, int gridOffset, List<SpawnedObstacle> spawnedObstacles)
+        {
+            GameObject spawnerObject = new GameObject($"VehicleSpawner_Row{gridOffset}");
+            spawnerObject.transform.SetParent(chunkInstance.transform);
+            spawnerObject.transform.position = rowPosition;
+
+            VehicleSpawner vehicleSpawner = spawnerObject.AddComponent<VehicleSpawner>();
+            vehicleSpawner.Initialize(
+                _poolManager,
+                vehicleConfig.ObstaclePoolId,
+                vehicleConfig.Speed,
+                vehicleConfig.MoveDirection,
+                vehicleConfig.SpawnXOffset,
+                vehicleConfig.MinVehicleDistance,
+                vehicleConfig.GridSize,
+                vehicleConfig.MinGridGap,
+                vehicleConfig.MaxGridGap,
+                vehicleConfig.UseMaxVehicleCount,
+                vehicleConfig.MaxVehicleCount
+                // vehicleConfig.SpawnPattern
+            );
+
+            // PoolId left null: this is a lightweight logic-only object, not a pooled visual, so it's just destroyed on despawn.
+            spawnedObstacles.Add(new SpawnedObstacle { Instance = spawnerObject, PoolId = null });
+        }
+
+        /// <summary>
+        /// Spawns a single pooled moving platform at the given row position.
+        /// </summary>
+        private void SpawnMovingPlatform(MovingPlatformObstacleConfig platformConfig, Vector3 rowPosition, List<SpawnedObstacle> spawnedObstacles)
+        {
+            GameObject obstacleInstance = _poolManager.Spawn(platformConfig.ObstaclePoolId, rowPosition, Quaternion.identity);
+
+            if (obstacleInstance == null)
+            {
+                return;
+            }
+
+            if (obstacleInstance.TryGetComponent(out MovingPlatform movingPlatform))
+            {
+                movingPlatform.MoveSpeed = platformConfig.Speed;
+                movingPlatform.LeftBound = platformConfig.LeftBound;
+                movingPlatform.RightBound = platformConfig.RightBound;
+            }
+
+            spawnedObstacles.Add(new SpawnedObstacle { Instance = obstacleInstance, PoolId = platformConfig.ObstaclePoolId });
         }
 
         private void HandleChunkDespawning()
@@ -271,16 +364,42 @@ namespace TrafficCrossing.CoreGame
                 {
                     _activeChunks.Dequeue();
 
-                    if (oldestChunk.ObstacleInstance != null && oldestChunk.ObstaclePoolId != null)
-                    {
-                        _poolManager.Despawn(oldestChunk.ObstaclePoolId, oldestChunk.ObstacleInstance);
-                    }
+                    DespawnChunkObstacles(oldestChunk.Obstacles);
 
                     _poolManager.Despawn(oldestChunk.PoolId, oldestChunk.Instance);
                 }
                 else
                 {
                     break;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Despawns every obstacle placed inside a terrain chunk — pooled obstacles go back to their
+        /// pool, non-pooled logic objects (like a VehicleSpawner anchor) are simply destroyed.
+        /// </summary>
+        private void DespawnChunkObstacles(List<SpawnedObstacle> obstacles)
+        {
+            if (obstacles == null)
+            {
+                return;
+            }
+
+            foreach (SpawnedObstacle obstacle in obstacles)
+            {
+                if (obstacle.Instance == null)
+                {
+                    continue;
+                }
+
+                if (obstacle.PoolId != null)
+                {
+                    _poolManager.Despawn(obstacle.PoolId, obstacle.Instance);
+                }
+                else
+                {
+                    Destroy(obstacle.Instance);
                 }
             }
         }

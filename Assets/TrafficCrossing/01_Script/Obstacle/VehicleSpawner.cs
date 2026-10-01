@@ -24,7 +24,7 @@ namespace TrafficCrossing.CoreGame.Obstacle
 
         [Header("Spawn Pattern Settings")]
         [Tooltip("Repeating slot pattern, one grid unit per slot. True = vehicle allowed to spawn on this slot, False = leave it empty. Leave this array empty to fall back to the random Min/Max Grid Gap behavior above.")]
-        [SerializeField] private bool[] _spawnPattern = new bool[] { true, true, false, true };
+        [SerializeField] private bool[] _spawnPattern = new bool[0];
 
         [Header("Vehicle Limit Settings")]
         [Tooltip("Centang jika ingin membatasi total kendaraan yang muncul di jalur ini.")]
