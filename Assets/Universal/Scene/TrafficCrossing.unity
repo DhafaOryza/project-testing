@@ -547,7 +547,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TrafficCrossing.CoreGame.GameManager
   _poolManager: {fileID: 485576411}
   _PlayerController: {fileID: 1516260669}
-  _vehicleSpawner: {fileID: 0}
 --- !u!4 &1026149553
 Transform:
   m_ObjectHideFlags: 0
@@ -824,6 +823,12 @@ MonoBehaviour:
     - _gridOffset: 5
       _obstacleConfig:
         rid: 7070143469502595130
+    - _gridOffset: 10
+      _obstacleConfig:
+        rid: 7070143470659436621
+    - _gridOffset: 10
+      _obstacleConfig:
+        rid: 7070143470659436621
   _initialSafeCount: 4
   _aheadSpawnDistance: 10
   _behindDespawnDistance: 20
@@ -844,6 +849,13 @@ MonoBehaviour:
         _maxGridGap: 2
         _useMaxVehicleCount: 1
         _maxVehicleCount: 10
+    - rid: 7070143470659436621
+      type: {class: MovingPlatformObstacleConfig, ns: TrafficCrossing.CoreGame, asm: Assembly-CSharp}
+      data:
+        _obstaclePoolId: {fileID: 11400000, guid: 5e2e3a73fce3688d09cef539726dd61e, type: 2}
+        _speed: 0
+        _leftBound: 0
+        _rightBound: 0
 --- !u!4 &1883151047
 Transform:
   m_ObjectHideFlags: 0
@@ -859,6 +871,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &935590915166630614
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 287123847850906485, guid: 526c4050830e3152794363f21977dc88, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 287123847850906485, guid: 526c4050830e3152794363f21977dc88, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 287123847850906485, guid: 526c4050830e3152794363f21977dc88, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 287123847850906485, guid: 526c4050830e3152794363f21977dc88, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 287123847850906485, guid: 526c4050830e3152794363f21977dc88, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 287123847850906485, guid: 526c4050830e3152794363f21977dc88, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 287123847850906485, guid: 526c4050830e3152794363f21977dc88, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 287123847850906485, guid: 526c4050830e3152794363f21977dc88, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 287123847850906485, guid: 526c4050830e3152794363f21977dc88, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 287123847850906485, guid: 526c4050830e3152794363f21977dc88, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1372241815967534728, guid: 526c4050830e3152794363f21977dc88, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1602788465722318326, guid: 526c4050830e3152794363f21977dc88, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2651011744541168974, guid: 526c4050830e3152794363f21977dc88, type: 3}
+      propertyPath: m_Name
+      value: TerrainChuck
+      objectReference: {fileID: 0}
+    - target: {fileID: 2651011744541168974, guid: 526c4050830e3152794363f21977dc88, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4136073790821259598, guid: 526c4050830e3152794363f21977dc88, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1617853263968015544, guid: 526c4050830e3152794363f21977dc88, type: 3}
+    - {fileID: 4271524303471659835, guid: 526c4050830e3152794363f21977dc88, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 526c4050830e3152794363f21977dc88, type: 3}
 --- !u!1001 &3143140229992385483
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -992,3 +1079,4 @@ SceneRoots:
   - {fileID: 1883151047}
   - {fileID: 1522984604}
   - {fileID: 3143140229992385483}
+  - {fileID: 935590915166630614}

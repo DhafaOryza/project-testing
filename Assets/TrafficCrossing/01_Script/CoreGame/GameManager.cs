@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Assets.PoolingSystem;
 using TrafficCrossing.CoreGame.Obstacle;
-using TopDownArenaSurvival.CoreGame;
 
 namespace TrafficCrossing.CoreGame
 {    
@@ -21,7 +20,6 @@ namespace TrafficCrossing.CoreGame
         [Header("Core Systems")]
         [SerializeField] private PoolManager _poolManager;
         [SerializeField] private PlayerController _PlayerController;
-        [SerializeField] private VehicleSpawner _vehicleSpawner;
 
         private bool _hasInitialized;
 
@@ -95,11 +93,6 @@ namespace TrafficCrossing.CoreGame
             if (_PlayerController == null)
             {
                 _PlayerController = FindFirstObjectByType<PlayerController>();
-            }
-
-            if (_vehicleSpawner == null)
-            {
-                _vehicleSpawner = FindFirstObjectByType<VehicleSpawner>();
             }
         }
 

@@ -69,6 +69,7 @@
     <Compile Include="Assets/Universal/PoolingSystem/Pooldataso.cs" />
     <Compile Include="Assets/TrafficCrossing/01_Script/CoreGame/PlayerController.cs" />
     <Compile Include="Assets/TrafficCrossing/01_Script/Obstacle/MovingPlatform.cs" />
+    <Compile Include="Assets/TrafficCrossing/01_Script/Obstacle/TerrainChunk.cs" />
     <Compile Include="Assets/Universal/PoolingSystem/Poolmanager.cs" />
     <Compile Include="Assets/TrafficCrossing/01_Script/CoreGame/GameManager.cs" />
     <Compile Include="Assets/Universal/Plugin/PolyRef/TestPolymorphism.cs" />

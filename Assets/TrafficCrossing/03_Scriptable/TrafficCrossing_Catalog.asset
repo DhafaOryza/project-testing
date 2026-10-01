@@ -15,3 +15,6 @@ MonoBehaviour:
   _pools:
   - {fileID: 11400000, guid: 9045fdcb2d1bf781c8a12dea4f4b150f, type: 2}
   - {fileID: 11400000, guid: 5ffeb538d0d97c4aeb2877bf48f51a73, type: 2}
+  - {fileID: 11400000, guid: addd7d2757a97abcaaf85e85691893f7, type: 2}
+  - {fileID: 11400000, guid: 178f31e2207a765c8a4764be28f5e48c, type: 2}
+  - {fileID: 11400000, guid: 95e58c36e472f8c6f957a3833c9275b6, type: 2}

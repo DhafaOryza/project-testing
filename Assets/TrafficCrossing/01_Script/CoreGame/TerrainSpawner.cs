@@ -300,6 +300,11 @@ namespace TrafficCrossing.CoreGame
             }
             else if (placement.ObstacleConfig is MovingPlatformObstacleConfig platformConfig && platformConfig.ObstaclePoolId != null)
             {
+                if (chunkInstance.TryGetComponent(out TerrainChunk terrainChunk))
+                {
+                    terrainChunk.HideRow(placement.GridOffset);
+                }
+
                 SpawnMovingPlatform(platformConfig, rowPosition, spawnedObstacles);
             }
         }
