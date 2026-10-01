@@ -58,6 +58,7 @@ namespace TrafficCrossing.CoreGame
     public class MovingPlatformObstacleConfig : BaseObstacleConfig
     {
         [SerializeField] private PoolIdSO _obstaclePoolId;
+        [SerializeField] private PoolIdSO _waterPoolId;
         [SerializeField] private float _speed = 5f;
 
         [Header("Moving Platform Bounds")]
@@ -65,6 +66,7 @@ namespace TrafficCrossing.CoreGame
         [SerializeField] private float _rightBound = 5f;
 
         public PoolIdSO ObstaclePoolId => _obstaclePoolId;
+        public PoolIdSO WaterPoolId => _waterPoolId;
         public float Speed => _speed;
         public float LeftBound => _leftBound;
         public float RightBound => _rightBound;
@@ -300,9 +302,13 @@ namespace TrafficCrossing.CoreGame
             }
             else if (placement.ObstacleConfig is MovingPlatformObstacleConfig platformConfig && platformConfig.ObstaclePoolId != null)
             {
-                if (chunkInstance.TryGetComponent(out TerrainChunk terrainChunk))
+                if (platformConfig.WaterPoolId != null)
                 {
-                    terrainChunk.HideRow(placement.GridOffset);
+                    GameObject waterInstance = _poolManager.Spawn(platformConfig.WaterPoolId, rowPosition, Quaternion.identity);
+                    if (waterInstance != null)
+                    {
+                        spawnedObstacles.Add(new SpawnedObstacle { Instance = waterInstance, PoolId = platformConfig.WaterPoolId });
+                    }
                 }
 
                 SpawnMovingPlatform(platformConfig, rowPosition, spawnedObstacles);
