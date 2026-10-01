@@ -18,6 +18,7 @@ namespace TrafficCrossing.CoreGame.Obstacle
 
         [Header("Distance & Grid Settings")]
         [SerializeField] private float _minVehicleDistance = 3f;
+        [SerializeField] private float _maxVehicleDistance = 5f;
         [SerializeField] private float _gridSize = 1f;
         [SerializeField] private int _minGridGap = 3;
         [SerializeField] private int _maxGridGap = 6;
@@ -66,6 +67,7 @@ namespace TrafficCrossing.CoreGame.Obstacle
             Vector3 direction,
             float spawnXOffset,
             float minVehicleDistance,
+            float maxVehicleDistance,
             float gridSize,
             int minGridGap,
             int maxGridGap,
@@ -79,6 +81,7 @@ namespace TrafficCrossing.CoreGame.Obstacle
             _moveDirection = direction.normalized;
             _spawnXOffset = spawnXOffset;
             _minVehicleDistance = Mathf.Max(1f, minVehicleDistance);
+            _maxVehicleDistance = Mathf.Max(_minVehicleDistance,maxVehicleDistance);
             _gridSize = Mathf.Max(0.1f, gridSize);
             _minGridGap = Mathf.Max(1, minGridGap);
             _maxGridGap = Mathf.Max(_minGridGap, maxGridGap);
@@ -210,7 +213,8 @@ namespace TrafficCrossing.CoreGame.Obstacle
                 return;
             }
 
-            float minTimeByDistance = _minVehicleDistance / _vehicleSpeed;
+            float randomVehicleDistance = Random.Range(_minVehicleDistance, _maxVehicleDistance);
+            float minTimeByDistance = randomVehicleDistance / _vehicleSpeed;
             float timePerGridUnit = _gridSize / _vehicleSpeed;
             int randomGridGap = Random.Range(_minGridGap, _maxGridGap + 1);
             float timeByGrid = randomGridGap * timePerGridUnit;

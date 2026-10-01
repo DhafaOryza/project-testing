@@ -27,6 +27,7 @@ namespace TrafficCrossing.CoreGame
 
         [Header("Vehicle Distance & Grid Settings")]
         [SerializeField] private float _minVehicleDistance = 3f;
+        [SerializeField] private float _maxVehicleDistance = 5f;
         [SerializeField] private float _gridSize = 1f;
         [SerializeField] private int _minGridGap = 3;
         [SerializeField] private int _maxGridGap = 6;
@@ -44,6 +45,7 @@ namespace TrafficCrossing.CoreGame
         public float Speed => _speed;
         public float SpawnXOffset => _spawnXOffset;
         public float MinVehicleDistance => _minVehicleDistance;
+        public float MaxVehicleDistance => _maxVehicleDistance;
         public float GridSize => _gridSize;
         public int MinGridGap => _minGridGap;
         public int MaxGridGap => _maxGridGap;
@@ -320,6 +322,7 @@ namespace TrafficCrossing.CoreGame
                 vehicleConfig.MoveDirection,
                 vehicleConfig.SpawnXOffset,
                 vehicleConfig.MinVehicleDistance,
+                vehicleConfig.MaxVehicleDistance,
                 vehicleConfig.GridSize,
                 vehicleConfig.MinGridGap,
                 vehicleConfig.MaxGridGap,
