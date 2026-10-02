@@ -2,69 +2,43 @@ using UnityEngine;
 
 namespace TrafficCrossing.CoreGame.Obstacle
 {
-    /// <summary>
-    /// Defines the initial movement direction of the platform.
-    /// </summary>
-    public enum StartDirection
+    public class MovingPlatform : BaseObstacle
     {
-        Right,
-        Left
-    }
-
-    /// <summary>
-    /// Moves a platform back and forth between two X-axis boundaries and attaches the player while standing on it.
-    /// </summary>
-    public class MovingPlatform : MonoBehaviour
-    {
-        [Header("Movement Settings")]
-        [SerializeField] private StartDirection _initialDirection = StartDirection.Right;
-        [SerializeField] private float _moveSpeed = 3f;
+        [Header("Platform Bounds")]
         [SerializeField] private float _leftBound = -5f;
         [SerializeField] private float _rightBound = 5f;
 
         private bool _movingRight = true;
+        private Transform _playerTransform;
+        private PlayerController _playerController;
 
-        /// <summary>
-        /// Gets or sets the initial movement direction of the platform.
-        /// </summary>
-        public StartDirection InitialDirection
-        {
-            get { return _initialDirection; }
-            set { _initialDirection = value; }
-        }
-
-        /// <summary>
-        /// Gets or sets the movement speed of the platform.
-        /// </summary>
-        public float MoveSpeed
-        {
-            get { return _moveSpeed; }
-            set { _moveSpeed = value; }
-        }
-
-        /// <summary>
-        /// Gets or sets the left movement limit.
-        /// </summary>
         public float LeftBound
         {
-            get { return _leftBound; }
-            set 
-            { 
-                _leftBound = value; 
-                ValidateBounds();
-            }
+            get => _leftBound;
+            set { _leftBound = value; ValidateBounds(); }
+        }
+
+        public float RightBound
+        {
+            get => _rightBound;
+            set { _rightBound = value; ValidateBounds(); }
         }
 
         /// <summary>
-        /// Gets or sets the right movement limit.
+        /// Override SpawnSide untuk mengatur posisi awal X dan arah pergerakan platform.
         /// </summary>
-        public float RightBound
+        public override SpawnSide SpawnSide
         {
-            get { return _rightBound; }
-            set 
-            { 
-                _rightBound = value; 
-                ValidateBounds();
+            get => base.SpawnSide;
+            set
+            {
+                base.SpawnSide = value;
+                
+                _movingRight = (value == SpawnSide.Left);
+
+                Vector3 currentPos = transform.position;
+                currentPos.x = _movingRight ? _leftBound : _rightBound;
+                transform.position = currentPos;
             }
         }
 
@@ -73,24 +47,6 @@ namespace TrafficCrossing.CoreGame.Obstacle
             ValidateBounds();
         }
 
-        private void Start()
-        {
-            InitializeDirection();
-        }
-
-        private void Update()
-        {
-            MovePlatform();
-        }
-
-        private void OnValidate()
-        {
-            ValidateBounds();
-        }
-
-        /// <summary>
-        /// Swaps left and right bounds if configured inversely to prevent movement glitches.
-        /// </summary>
         private void ValidateBounds()
         {
             if (_leftBound > _rightBound)
@@ -101,19 +57,9 @@ namespace TrafficCrossing.CoreGame.Obstacle
             }
         }
 
-        /// <summary>
-        /// Configures the movement direction based on the inspector selection.
-        /// </summary>
-        private void InitializeDirection()
+        protected override void Move()
         {
-            _movingRight = (_initialDirection == StartDirection.Right);
-        }
-
-        /// <summary>
-        /// Moves the platform horizontally between the left and right boundaries.
-        /// </summary>
-        private void MovePlatform()
-        {
+            Vector3 oldPosition = transform.position;
             Vector3 currentPosition = transform.position;
 
             if (_movingRight)
@@ -136,47 +82,35 @@ namespace TrafficCrossing.CoreGame.Obstacle
             }
 
             transform.position = currentPosition;
-        }
 
-        private void OnCollisionEnter(Collision collision)
-        {
-            AttachPlayer(collision.gameObject);
-        }
-
-        private void OnCollisionExit(Collision collision)
-        {
-            DetachPlayer(collision.gameObject);
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            AttachPlayer(other.gameObject);
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            DetachPlayer(other.gameObject);
-        }
-
-        /// <summary>
-        /// Parents the player transform to the platform so it moves along with it.
-        /// </summary>
-        private void AttachPlayer(GameObject target)
-        {
-            if (target.CompareTag("Player"))
+            // Bawa Player jika berdiri di atas platform
+            Vector3 deltaPosition = currentPosition - oldPosition;
+            if (_playerTransform != null && _playerController != null)
             {
-                target.transform.SetParent(transform);
+                if (!_playerController.IsHopping && !_playerController.IsFalling)
+                {
+                    _playerTransform.position += deltaPosition;
+                }
             }
         }
 
-        /// <summary>
-        /// Removes the platform parent from the player when stepping off.
-        /// </summary>
-        private void DetachPlayer(GameObject target)
+        protected override void OnTriggerEnter2D(Collider2D other)
         {
-            if (target.CompareTag("Player"))
+            base.OnTriggerEnter2D(other);
+
+            if (other.CompareTag("Player"))
             {
-                target.transform.SetParent(null);
+                _playerTransform = other.transform;
+                _playerController = other.GetComponent<PlayerController>();
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.CompareTag("Player") && other.transform == _playerTransform)
+            {
+                _playerTransform = null;
+                _playerController = null;
             }
         }
     }

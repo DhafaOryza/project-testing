@@ -4,9 +4,6 @@ using Assets.PoolingSystem;
 
 namespace TopDownArenaSurvival.CoreGame
 {
-    /// <summary>
-    /// Makes the enemy chase and face the player on the X-Z plane, and deal contact damage on touch.
-    /// </summary>
     public class EnemyController : MonoBehaviour
     {
         [Header("References")]
@@ -20,23 +17,17 @@ namespace TopDownArenaSurvival.CoreGame
         [SerializeField] private float _attackCooldown = 1f;
 
         private Transform _player;
-        private Rigidbody _rigidbody;
+        private Rigidbody2D _rigidbody;
         private float _attackTimer;
         private HealthManager _healthManager;
         private PoolManager _poolManager;
 
-        /// <summary>
-        /// Gets or sets the target player transform.
-        /// </summary>
         public Transform Player
         {
             get { return _player; }
             set { _player = value; }
         }
 
-        /// <summary>
-        /// Inisialisasi yang dipanggil oleh EnemySpawner saat memunculkan musuh dari pool.
-        /// </summary>
         public void Initialize(PoolManager poolManager, Transform player)
         {
             _poolManager = poolManager;
@@ -45,7 +36,7 @@ namespace TopDownArenaSurvival.CoreGame
 
         private void Awake()
         {
-            _rigidbody = GetComponent<Rigidbody>();
+            _rigidbody = GetComponent<Rigidbody2D>();
             _healthManager = GetComponent<HealthManager>();
         }
 
@@ -54,7 +45,7 @@ namespace TopDownArenaSurvival.CoreGame
             if (_healthManager != null)
             {
                 _healthManager.OnDied += HandleEnemyDeath;
-                _healthManager.ResetHealth(); // Mengembalikan nyawa ke penuh setiap kali spawn dari pool
+                _healthManager.ResetHealth();
             }
         }
 
@@ -68,7 +59,6 @@ namespace TopDownArenaSurvival.CoreGame
 
         private void HandleEnemyDeath()
         {
-            // Kembalikan ke pool jika PoolManager tersedia, jika tidak baru jalankan Destroy
             if (_poolManager != null)
             {
                 _poolManager.Despawn(_poolIdSO, gameObject);
@@ -109,46 +99,34 @@ namespace TopDownArenaSurvival.CoreGame
 
         private void RotateToPlayer()
         {
-            if (_player == null)
-            {
-                return;
-            }
+            if (_player == null) return;
 
-            Vector3 direction = _player.position - transform.position;
-            direction.y = 0f;
+            Vector2 direction = _player.position - transform.position;
 
             if (direction.sqrMagnitude > 0.001f)
             {
-                transform.rotation = Quaternion.LookRotation(direction);
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+                transform.rotation = Quaternion.Euler(0f, 0f, angle);
             }
         }
 
         private void ChasePlayer()
         {
-            if (_player == null)
-            {
-                return;
-            }
+            if (_player == null) return;
 
-            Vector3 direction = _player.position - transform.position;
-            direction.y = 0f;
-            direction.Normalize();
-
-            Vector3 targetVelocity = direction * _moveSpeed;
-            _rigidbody.linearVelocity = new Vector3(targetVelocity.x, _rigidbody.linearVelocity.y, targetVelocity.z);
+            // 3. Kejar pemain di bidang 2D
+            Vector2 direction = (_player.position - transform.position).normalized;
+            _rigidbody.linearVelocity = direction * _moveSpeed;
         }
 
-        private void OnCollisionStay(Collision collision)
+        private void OnCollisionStay2D(Collision2D collision)
         {
             TryDealContactDamage(collision.gameObject);
         }
 
         private void TryDealContactDamage(GameObject target)
         {
-            if (!target.CompareTag("Player") || _attackTimer < _attackCooldown)
-            {
-                return;
-            }
+            if (!target.CompareTag("Player") || _attackTimer < _attackCooldown) return;
 
             if (target.TryGetComponent(out HealthManager health))
             {

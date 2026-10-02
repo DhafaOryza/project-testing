@@ -35,6 +35,10 @@ namespace EndlessPrecisionRunner.CoreGame
             {
                 Instance = this;
             }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
 
         private void OnEnable()
@@ -71,14 +75,22 @@ namespace EndlessPrecisionRunner.CoreGame
                 return;
             }
 
-            _hasInitialized = true;
-
             FindMissingReferences();
 
+            // 1. Inisialisasi PoolManager terlebih dahulu
             if (_poolManager != null)
             {
                 _poolManager.Initialize();
             }
+
+            // 2. Sambungkan dan inisialisasi ObstacleSpawner dengan PoolManager & PlayerTransform
+            if (_obstacleSpawner != null)
+            {
+                Transform playerTransform = _playerController != null ? _playerController.transform : null;
+                _obstacleSpawner.Initialize(_poolManager, playerTransform);
+            }
+
+            _hasInitialized = true;
         }
 
         /// <summary>
@@ -105,6 +117,19 @@ namespace EndlessPrecisionRunner.CoreGame
             {
                 _playerController = FindFirstObjectByType<PlayerController>();
             }
+        }
+
+        /// <summary>
+        /// Memuat ulang scene / mengosongkan obstacle saat game di-reset.
+        /// </summary>
+        public void RestartGame()
+        {
+            if (_obstacleSpawner != null)
+            {
+                _obstacleSpawner.DespawnAllObstacles();
+            }
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         /// <summary>

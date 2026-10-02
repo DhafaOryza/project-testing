@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: 01_Projectile_Data
   m_EditorClassIdentifier: Assembly-CSharp::Assets.PoolingSystem.PoolDataSO
   _poolId: {fileID: 11400000, guid: b8f7563c043764135984572936a5ce46, type: 2}
-  _prefab: {fileID: 5780353866725221709, guid: d99264a69e93fcf599be8e09d18271f7, type: 3}
+  _prefab: {fileID: 6100413732745827708, guid: d99264a69e93fcf599be8e09d18271f7, type: 3}
   _initialSize: 5
   _isExpandable: 1
