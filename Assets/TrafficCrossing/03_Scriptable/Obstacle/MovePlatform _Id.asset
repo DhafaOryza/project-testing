@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92bf15aacf355262e8d94f0a78bc57ca, type: 3}
-  m_Name: MovePlatform _Right_Id
+  m_Name: MovePlatform _Id
   m_EditorClassIdentifier: Assembly-CSharp::Assets.PoolingSystem.PoolIdSO

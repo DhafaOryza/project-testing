@@ -486,3 +486,627 @@ Memory consumption went from 81.9 MB to 81.7 MB.
 Total: 14.835858 ms (FindLiveObjects: 0.330320 ms CreateObjectMapping: 0.077776 ms MarkObjects: 13.537573 ms  DeleteObjects: 0.886553 ms)
 
 Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 0.40 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 994 unused Assets / (161.4 KB). Loaded Objects now: 1624.
+Memory consumption went from 82.1 MB to 82.0 MB.
+Total: 14.232436 ms (FindLiveObjects: 0.447720 ms CreateObjectMapping: 0.163968 ms MarkObjects: 13.038366 ms  DeleteObjects: 0.579216 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+- Loaded All Assemblies, in  1.156 seconds
+Refreshing native plugins compatible for Editor in 0.33 ms, found 0 plugins.
+Native extension for LinuxStandalone target not found
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.835 seconds
+Domain Reload Profiling: 2996ms
+	BeginReloadAssembly (462ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (27ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (140ms)
+	RebuildCommonClasses (125ms)
+	RebuildNativeTypeToScriptingClass (32ms)
+	initialDomainReloadingComplete (80ms)
+	LoadAllAssembliesAndSetupDomain (458ms)
+		LoadAssemblies (521ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (98ms)
+			TypeCache.Refresh (17ms)
+				TypeCache.ScanAssembly (2ms)
+			BuildScriptInfoCaches (73ms)
+			ResolveRequiredComponents (2ms)
+	FinalizeReload (1839ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1460ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (6ms)
+			SetLoadedEditorAssemblies (23ms)
+			BeforeProcessingInitializeOnLoad (418ms)
+			ProcessInitializeOnLoadAttributes (849ms)
+			ProcessInitializeOnLoadMethodAttributes (149ms)
+			AfterProcessingInitializeOnLoad (15ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (14ms)
+Refreshing native plugins compatible for Editor in 0.63 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 995 unused Assets / (32.0 KB). Loaded Objects now: 1624.
+Memory consumption went from 81.9 MB to 81.9 MB.
+Total: 33.669955 ms (FindLiveObjects: 0.584677 ms CreateObjectMapping: 0.617358 ms MarkObjects: 31.194853 ms  DeleteObjects: 1.267437 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 0.43 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 994 unused Assets / (332.2 KB). Loaded Objects now: 1624.
+Memory consumption went from 82.1 MB to 81.8 MB.
+Total: 16.225885 ms (FindLiveObjects: 0.431359 ms CreateObjectMapping: 0.127729 ms MarkObjects: 14.760968 ms  DeleteObjects: 0.901030 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 922.827068 seconds.
+  path: Assets/TrafficCrossing/01_Script/Obstacle/MovingPlatform.cs
+  artifactKey: Guid(bca85583415ab2863b4f1e32c52e8c2d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/TrafficCrossing/01_Script/Obstacle/MovingPlatform.cs using Guid(bca85583415ab2863b4f1e32c52e8c2d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'b8a0e1673eec0592eb484c9d752d9c65') in 0.196257012 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000055 seconds.
+  path: Assets/TrafficCrossing/01_Script/CoreGame/TerrainSpawner.cs
+  artifactKey: Guid(9a6bd81f4d9b2cb7babbecc1e43cb77f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/TrafficCrossing/01_Script/CoreGame/TerrainSpawner.cs using Guid(9a6bd81f4d9b2cb7babbecc1e43cb77f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '00000000000000000000000000000000') in 0.009958199 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/trafficcrossing/01_script/coregame/terrainspawner.cs in SourceAssetDB has modification time of '2026-10-02T06:52:03Z' while content on disk has modification time of '2026-10-02T06:53:28Z'
+  ERROR: Build asset version error: assets/trafficcrossing/01_script/coregame/terrainspawner.cs in SourceAssetDB has modification time of '2026-10-02T06:52:03Z' while content on disk has modification time of '2026-10-02T06:53:28Z'
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 0.22 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 995 unused Assets / (207.5 KB). Loaded Objects now: 1625.
+Memory consumption went from 82.2 MB to 82.0 MB.
+Total: 16.796896 ms (FindLiveObjects: 0.393478 ms CreateObjectMapping: 0.094928 ms MarkObjects: 15.594381 ms  DeleteObjects: 0.710162 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+- Loaded All Assemblies, in  1.297 seconds
+Refreshing native plugins compatible for Editor in 0.15 ms, found 0 plugins.
+Native extension for LinuxStandalone target not found
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.770 seconds
+Domain Reload Profiling: 3073ms
+	BeginReloadAssembly (487ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (30ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (179ms)
+	RebuildCommonClasses (166ms)
+	RebuildNativeTypeToScriptingClass (28ms)
+	initialDomainReloadingComplete (75ms)
+	LoadAllAssembliesAndSetupDomain (541ms)
+		LoadAssemblies (597ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (99ms)
+			TypeCache.Refresh (16ms)
+				TypeCache.ScanAssembly (2ms)
+			BuildScriptInfoCaches (75ms)
+			ResolveRequiredComponents (2ms)
+	FinalizeReload (1775ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1349ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (11ms)
+			SetLoadedEditorAssemblies (53ms)
+			BeforeProcessingInitializeOnLoad (493ms)
+			ProcessInitializeOnLoadAttributes (648ms)
+			ProcessInitializeOnLoadMethodAttributes (132ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (10ms)
+Refreshing native plugins compatible for Editor in 0.33 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 996 unused Assets / (136.1 KB). Loaded Objects now: 1625.
+Memory consumption went from 81.9 MB to 81.8 MB.
+Total: 17.234257 ms (FindLiveObjects: 0.446046 ms CreateObjectMapping: 0.117911 ms MarkObjects: 16.107152 ms  DeleteObjects: 0.559961 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 995 unused Assets / (113.5 KB). Loaded Objects now: 1625.
+Memory consumption went from 82.2 MB to 82.0 MB.
+Total: 16.493657 ms (FindLiveObjects: 0.425758 ms CreateObjectMapping: 0.102923 ms MarkObjects: 15.411597 ms  DeleteObjects: 0.550262 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 154.720515 seconds.
+  path: Assets/TrafficCrossing/01_Script/Serializeble/VehicleObstacleConfig.cs
+  artifactKey: Guid(db17be8dc951131c28a3677cbb378a70) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/TrafficCrossing/01_Script/Serializeble/VehicleObstacleConfig.cs using Guid(db17be8dc951131c28a3677cbb378a70) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '8a7f32c56f2b15cabb2a64241b0b2e95') in 0.204334222 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 0.25 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 996 unused Assets / (175.5 KB). Loaded Objects now: 1626.
+Memory consumption went from 82.2 MB to 82.0 MB.
+Total: 16.265730 ms (FindLiveObjects: 0.474911 ms CreateObjectMapping: 0.147857 ms MarkObjects: 15.130320 ms  DeleteObjects: 0.510006 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 996 unused Assets / (138.8 KB). Loaded Objects now: 1626.
+Memory consumption went from 82.2 MB to 82.0 MB.
+Total: 17.400759 ms (FindLiveObjects: 0.402956 ms CreateObjectMapping: 0.092223 ms MarkObjects: 16.280728 ms  DeleteObjects: 0.621886 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 91.360453 seconds.
+  path: Assets/TrafficCrossing/01_Script/CoreGame/TerrainSpawner.cs
+  artifactKey: Guid(9a6bd81f4d9b2cb7babbecc1e43cb77f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/TrafficCrossing/01_Script/CoreGame/TerrainSpawner.cs using Guid(9a6bd81f4d9b2cb7babbecc1e43cb77f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'bbc0b5dd913075e9c9a1e5d957f76f04') in 0.005939251 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 0.37 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 997 unused Assets / (116.0 KB). Loaded Objects now: 1627.
+Memory consumption went from 82.2 MB to 82.1 MB.
+Total: 15.712302 ms (FindLiveObjects: 0.503695 ms CreateObjectMapping: 0.161213 ms MarkObjects: 14.528812 ms  DeleteObjects: 0.514565 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 11.916580 seconds.
+  path: Assets/TrafficCrossing/01_Script/Serializeble/ObstaclePlacement.cs
+  artifactKey: Guid(a7b34bfdc52edc26991bd4565a7d42c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TrafficCrossing/01_Script/Serializeble/ObstaclePlacement.cs using Guid(a7b34bfdc52edc26991bd4565a7d42c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dcbb9927b4383de567a482bbd7ccbf40') in 0.002554521 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 998 unused Assets / (178.8 KB). Loaded Objects now: 1628.
+Memory consumption went from 82.2 MB to 82.0 MB.
+Total: 16.387678 ms (FindLiveObjects: 0.375925 ms CreateObjectMapping: 0.073719 ms MarkObjects: 15.177569 ms  DeleteObjects: 0.757060 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 0.24 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 999 unused Assets / (132.0 KB). Loaded Objects now: 1629.
+Memory consumption went from 82.2 MB to 82.1 MB.
+Total: 14.968536 ms (FindLiveObjects: 0.409338 ms CreateObjectMapping: 0.091481 ms MarkObjects: 13.954775 ms  DeleteObjects: 0.510107 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 0.39 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 999 unused Assets / (186.3 KB). Loaded Objects now: 1629.
+Memory consumption went from 82.2 MB to 82.0 MB.
+Total: 16.607441 ms (FindLiveObjects: 0.493446 ms CreateObjectMapping: 0.160621 ms MarkObjects: 15.262538 ms  DeleteObjects: 0.686838 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 196.355315 seconds.
+  path: Assets/TrafficCrossing/01_Script/Serializeble/ObstaclePlacement.cs
+  artifactKey: Guid(a7b34bfdc52edc26991bd4565a7d42c1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/TrafficCrossing/01_Script/Serializeble/ObstaclePlacement.cs using Guid(a7b34bfdc52edc26991bd4565a7d42c1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'ab1025364928130aa77a738a4f912c48') in 0.005243145 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000265 seconds.
+  path: Assets/TrafficCrossing/01_Script/CoreGame/TerrainSpawner.cs
+  artifactKey: Guid(9a6bd81f4d9b2cb7babbecc1e43cb77f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/TrafficCrossing/01_Script/CoreGame/TerrainSpawner.cs using Guid(9a6bd81f4d9b2cb7babbecc1e43cb77f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '5c1ef7b74f75abddc9a0ce1bb45bd427') in 0.005210864 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 1000 unused Assets / (101.2 KB). Loaded Objects now: 1630.
+Memory consumption went from 82.2 MB to 82.1 MB.
+Total: 15.785970 ms (FindLiveObjects: 0.436108 ms CreateObjectMapping: 0.105428 ms MarkObjects: 14.694643 ms  DeleteObjects: 0.547437 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 0.31 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 1000 unused Assets / (114.5 KB). Loaded Objects now: 1630.
+Memory consumption went from 82.2 MB to 82.1 MB.
+Total: 18.089380 ms (FindLiveObjects: 0.535484 ms CreateObjectMapping: 0.218711 ms MarkObjects: 16.668695 ms  DeleteObjects: 0.663184 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 327.056896 seconds.
+  path: Assets/TrafficCrossing/01_Script/structs/ActiveChunkData.cs
+  artifactKey: Guid(556ee3f438071d119a3c1107f1710d8b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/TrafficCrossing/01_Script/structs/ActiveChunkData.cs using Guid(556ee3f438071d119a3c1107f1710d8b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '9af152edbae5721a887de45fbe570883') in 0.007439344 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000179 seconds.
+  path: Assets/TrafficCrossing/01_Script/structs/SpawnedObstacle.cs
+  artifactKey: Guid(53703ab53fb0586c4b2b4345ebe14996) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/TrafficCrossing/01_Script/structs/SpawnedObstacle.cs using Guid(53703ab53fb0586c4b2b4345ebe14996) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'e2c0c9e742d3e27a010ea92ee4ddcc6d') in 0.005751679 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/TrafficCrossing/01_Script/CoreGame/TerrainSpawner.cs
+  artifactKey: Guid(9a6bd81f4d9b2cb7babbecc1e43cb77f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/TrafficCrossing/01_Script/CoreGame/TerrainSpawner.cs using Guid(9a6bd81f4d9b2cb7babbecc1e43cb77f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '39f19a0694cf8ef0fa1d5d02809a6987') in 0.004885954 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+- Loaded All Assemblies, in  0.972 seconds
+Refreshing native plugins compatible for Editor in 0.16 ms, found 0 plugins.
+Native extension for LinuxStandalone target not found
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.357 seconds
+Domain Reload Profiling: 2333ms
+	BeginReloadAssembly (350ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (14ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (112ms)
+	RebuildCommonClasses (104ms)
+	RebuildNativeTypeToScriptingClass (25ms)
+	initialDomainReloadingComplete (75ms)
+	LoadAllAssembliesAndSetupDomain (418ms)
+		LoadAssemblies (479ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (83ms)
+			TypeCache.Refresh (18ms)
+				TypeCache.ScanAssembly (2ms)
+			BuildScriptInfoCaches (57ms)
+			ResolveRequiredComponents (2ms)
+	FinalizeReload (1360ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1049ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (5ms)
+			SetLoadedEditorAssemblies (21ms)
+			BeforeProcessingInitializeOnLoad (357ms)
+			ProcessInitializeOnLoadAttributes (551ms)
+			ProcessInitializeOnLoadMethodAttributes (103ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 1001 unused Assets / (151.0 KB). Loaded Objects now: 1630.
+Memory consumption went from 81.9 MB to 81.8 MB.
+Total: 14.766527 ms (FindLiveObjects: 0.496161 ms CreateObjectMapping: 0.132489 ms MarkObjects: 13.595161 ms  DeleteObjects: 0.539201 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 92.191047 seconds.
+  path: Assets/TrafficCrossing/04_Prefabs/MovePlatform_Right.prefab
+  artifactKey: Guid(705aca025f25bccb0822ba4813e49bb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TrafficCrossing/04_Prefabs/MovePlatform_Right.prefab using Guid(705aca025f25bccb0822ba4813e49bb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e07af703521d313b090664434bfbf71d') in 0.240458321 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 170.682544 seconds.
+  path: Assets/TrafficCrossing/03_Scriptable/Obstacle/MovePlatform_Data.asset
+  artifactKey: Guid(addd7d2757a97abcaaf85e85691893f7) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/TrafficCrossing/03_Scriptable/Obstacle/MovePlatform_Data.asset using Guid(addd7d2757a97abcaaf85e85691893f7) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '873b1f538af25c2e1994954dd89b4028') in 0.248789529 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/TrafficCrossing/03_Scriptable/Obstacle/MovePlatform _Id.asset
+  artifactKey: Guid(5b445356c31b6000eb9ab87e10d61c90) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/TrafficCrossing/03_Scriptable/Obstacle/MovePlatform _Id.asset using Guid(5b445356c31b6000eb9ab87e10d61c90) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'ab34a8b3972aa0b4819b6f1c3dbf2caa') in 0.005194514 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+- Loaded All Assemblies, in  0.964 seconds
+Refreshing native plugins compatible for Editor in 0.14 ms, found 0 plugins.
+Native extension for LinuxStandalone target not found
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.307 seconds
+Domain Reload Profiling: 2275ms
+	BeginReloadAssembly (357ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (14ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (123ms)
+	RebuildCommonClasses (108ms)
+	RebuildNativeTypeToScriptingClass (29ms)
+	initialDomainReloadingComplete (79ms)
+	LoadAllAssembliesAndSetupDomain (392ms)
+		LoadAssemblies (445ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (87ms)
+			TypeCache.Refresh (10ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (64ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (1311ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1021ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (5ms)
+			SetLoadedEditorAssemblies (22ms)
+			BeforeProcessingInitializeOnLoad (343ms)
+			ProcessInitializeOnLoadAttributes (547ms)
+			ProcessInitializeOnLoadMethodAttributes (94ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 1001 unused Assets / (208.2 KB). Loaded Objects now: 1630.
+Memory consumption went from 82.0 MB to 81.8 MB.
+Total: 14.889819 ms (FindLiveObjects: 0.520897 ms CreateObjectMapping: 0.151293 ms MarkObjects: 13.583929 ms  DeleteObjects: 0.629351 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.055 seconds
+Refreshing native plugins compatible for Editor in 0.22 ms, found 0 plugins.
+Native extension for LinuxStandalone target not found
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.371 seconds
+Domain Reload Profiling: 2431ms
+	BeginReloadAssembly (408ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (19ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (110ms)
+	RebuildCommonClasses (146ms)
+	RebuildNativeTypeToScriptingClass (31ms)
+	initialDomainReloadingComplete (67ms)
+	LoadAllAssembliesAndSetupDomain (404ms)
+		LoadAssemblies (512ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (81ms)
+			TypeCache.Refresh (11ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (61ms)
+			ResolveRequiredComponents (2ms)
+	FinalizeReload (1374ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1073ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (5ms)
+			SetLoadedEditorAssemblies (25ms)
+			BeforeProcessingInitializeOnLoad (377ms)
+			ProcessInitializeOnLoadAttributes (556ms)
+			ProcessInitializeOnLoadMethodAttributes (98ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 0.43 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 1001 unused Assets / (298.9 KB). Loaded Objects now: 1630.
+Memory consumption went from 82.0 MB to 81.7 MB.
+Total: 17.854880 ms (FindLiveObjects: 0.517420 ms CreateObjectMapping: 0.160972 ms MarkObjects: 16.393961 ms  DeleteObjects: 0.779041 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+- Loaded All Assemblies, in  0.626 seconds
+Refreshing native plugins compatible for Editor in 0.11 ms, found 0 plugins.
+Native extension for LinuxStandalone target not found
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.958 seconds
+Domain Reload Profiling: 1587ms
+	BeginReloadAssembly (219ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (10ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (68ms)
+	RebuildCommonClasses (71ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (40ms)
+	LoadAllAssembliesAndSetupDomain (280ms)
+		LoadAssemblies (296ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (65ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (52ms)
+			ResolveRequiredComponents (2ms)
+	FinalizeReload (961ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (739ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (3ms)
+			SetLoadedEditorAssemblies (13ms)
+			BeforeProcessingInitializeOnLoad (281ms)
+			ProcessInitializeOnLoadAttributes (369ms)
+			ProcessInitializeOnLoadMethodAttributes (67ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Refreshing native plugins compatible for Editor in 0.16 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 1001 unused Assets / (147.6 KB). Loaded Objects now: 1630.
+Memory consumption went from 82.0 MB to 81.8 MB.
+Total: 8.353468 ms (FindLiveObjects: 0.183725 ms CreateObjectMapping: 0.055374 ms MarkObjects: 7.825338 ms  DeleteObjects: 0.287579 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.584 seconds
+Refreshing native plugins compatible for Editor in 0.10 ms, found 0 plugins.
+Native extension for LinuxStandalone target not found
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.892 seconds
+Domain Reload Profiling: 1479ms
+	BeginReloadAssembly (217ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (10ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (59ms)
+	RebuildCommonClasses (69ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (38ms)
+	LoadAllAssembliesAndSetupDomain (246ms)
+		LoadAssemblies (278ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (53ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (41ms)
+			ResolveRequiredComponents (2ms)
+	FinalizeReload (893ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (694ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (3ms)
+			SetLoadedEditorAssemblies (18ms)
+			BeforeProcessingInitializeOnLoad (253ms)
+			ProcessInitializeOnLoadAttributes (351ms)
+			ProcessInitializeOnLoadMethodAttributes (59ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 0.16 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 1001 unused Assets / (148.5 KB). Loaded Objects now: 1630.
+Memory consumption went from 82.0 MB to 81.8 MB.
+Total: 8.801128 ms (FindLiveObjects: 0.228929 ms CreateObjectMapping: 0.077325 ms MarkObjects: 8.206363 ms  DeleteObjects: 0.287039 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.627 seconds
+Refreshing native plugins compatible for Editor in 0.09 ms, found 0 plugins.
+Native extension for LinuxStandalone target not found
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.886 seconds
+Domain Reload Profiling: 1516ms
+	BeginReloadAssembly (239ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (11ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (82ms)
+	RebuildCommonClasses (69ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (39ms)
+	LoadAllAssembliesAndSetupDomain (265ms)
+		LoadAssemblies (279ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (71ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (56ms)
+			ResolveRequiredComponents (2ms)
+	FinalizeReload (888ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (709ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (3ms)
+			SetLoadedEditorAssemblies (21ms)
+			BeforeProcessingInitializeOnLoad (240ms)
+			ProcessInitializeOnLoadAttributes (370ms)
+			ProcessInitializeOnLoadMethodAttributes (66ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 0.16 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 1001 unused Assets / (160.3 KB). Loaded Objects now: 1630.
+Memory consumption went from 82.0 MB to 81.8 MB.
+Total: 10.844051 ms (FindLiveObjects: 0.247975 ms CreateObjectMapping: 0.092383 ms MarkObjects: 10.174324 ms  DeleteObjects: 0.327534 ms)
+
+Prepare: number of updated asset objects reloaded= 0

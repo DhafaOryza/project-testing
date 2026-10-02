@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Universal/Scene/TrafficCrossing.unity
+- path: Assets/Universal/Scene/EndlessPrecisionRunner.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

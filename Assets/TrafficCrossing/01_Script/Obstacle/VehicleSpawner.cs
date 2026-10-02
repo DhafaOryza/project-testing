@@ -1,5 +1,6 @@
 using UnityEngine;
 using Assets.PoolingSystem;
+using TrafficCrossing.CoreGame.Serializeble;
 
 namespace TrafficCrossing.CoreGame.Obstacle
 {
