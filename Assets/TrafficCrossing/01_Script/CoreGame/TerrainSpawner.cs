@@ -2,12 +2,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.PoolingSystem;
 using TrafficCrossing.CoreGame.Serializeble;
-using TrafficCrossing.CoreGame.Struct;
 
 namespace TrafficCrossing.CoreGame
 {
     public class TerrainSpawner : MonoBehaviour
     {
+        public struct ActiveChunkData
+        {
+            public GameObject Instance;
+            public PoolIdSO PoolId;
+            public float YPosition;
+            public float TotalLength;
+            public List<SpawnedObstacle> Obstacles;
+
+            public ActiveChunkData(GameObject instance, PoolIdSO poolId, float yPosition, float totalLength, List<SpawnedObstacle> obstacles)
+            {
+                Instance = instance;
+                PoolId = poolId;
+                YPosition = yPosition;
+                Obstacles = obstacles;
+                TotalLength = totalLength;
+            }
+        }
+
+        public struct SpawnedObstacle
+        {
+            public GameObject Instance;
+            public PoolIdSO PoolId;
+        }
+
         [Header("Pool & Player References")]
         [SerializeField] private PoolManager _poolManager;
         [SerializeField] private Transform _playerTransform;

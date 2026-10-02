@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.PoolingSystem;
 using TrafficCrossing.CoreGame.Obstacle;
-using TrafficCrossing.CoreGame.Struct;
+using TrafficCrossing.CoreGame;
 
 namespace TrafficCrossing.CoreGame.Serializeble
 {
@@ -31,7 +31,7 @@ namespace TrafficCrossing.CoreGame.Serializeble
             Vector3 position, 
             GameObject chunkInstance, 
             int gridOffset, 
-            List<SpawnedObstacle> spawnedObstacles)
+            List<TerrainSpawner.SpawnedObstacle> spawnedObstacles)
         {
             if (poolManager == null) return;
 
@@ -41,7 +41,7 @@ namespace TrafficCrossing.CoreGame.Serializeble
                 GameObject waterInstance = poolManager.Spawn(_waterPoolId, position, Quaternion.identity);
                 if (waterInstance != null)
                 {
-                    spawnedObstacles.Add(new SpawnedObstacle { Instance = waterInstance, PoolId = _waterPoolId });
+                    spawnedObstacles.Add(new TerrainSpawner.SpawnedObstacle { Instance = waterInstance, PoolId = _waterPoolId });
                 }
             }
 
@@ -60,7 +60,7 @@ namespace TrafficCrossing.CoreGame.Serializeble
                         movingPlatform.SpawnSide = _spawnSide;
                     }
 
-                    spawnedObstacles.Add(new SpawnedObstacle { Instance = obstacleInstance, PoolId = _obstaclePoolId });
+                    spawnedObstacles.Add(new TerrainSpawner.SpawnedObstacle { Instance = obstacleInstance, PoolId = _obstaclePoolId });
                 }
             }
         }

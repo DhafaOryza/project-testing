@@ -423,8 +423,6 @@
 "Assets/TrafficCrossing/01_Script/Serializeble/ObstaclePlacement.cs"
 "Assets/TrafficCrossing/01_Script/Serializeble/TerrainChunkConfig.cs"
 "Assets/TrafficCrossing/01_Script/Serializeble/VehicleObstacleConfig.cs"
-"Assets/TrafficCrossing/01_Script/structs/ActiveChunkData.cs"
-"Assets/TrafficCrossing/01_Script/structs/SpawnedObstacle.cs"
 "Assets/Universal/Plugin/PolyRef/SubclassSelectorAttribute.cs"
 "Assets/Universal/Plugin/PolyRef/TestPolymorphism.cs"
 "Assets/Universal/PoolingSystem/Poolcatalogso.cs"

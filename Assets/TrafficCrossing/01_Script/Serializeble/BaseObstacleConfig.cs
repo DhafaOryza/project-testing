@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.PoolingSystem;
-using TrafficCrossing.CoreGame.Struct;
+using TrafficCrossing.CoreGame;
 
 namespace TrafficCrossing.CoreGame.Serializeble
 {
@@ -14,6 +14,6 @@ namespace TrafficCrossing.CoreGame.Serializeble
             Vector3 position, 
             GameObject chunkInstance, 
             int gridOffset, 
-            List<SpawnedObstacle> spawnedObstacles);
+            List<TerrainSpawner.SpawnedObstacle> spawnedObstacles);
     }
 }

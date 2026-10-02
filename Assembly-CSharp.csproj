@@ -67,7 +67,6 @@
     <Compile Include="Assets/TopDownArenaSurvival/01_Script/CoreGame/Projectile.cs" />
     <Compile Include="Assets/TrafficCrossing/01_Script/Serializeble/MovingPlatformObstacleConfig.cs" />
     <Compile Include="Assets/TrafficCrossing/01_Script/CoreGame/TerrainSpawner.cs" />
-    <Compile Include="Assets/TrafficCrossing/01_Script/structs/ActiveChunkData.cs" />
     <Compile Include="Assets/Universal/PoolingSystem/Poolidso.cs" />
     <Compile Include="Assets/TrafficCrossing/01_Script/Serializeble/BaseObstacleConfig.cs" />
     <Compile Include="Assets/EndlessPrecisionRunner/01_Script/CoreGame/PlayerController.cs" />
@@ -76,7 +75,6 @@
     <Compile Include="Assets/TrafficCrossing/01_Script/Obstacle/MovingPlatform.cs" />
     <Compile Include="Assets/Universal/PoolingSystem/Poolmanager.cs" />
     <Compile Include="Assets/TrafficCrossing/01_Script/CoreGame/GameManager.cs" />
-    <Compile Include="Assets/TrafficCrossing/01_Script/structs/SpawnedObstacle.cs" />
     <Compile Include="Assets/Universal/Plugin/PolyRef/TestPolymorphism.cs" />
     <Compile Include="Assets/TrafficCrossing/01_Script/CoreGame/CameraController.cs" />
     <Compile Include="Assets/TopDownArenaSurvival/01_Script/CoreGame/CameraFollow.cs" />

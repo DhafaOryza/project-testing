@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.PoolingSystem;
 using TrafficCrossing.CoreGame.Obstacle;
-using TrafficCrossing.CoreGame.Struct;
+using TrafficCrossing.CoreGame;
 
 namespace TrafficCrossing.CoreGame.Serializeble
 {
@@ -35,7 +35,7 @@ namespace TrafficCrossing.CoreGame.Serializeble
             Vector3 position, 
             GameObject chunkInstance, 
             int gridOffset, 
-            List<SpawnedObstacle> spawnedObstacles)
+            List<TerrainSpawner.SpawnedObstacle> spawnedObstacles)
         {
             if (poolManager == null || _obstaclePoolId == null) return;
 
@@ -47,7 +47,7 @@ namespace TrafficCrossing.CoreGame.Serializeble
             vehicleSpawner.Initialize(poolManager, this);
 
             // PoolId null karena ini object anchor logic-only
-            spawnedObstacles.Add(new SpawnedObstacle { Instance = spawnerObject, PoolId = null });
+            spawnedObstacles.Add(new TerrainSpawner.SpawnedObstacle { Instance = spawnerObject, PoolId = null });
         }
     }
 }
