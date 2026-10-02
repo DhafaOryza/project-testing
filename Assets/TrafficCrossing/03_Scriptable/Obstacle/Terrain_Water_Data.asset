@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1aea90e2660134f5a4443c27091d35e, type: 3}
   m_Name: Terrain_Water_Data
   m_EditorClassIdentifier: Assembly-CSharp::Assets.PoolingSystem.PoolDataSO
-  _poolId: {fileID: 0}
-  _prefab: {fileID: 0}
+  _poolId: {fileID: 11400000, guid: 66ba9a7fd42ccf30ab7a455ddaeaf2ac, type: 2}
+  _prefab: {fileID: 2500638072516294720, guid: 5d90447c5c51113878a66f64459e6b8a, type: 3}
   _initialSize: 5
   _isExpandable: 1

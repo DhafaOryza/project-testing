@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 981553842381518801}
   m_Layer: 7
   m_Name: MovePlatform_Left
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -9
+  m_SortingOrder: -8
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: e1d1d2318b3dcd09396de3df48ca7fc5, type: 3}
   m_Color: {r: 0.7254902, g: 0.7254902, b: 0.7254902, a: 1}

@@ -16,8 +16,6 @@ namespace TrafficCrossing.CoreGame
         [SerializeField] private Vector3 _offset = new Vector3(0f, 3f, -10f);
 
         [Header("Movement Settings")]
-        [Tooltip("Jika dicentang, kamera berjalan maju otomatis. Jika tidak, kamera hanya mengikuti pergerakan Player.")]
-        // [SerializeField] private bool _enableAutoScroll = true; 
         [SerializeField] private float _autoScrollSpeed = 0.8f;
         [SerializeField] private float _smoothTime = 0.05f;
 
@@ -77,16 +75,8 @@ namespace TrafficCrossing.CoreGame
         {
             float targetY;
 
-            // if (_enableAutoScroll)
-            // {
             _highestYPosition = Mathf.Max(_highestYPosition + _autoScrollSpeed * Time.deltaTime, _playerTransform.position.y + _offset.y);
             targetY = _highestYPosition;
-            // }
-            // else
-            // {
-            //     _highestYPosition = Mathf.Max(_highestYPosition, _playerTransform.position.y + _offset.y);
-            //     targetY = _highestYPosition;
-            // }
 
             // Target posisi kamera mengikuti offset awal
             Vector3 desiredPosition = new Vector3(_playerTransform.position.x + _offset.x, targetY, _playerTransform.position.z + _offset.z);
