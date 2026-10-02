@@ -32,10 +32,6 @@ namespace TrafficCrossing.CoreGame
         [SerializeField] private int _minGridGap = 3;
         [SerializeField] private int _maxGridGap = 6;
 
-        // [Header("Vehicle Spawn Pattern Settings")]
-        // [Tooltip("Repeating slot pattern. True = vehicle, False = empty.")]
-        // [SerializeField] private bool[] _spawnPattern = new bool[0];
-
         [Header("Vehicle Limit Settings")]
         [SerializeField] private bool _useMaxVehicleCount = false;
         [SerializeField] private int _maxVehicleCount = 5;
@@ -49,7 +45,6 @@ namespace TrafficCrossing.CoreGame
         public float GridSize => _gridSize;
         public int MinGridGap => _minGridGap;
         public int MaxGridGap => _maxGridGap;
-        // public bool[] SpawnPattern => _spawnPattern;
         public bool UseMaxVehicleCount => _useMaxVehicleCount;
         public int MaxVehicleCount => _maxVehicleCount;
     }
@@ -138,14 +133,16 @@ namespace TrafficCrossing.CoreGame
         public GameObject Instance;
         public PoolIdSO PoolId;
         public float YPosition;
+        public float TotalLength;
         public List<SpawnedObstacle> Obstacles;
 
-        public ActiveChunkData(GameObject instance, PoolIdSO poolId, float yPosition, List<SpawnedObstacle> obstacles)
+        public ActiveChunkData(GameObject instance, PoolIdSO poolId, float yPosition, float totalLength, List<SpawnedObstacle> obstacles)
         {
             Instance = instance;
             PoolId = poolId;
             YPosition = yPosition;
             Obstacles = obstacles;
+            TotalLength = totalLength;
         }
     }
 
@@ -277,7 +274,7 @@ namespace TrafficCrossing.CoreGame
                 }
             }
 
-            _activeChunks.Enqueue(new ActiveChunkData(chunkInstance, config.PoolId, _currentSpawnY, spawnedObstacles));
+            _activeChunks.Enqueue(new ActiveChunkData(chunkInstance, config.PoolId, _currentSpawnY, config.TotalLength, spawnedObstacles));
             _currentSpawnY += config.TotalLength;
         }
 
@@ -374,7 +371,9 @@ namespace TrafficCrossing.CoreGame
             {
                 ActiveChunkData oldestChunk = _activeChunks.Peek();
 
-                if (_playerTransform.position.y - _behindDespawnDistance > oldestChunk.YPosition)
+                float chunkTopPosition = oldestChunk.YPosition + oldestChunk.TotalLength;
+
+                if (_playerTransform.position.y - _behindDespawnDistance > chunkTopPosition)
                 {
                     _activeChunks.Dequeue();
 
