@@ -60,42 +60,22 @@ namespace TrafficCrossing.CoreGame.Obstacle
         /// <summary>
         /// Dipanggil oleh TerrainSpawner untuk menginisialisasi parameter kendaraan.
         /// </summary>
-        public void Initialize(
-            PoolManager poolManager,
-            PoolIdSO vehiclePoolId,
-            float speed,
-            Vector3 direction,
-            float spawnXOffset,
-            float minVehicleDistance,
-            float maxVehicleDistance,
-            float gridSize,
-            int minGridGap,
-            int maxGridGap,
-            bool useMaxVehicleCount,
-            int maxVehicleCount,
-            bool[] spawnPattern = null)
+        public void Initialize(PoolManager poolManager, VehicleObstacleConfig config)
         {
             _poolManager = poolManager;
-            _vehiclePoolId = vehiclePoolId;
-            _vehicleSpeed = speed;
-            _moveDirection = direction.normalized;
-            _spawnXOffset = spawnXOffset;
-            _minVehicleDistance = Mathf.Max(1f, minVehicleDistance);
-            _maxVehicleDistance = Mathf.Max(_minVehicleDistance,maxVehicleDistance);
-            _gridSize = Mathf.Max(0.1f, gridSize);
-            _minGridGap = Mathf.Max(1, minGridGap);
-            _maxGridGap = Mathf.Max(_minGridGap, maxGridGap);
-
-            _useMaxVehicleCount = useMaxVehicleCount;
-            _maxVehicleCount = maxVehicleCount;
-
-            // Only overwrite the Inspector-assigned pattern if the caller actually provided one.
-            if (spawnPattern != null && spawnPattern.Length > 0)
-            {
-                _spawnPattern = spawnPattern;
-            }
-
-            _spawnedCount = 0; // Reset hitungan kendaraan tiap kali platform dibuat/di-pool
+            _vehiclePoolId = config.ObstaclePoolId;
+            _vehicleSpeed = config.Speed;
+            _moveDirection = config.MoveDirection.normalized;
+            _spawnXOffset = config.SpawnXOffset;
+            _minVehicleDistance = Mathf.Max(1f, config.MinVehicleDistance);
+            _maxVehicleDistance = Mathf.Max(_minVehicleDistance, config.MaxVehicleDistance);
+            _gridSize = Mathf.Max(0.1f, config.GridSize);
+            _minGridGap = Mathf.Max(1, config.MinGridGap);
+            _maxGridGap = Mathf.Max(_minGridGap, config.MaxGridGap);
+            _useMaxVehicleCount = config.UseMaxVehicleCount;
+            _maxVehicleCount = config.MaxVehicleCount;
+        
+            _spawnedCount = 0;
             _spawnTimer = 0f;
             _slotTimer = 0f;
             _patternIndex = 0;

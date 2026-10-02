@@ -52,7 +52,6 @@
     <Compile Include="Assets/TopDownArenaSurvival/01_Script/CoreGame/GameManager.cs" />
     <Compile Include="Assets/TopDownArenaSurvival/01_Script/CoreGame/Enemy/EnemySpawner.cs" />
     <Compile Include="Assets/Universal/Plugin/PolyRef/SubclassSelectorAttribute.cs" />
-    <Compile Include="Assets/TrafficCrossing/01_Script/Obstacle/WaterHazard.cs" />
     <Compile Include="Assets/TopDownArenaSurvival/01_Script/CoreGame/Enemy/EnemyController.cs" />
     <Compile Include="Assets/EndlessPrecisionRunner/01_Script/CoreGame/PlatformLooper.cs" />
     <Compile Include="Assets/TopDownArenaSurvival/01_Script/CoreGame/PlayerWeapon.cs" />
@@ -69,7 +68,6 @@
     <Compile Include="Assets/Universal/PoolingSystem/Pooldataso.cs" />
     <Compile Include="Assets/TrafficCrossing/01_Script/CoreGame/PlayerController.cs" />
     <Compile Include="Assets/TrafficCrossing/01_Script/Obstacle/MovingPlatform.cs" />
-    <Compile Include="Assets/TrafficCrossing/01_Script/Obstacle/TerrainChunk.cs" />
     <Compile Include="Assets/Universal/PoolingSystem/Poolmanager.cs" />
     <Compile Include="Assets/TrafficCrossing/01_Script/CoreGame/GameManager.cs" />
     <Compile Include="Assets/Universal/Plugin/PolyRef/TestPolymorphism.cs" />

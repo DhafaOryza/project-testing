@@ -2,37 +2,37 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Assets.PoolingSystem;
-using TrafficCrossing.CoreGame.Obstacle;
 
 namespace TrafficCrossing.CoreGame
 {    
     /// <summary>
-    /// Central entry point for the game. Holds references to the other core systems
-    /// and initializes them in the right order, so those systems don't need their own singletons.
+    /// Central entry point for the game. Holds references to core systems.
     /// </summary>
     public class GameManager : MonoBehaviour
     {
-        /// <summary>
-        /// Gets the active GameManager instance for this scene.
-        /// </summary>
         public static GameManager Instance { get; private set; }
 
         [Header("Core Systems")]
         [SerializeField] private PoolManager _poolManager;
-        [SerializeField] private PlayerController _PlayerController;
+        [SerializeField] private PlayerController _playerController;
+        [SerializeField] private TerrainSpawner _terrainSpawner;
 
         private bool _hasInitialized;
 
-        /// <summary>
-        /// Gets whether all core systems have finished initializing.
-        /// </summary>
         public bool HasInitialized => _hasInitialized;
+        public PoolManager PoolManager => _poolManager;
+        public PlayerController PlayerController => _playerController;
+        public TerrainSpawner TerrainSpawner => _terrainSpawner;
 
         private void Awake()
         {
             if (Instance == null)
             {
                 Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
             }
         }
 
@@ -51,38 +51,31 @@ namespace TrafficCrossing.CoreGame
             InitializeSystems();
         }
 
-        /// <summary>
-        /// Re-runs initialization whenever a new scene finishes loading.
-        /// </summary>
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             _hasInitialized = false;
             InitializeSystems();
         }
 
-        /// <summary>
-        /// Fills in any missing system references, then initializes the systems that need it.
-        /// </summary>
         private void InitializeSystems()
         {
-            if (_hasInitialized)
-            {
-                return;
-            }
+            if (_hasInitialized) return;
 
             _hasInitialized = true;
-
             FindMissingReferences();
 
-            if (_poolManager != null)
+            if (_poolManager != null && !_poolManager.IsInitialized)
             {
                 _poolManager.Initialize();
             }
+
+            if (_terrainSpawner != null)
+            {
+                Transform playerTransform = _playerController != null ? _playerController.transform : null;
+                _terrainSpawner.Initialize(_poolManager, playerTransform);
+            }
         }
 
-        /// <summary>
-        /// Fills in any system reference that wasn't assigned in the Inspector.
-        /// </summary>
         private void FindMissingReferences()
         {
             if (_poolManager == null)
@@ -90,15 +83,25 @@ namespace TrafficCrossing.CoreGame
                 _poolManager = FindFirstObjectByType<PoolManager>();
             }
 
-            if (_PlayerController == null)
+            if (_playerController == null)
             {
-                _PlayerController = FindFirstObjectByType<PlayerController>();
+                _playerController = FindFirstObjectByType<PlayerController>();
+            }
+
+            if (_terrainSpawner == null)
+            {
+                _terrainSpawner = FindFirstObjectByType<TerrainSpawner>();
             }
         }
 
         /// <summary>
-        /// Starts a coroutine on behalf of a non-MonoBehaviour class.
+        /// Global trigger untuk Game Over.
         /// </summary>
+        public void TriggerGameOver()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
         public void RunCoroutine(IEnumerator coroutine)
         {
             StartCoroutine(coroutine);
