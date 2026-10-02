@@ -24,6 +24,24 @@ namespace TrafficCrossing.CoreGame.Obstacle
             set { _rightBound = value; ValidateBounds(); }
         }
 
+        /// <summary>
+        /// Override SpawnSide untuk mengatur posisi awal X dan arah pergerakan platform.
+        /// </summary>
+        public override SpawnSide SpawnSide
+        {
+            get => base.SpawnSide;
+            set
+            {
+                base.SpawnSide = value;
+                
+                _movingRight = (value == SpawnSide.Left);
+
+                Vector3 currentPos = transform.position;
+                currentPos.x = _movingRight ? _leftBound : _rightBound;
+                transform.position = currentPos;
+            }
+        }
+
         private void Awake()
         {
             ValidateBounds();

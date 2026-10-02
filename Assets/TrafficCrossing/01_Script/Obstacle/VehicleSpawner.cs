@@ -70,11 +70,7 @@ namespace TrafficCrossing.CoreGame.Obstacle
             _minVehicleDistance = Mathf.Max(1f, config.MinVehicleDistance);
             _maxVehicleDistance = Mathf.Max(_minVehicleDistance, config.MaxVehicleDistance);
             _gridSize = Mathf.Max(0.1f, config.GridSize);
-            _minGridGap = Mathf.Max(1, config.MinGridGap);
-            _maxGridGap = Mathf.Max(_minGridGap, config.MaxGridGap);
-            _useMaxVehicleCount = config.UseMaxVehicleCount;
-            _maxVehicleCount = config.MaxVehicleCount;
-        
+
             _spawnedCount = 0;
             _spawnTimer = 0f;
             _slotTimer = 0f;

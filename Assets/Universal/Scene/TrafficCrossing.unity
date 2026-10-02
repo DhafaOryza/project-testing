@@ -546,7 +546,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrafficCrossing.CoreGame.GameManager
   _poolManager: {fileID: 485576411}
-  _PlayerController: {fileID: 1516260669}
+  _playerController: {fileID: 1516260669}
+  _terrainSpawner: {fileID: 1883151046}
 --- !u!4 &1026149553
 Transform:
   m_ObjectHideFlags: 0
@@ -561,6 +562,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 485576412}
+  - {fileID: 1883151047}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1516260668
@@ -816,42 +818,49 @@ MonoBehaviour:
   _playerTransform: {fileID: 1516260673}
   _terrainConfigs:
   - _poolId: {fileID: 11400000, guid: 68ed24716c8562256bd4f4e11d872e7d, type: 2}
-    _gridCount: 20
+    _gridCount: 30
     _gridSize: 1
     _isSafeStartingTerrain: 1
     _obstaclePlacements:
     - _gridOffset: 10
       _obstacleConfig:
-        rid: 7070143478364110897
+        rid: 7070143492024696882
     - _gridOffset: 20
       _obstacleConfig:
-        rid: 7070143478364110900
+        rid: 7070143492024696883
+    - _gridOffset: 21
+      _obstacleConfig:
+        rid: 7070143492024696884
   _initialSafeCount: 4
-  _aheadSpawnDistance: 10
+  _aheadSpawnDistance: 20
   _behindDespawnDistance: 20
   references:
     version: 2
     RefIds:
-    - rid: 7070143478364110897
+    - rid: 7070143492024696882
       type: {class: VehicleObstacleConfig, ns: TrafficCrossing.CoreGame, asm: Assembly-CSharp}
       data:
         _obstaclePoolId: {fileID: 11400000, guid: eb6a1c6a07f2c636f949fb5d49af1d30, type: 2}
-        _moveDirection: {x: -1, y: 0, z: 0}
-        _speed: 3
+        _moveDirection: {x: 1, y: 0, z: 0}
+        _speed: 5
         _spawnXOffset: 10
         _minVehicleDistance: 3
         _maxVehicleDistance: 5
         _gridSize: 1
-        _minGridGap: 3
-        _maxGridGap: 6
-        _useMaxVehicleCount: 0
-        _maxVehicleCount: 5
-    - rid: 7070143478364110900
+    - rid: 7070143492024696883
       type: {class: MovingPlatformObstacleConfig, ns: TrafficCrossing.CoreGame, asm: Assembly-CSharp}
       data:
-        _obstaclePoolId: {fileID: 11400000, guid: 5b445356c31b6000eb9ab87e10d61c90, type: 2}
+        _obstaclePoolId: {fileID: 11400000, guid: d5aacef2b4b577a8f9e9b4b4fbbe25e7, type: 2}
         _waterPoolId: {fileID: 11400000, guid: 66ba9a7fd42ccf30ab7a455ddaeaf2ac, type: 2}
-        _speed: 4
+        _speed: 5
+        _leftBound: -5
+        _rightBound: 5
+    - rid: 7070143492024696884
+      type: {class: MovingPlatformObstacleConfig, ns: TrafficCrossing.CoreGame, asm: Assembly-CSharp}
+      data:
+        _obstaclePoolId: {fileID: 11400000, guid: d5aacef2b4b577a8f9e9b4b4fbbe25e7, type: 2}
+        _waterPoolId: {fileID: 11400000, guid: 66ba9a7fd42ccf30ab7a455ddaeaf2ac, type: 2}
+        _speed: 5
         _leftBound: -5
         _rightBound: 5
 --- !u!4 &1883151047
@@ -863,11 +872,11 @@ Transform:
   m_GameObject: {fileID: 1883151045}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.748037, y: 0, z: 336.7578}
+  m_LocalPosition: {x: 36.634567, y: 0, z: 342.80823}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1026149553}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3143140229992385483
 PrefabInstance:
@@ -1060,7 +1069,6 @@ SceneRoots:
   - {fileID: 811613203}
   - {fileID: 1516260673}
   - {fileID: 1026149553}
-  - {fileID: 1883151047}
   - {fileID: 1522984604}
   - {fileID: 3143140229992385483}
   - {fileID: 8608851596972590421}

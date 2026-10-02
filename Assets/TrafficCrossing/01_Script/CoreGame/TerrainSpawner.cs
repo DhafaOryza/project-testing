@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.PoolingSystem;
-using Assets.PolyRef; // Menggunakan SubclassSelector
+using Assets.PolyRef;
 using TrafficCrossing.CoreGame.Obstacle;
 
 namespace TrafficCrossing.CoreGame
@@ -34,12 +34,7 @@ namespace TrafficCrossing.CoreGame
         [SerializeField] private float _minVehicleDistance = 3f;
         [SerializeField] private float _maxVehicleDistance = 5f;
         [SerializeField] private float _gridSize = 1f;
-        [SerializeField] private int _minGridGap = 3;
-        [SerializeField] private int _maxGridGap = 6;
 
-        [Header("Vehicle Limit Settings")]
-        [SerializeField] private bool _useMaxVehicleCount = false;
-        [SerializeField] private int _maxVehicleCount = 5;
 
         public PoolIdSO ObstaclePoolId => _obstaclePoolId;
         public Vector3 MoveDirection => _moveDirection;
@@ -48,10 +43,6 @@ namespace TrafficCrossing.CoreGame
         public float MinVehicleDistance => _minVehicleDistance;
         public float MaxVehicleDistance => _maxVehicleDistance;
         public float GridSize => _gridSize;
-        public int MinGridGap => _minGridGap;
-        public int MaxGridGap => _maxGridGap;
-        public bool UseMaxVehicleCount => _useMaxVehicleCount;
-        public int MaxVehicleCount => _maxVehicleCount;
 
         public override void SpawnObstacle(
             PoolManager poolManager, 
@@ -84,14 +75,15 @@ namespace TrafficCrossing.CoreGame
         [Header("Moving Platform Bounds")]
         [SerializeField] private float _leftBound = -5f;
         [SerializeField] private float _rightBound = 5f;
+        [SerializeField] private SpawnSide _spawnSide = SpawnSide.Left;
 
         public PoolIdSO ObstaclePoolId => _obstaclePoolId;
         public PoolIdSO WaterPoolId => _waterPoolId;
         public float Speed => _speed;
         public float LeftBound => _leftBound;
         public float RightBound => _rightBound;
+        public SpawnSide SpawnSide => _spawnSide;
 
-        // --- DARI ITEM 2: Pindahkan Logika Spawn Platform & Water Ke Sini ---
         public override void SpawnObstacle(
             PoolManager poolManager, 
             Vector3 position, 
@@ -123,6 +115,7 @@ namespace TrafficCrossing.CoreGame
                         movingPlatform.MoveSpeed = _speed;
                         movingPlatform.LeftBound = _leftBound;
                         movingPlatform.RightBound = _rightBound;
+                        movingPlatform.SpawnSide = _spawnSide;
                     }
 
                     spawnedObstacles.Add(new SpawnedObstacle { Instance = obstacleInstance, PoolId = _obstaclePoolId });
