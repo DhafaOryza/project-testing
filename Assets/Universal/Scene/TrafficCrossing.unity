@@ -828,7 +828,21 @@ MonoBehaviour:
     - _gridOffset: 20
       _obstacleConfig:
         rid: 7070143492024696892
-    - _gridOffset: 23
+    - _gridOffset: 21
+      _obstacleConfig:
+        rid: 7070143492024696893
+  - _poolId: {fileID: 11400000, guid: 68ed24716c8562256bd4f4e11d872e7d, type: 2}
+    _gridCount: 20
+    _gridSize: 1
+    _isSafeStartingTerrain: 1
+    _obstaclePlacements:
+    - _gridOffset: 10
+      _obstacleConfig:
+        rid: 7070143514291732529
+    - _gridOffset: 11
+      _obstacleConfig:
+        rid: 7070143492024696892
+    - _gridOffset: 13
       _obstacleConfig:
         rid: 7070143492024696893
   _initialSafeCount: 4
@@ -855,7 +869,7 @@ MonoBehaviour:
         _speed: 5
         _leftBound: -5
         _rightBound: 5
-        _spawnSide: 0
+        _spawnSide: 1
     - rid: 7070143492024696893
       type: {class: MovingPlatformObstacleConfig, ns: TrafficCrossing.CoreGame.Serializeble, asm: Assembly-CSharp}
       data:
@@ -864,7 +878,16 @@ MonoBehaviour:
         _speed: 5
         _leftBound: -5
         _rightBound: 5
-        _spawnSide: 1
+        _spawnSide: 0
+    - rid: 7070143514291732529
+      type: {class: MovingPlatformObstacleConfig, ns: TrafficCrossing.CoreGame.Serializeble, asm: Assembly-CSharp}
+      data:
+        _obstaclePoolId: {fileID: 11400000, guid: 5b445356c31b6000eb9ab87e10d61c90, type: 2}
+        _waterPoolId: {fileID: 11400000, guid: 66ba9a7fd42ccf30ab7a455ddaeaf2ac, type: 2}
+        _speed: 5
+        _leftBound: -5
+        _rightBound: 5
+        _spawnSide: 0
 --- !u!4 &1883151047
 Transform:
   m_ObjectHideFlags: 0

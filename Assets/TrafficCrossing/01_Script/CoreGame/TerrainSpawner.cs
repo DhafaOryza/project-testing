@@ -39,14 +39,14 @@ namespace TrafficCrossing.CoreGame
         [SerializeField] private List<TerrainChunkConfig> _terrainConfigs = new List<TerrainChunkConfig>();
 
         [Header("Spawn Settings")]
-        [SerializeField] private int _initialSafeCount = 4;
-        [SerializeField] private float _aheadSpawnDistance = 15f;
-        [SerializeField] private float _behindDespawnDistance = 8f;
+        [SerializeField] private int _initialSafeCount = 10;
+        [SerializeField] private float _aheadSpawnDistance = 20f;
+        [SerializeField] private float _behindDespawnDistance = 20f;
 
         private float _currentSpawnY = 0f;
-        private List<TerrainChunkConfig> _safeConfigs = new List<TerrainChunkConfig>();
         private Queue<ActiveChunkData> _activeChunks = new Queue<ActiveChunkData>();
 
+        private int _nextTerrainIndex = 0;
         private bool _isInitialized;
         public bool IsInitialized => _isInitialized;
 
@@ -60,8 +60,9 @@ namespace TrafficCrossing.CoreGame
             _poolManager = poolManager;
             _playerTransform = playerTransform;
 
-            FilterSafeConfigs();
+            _nextTerrainIndex = 0;
             SpawnInitialTerrains();
+            HandleEndlessSpawning();
 
             _isInitialized = true;
         }
@@ -74,34 +75,6 @@ namespace TrafficCrossing.CoreGame
             HandleChunkDespawning();
         }
 
-        private void FilterSafeConfigs()
-        {
-            _safeConfigs.Clear();
-            foreach (TerrainChunkConfig config in _terrainConfigs)
-            {
-                if (config.IsSafeStartingTerrain)
-                {
-                    _safeConfigs.Add(config);
-                }
-            }
-        }
-
-        private void SpawnInitialTerrains()
-        {
-            for (int i = 0; i < _initialSafeCount; i++)
-            {
-                if (_safeConfigs.Count > 0)
-                {
-                    TerrainChunkConfig safeConfig = _safeConfigs[UnityEngine.Random.Range(0, _safeConfigs.Count)];
-                    SpawnChunk(safeConfig);
-                }
-                else if (_terrainConfigs.Count > 0)
-                {
-                    SpawnChunk(_terrainConfigs[0]);
-                }
-            }
-        }
-
         private void HandleEndlessSpawning()
         {
             while (_playerTransform.position.y + _aheadSpawnDistance > _currentSpawnY)
@@ -110,6 +83,33 @@ namespace TrafficCrossing.CoreGame
 
                 TerrainChunkConfig randomConfig = _terrainConfigs[UnityEngine.Random.Range(0, _terrainConfigs.Count)];
                 SpawnChunk(randomConfig);
+            }
+        }
+
+        /// <summary>
+        /// Men-spawn chunk awal sebanyak _initialSafeCount secara berurutan.
+        /// </summary>
+        private void SpawnInitialTerrains()
+        {
+            for (int i = 0; i < _initialSafeCount; i++)
+            {
+                SpawnSingleSequentialChunk();
+            }
+        }
+
+        /// <summary>
+        /// Mengambil terrain secara berurutan 0, 1, 2... lalu kembali ke 0 (looping).
+        /// </summary>
+        private void SpawnSingleSequentialChunk()
+        {
+            for (int i = 0; i < _initialSafeCount; i++)
+            {                
+                if (_terrainConfigs == null || _terrainConfigs.Count == 0) return;
+
+                TerrainChunkConfig config = _terrainConfigs[_nextTerrainIndex];
+                SpawnChunk(config);
+
+                _nextTerrainIndex = (_nextTerrainIndex + 1) % _terrainConfigs.Count; 
             }
         }
 

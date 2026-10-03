@@ -118,8 +118,6 @@ namespace TrafficCrossing.CoreGame
             }
 
             transform.position = SnapToGrid(targetPosition);
-            
-            // Periksa apakah mendarat di atas platform yang valid
             CheckGroundStatus();
         }
 

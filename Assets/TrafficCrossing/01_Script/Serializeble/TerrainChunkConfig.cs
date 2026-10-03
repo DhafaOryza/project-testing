@@ -17,8 +17,6 @@ namespace TrafficCrossing.CoreGame.Serializeble
         [Tooltip("World-space size of one grid cell. Should match the player's hop grid size.")]
         [SerializeField] private float _gridSize = 1f;
 
-        [SerializeField] private bool _isSafeStartingTerrain;
-
         [Header("Obstacle Placements")]
         [SerializeField] private List<ObstaclePlacement> _obstaclePlacements = new List<ObstaclePlacement>();
 
@@ -26,7 +24,6 @@ namespace TrafficCrossing.CoreGame.Serializeble
         public int GridCount => _gridCount;
         public float GridSize => _gridSize;
         public float TotalLength => _gridCount * _gridSize;
-        public bool IsSafeStartingTerrain => _isSafeStartingTerrain;
         public List<ObstaclePlacement> ObstaclePlacements => _obstaclePlacements;
     }
 }
