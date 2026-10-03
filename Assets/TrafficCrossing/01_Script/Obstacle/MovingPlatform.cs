@@ -94,6 +94,12 @@ namespace TrafficCrossing.CoreGame.Obstacle
             }
         }
 
+        protected override void HandlePlayerTouch(GameObject player)
+        {
+            _playerTransform = player.transform;
+            _playerController = player.GetComponent<PlayerController>();
+        }
+
         protected override void OnTriggerEnter2D(Collider2D other)
         {
             base.OnTriggerEnter2D(other);

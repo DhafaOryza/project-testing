@@ -25,8 +25,6 @@ namespace TrafficCrossing.CoreGame
         [SerializeField] private LayerMask _groundLayer;
         [SerializeField] private float _targetZ = 10f;
 
-        private bool _isGameOver = false;
-        private bool _isOnPlatform = false; 
         private bool _isHopping;
         private bool _isFalling;
         private Vector3 _startMousePosition;
@@ -48,39 +46,6 @@ namespace TrafficCrossing.CoreGame
         {
             get { return _isFalling; }
             private set { _isFalling = value; }
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag("Platform"))
-            {
-                _isOnPlatform = true;
-            }
-            else if (other.CompareTag("Obstacle"))
-            {
-                StartCoroutine(CheckHazardCollision());
-            }
-        }
-
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            if (other.CompareTag("Platform"))
-            {
-                _isOnPlatform = false;
-            }
-        }
-
-        /// <summary>
-        /// Menunda pengecekan hingga seluruh Trigger pada frame ini selesai dieksekusi Unity.
-        /// </summary>
-        private IEnumerator CheckHazardCollision()
-        {
-            yield return new WaitForEndOfFrame();
-
-            if (!_isOnPlatform && !_isFalling)
-            {
-                StartCoroutine(FallToZPositive());
-            }
         }
 
         private void Update()
@@ -163,16 +128,37 @@ namespace TrafficCrossing.CoreGame
         /// </summary>
         private void CheckGroundStatus()
         {
-            Collider2D hit = Physics2D.OverlapPoint(transform.position, _groundLayer);
+            Vector2 checkSize = new Vector2(_gridSize * 0.8f, _gridSize * 0.8f);
+            Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, checkSize, 0f);
 
-            if (hit == null)
+            bool hasPlatform = false;
+            bool hasObstacle = false;
+            bool hasGround = false;
+
+            foreach (Collider2D hit in hits)
             {
-                // Tidak ada collider di bawah player -> Jatuh ke sumbu +Z
-                StartCoroutine(FallToZPositive());
+                if (hit.CompareTag("Platform"))
+                {
+                    hasPlatform = true;
+                }
+                else if (hit.CompareTag("Obstacle"))
+                {
+                    hasObstacle = true;
+                }
+
+                if (((1 << hit.gameObject.layer) & _groundLayer) != 0)
+                {
+                    hasGround = true;
+                }
+            }
+
+            if (hasPlatform || (hasGround && !hasObstacle))
+            {
+                _isHopping = false;
             }
             else
             {
-                _isHopping = false;
+                StartCoroutine(FallToZPositive());
             }
         }
 
